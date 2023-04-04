@@ -1,0 +1,41 @@
+---
+//define props
+const { button } = Astro.props;
+---
+
+<div class="button__container">
+{ button &&
+    (<a class="button" href={ button.href }>{ button.text }</a> 
+    ) 
+}
+</div>
+
+<style>
+    .button__container {
+        display: flex;
+        margin: 38px auto 0 auto;
+        justify-content: center;
+    }
+
+      .button {
+        background-color: var(--main-color);
+        padding: 16px 18px;
+        color: #fff;
+        border-radius: var(--border-radius);
+        text-decoration: none;
+        font-size: var(--fs-300);
+        font-weight: 400;
+        transition: 0.7s;
+    }
+
+    .button:hover {
+        box-shadow: inset 0 -4.25em 0 0 var(--hover-color);
+    }
+
+    @media only screen and (min-width: 40em) {
+        .button__container {
+            margin-top: 68px;
+        }
+    }
+
+</style>

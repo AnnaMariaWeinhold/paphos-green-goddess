@@ -1,0 +1,128 @@
+---
+const { img, waveImg, heading, text, cta } = Astro.props;
+---
+<div class="stack">
+    <div class="img--top">
+    { img &&
+    (
+        <img class="heroshot__img" src={ img.src } alt={ img.alt } />
+    )
+    }
+
+    { waveImg &&
+        (
+            <img class="heroshot__img" src={ waveImg.src } alt={ waveImg.alt } />
+        )
+        }
+    </div>
+    <div class="heroshot__container">
+        <h1 class="heroshot__heading">{ heading }</h1>
+        <p class="heroshot__text">{ text }</p>
+
+        { cta &&
+        (<a class="heroshot__cta" href={ cta.href }>{ cta.text }</a> 
+        ) 
+        }
+    </div>
+</div>
+
+
+
+<style>
+
+    .stack {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1em;
+        margin-bottom: 44px;
+    }
+
+    .img--top {
+        display: grid;
+        grid-template-areas: "stack";
+    }
+
+    .img--top > * {
+    grid-area: stack;
+    }
+
+    .heroshot__container {
+        padding: 0 24px;
+    }
+
+    .heroshot__heading {
+        margin-bottom: 16px;
+    }
+
+    .heroshot__text {
+        margin-bottom: 42px;
+        font-size: var(--fs-400);
+    }
+
+    .heroshot__cta {
+        background-color: var(--main-color);
+        padding: 16px 18px;
+        color: #fff;
+        border-radius: var(--border-radius);
+        text-decoration: none;
+        font-weight: 400;
+        transition: 0.7s;
+    }
+
+    .heroshot__cta:hover {
+        box-shadow: inset 0 -4.25em 0 0 var(--hover-color);
+    }
+
+
+  @media only screen and (min-width: 40em) {
+   
+    .stack {
+    grid-template-areas: "stack";
+    place-items: left;
+    }
+
+    .stack > * {
+        grid-area: stack;
+    }
+
+
+    .heroshot__container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        height: 100%;
+        width: 70%;
+        margin-left: 6%;
+        margin-top: 1%;
+    }
+
+    .heroshot__heading {
+        margin-top: auto;
+    }
+
+    .heroshot__cta {
+        margin-bottom: auto;
+    }
+
+    .img--top {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+    }
+
+    @media only screen and (min-width: 60em) {
+        .heroshot__container {
+            width: 60%;
+            margin-top: 2%;
+    }
+    }
+
+    @media only screen and (min-width: 80em) {
+        .heroshot__container {
+            width: 48%;
+            margin-top: 8%;
+    }
+    }
+
+</style>

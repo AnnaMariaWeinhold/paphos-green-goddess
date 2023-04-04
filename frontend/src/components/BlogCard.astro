@@ -1,0 +1,64 @@
+---
+import { LEGACY_ASTRO_CONFIG_KEYS } from "astro/dist/core/config/config";
+
+//define props
+const { img, date, category, title, description, link } = Astro.props;
+
+---
+
+<div class="blog-card__container">
+    { img &&
+    (
+        <img class="blog-card__img" src={ img.src } alt={ img.alt }>
+        )}
+    <div class="blog-card__meta">
+        <p class="date">{ date }</p>
+        <p class="category">{ category }</p>
+    </div>
+    <h3 class="blog-card__heading">{ title }</h3>
+    <p class="blog-card__description">{ description }</p>
+    { link &&
+        (
+            <a class="blog-card__link" href={ link.href }>{ link.text }</a>)}
+</div>
+
+<style>
+    .blog-card__container {
+        border: 1px solid #d4d4d4;
+        border-radius: 6px;
+        padding: 24px;
+    }    
+
+    .blog-card__img {
+        margin-bottom: 6px;
+        border-radius: 12px;
+    }
+
+    .blog-card__meta {
+        display: flex;
+        gap: 1em;
+    }
+
+    .category {
+       color: var(--main-color);
+        font-size: var(--fs-xs);
+    }
+
+    .date {
+        font-size: var(--fs-xs);
+    }
+
+    .blog-card__heading {
+        line-height: 1.2;
+        margin-bottom: 12px;
+    }
+
+    .blog-card__description {
+        margin-bottom: 18px;
+    }
+
+    .blog-card__link {
+        text-decoration: none;
+        color: var(--main-color);
+    }
+</style>

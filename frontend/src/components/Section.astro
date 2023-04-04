@@ -1,0 +1,34 @@
+---
+//define props
+const { heading, backgroundColorClass ="" } = Astro.props;
+---
+
+<section class={`
+${backgroundColorClass}
+`}>
+    <h2 class="section__heading">{ heading }</h2>
+    <slot />
+</section>
+
+<style>
+    section {
+        padding: 60px 24px;
+        margin: 0 auto;
+        max-width: 1200px;
+    }
+
+    .section__heading {
+        margin-bottom: 48px;
+        text-align: left;
+    }
+
+    .bg-white {
+        background-color: #fff;
+    }
+
+    @media only screen and (min-width: 40em) {
+        section {
+        padding: 90px 24px;
+    }
+    }
+</style>

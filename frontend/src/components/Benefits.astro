@@ -1,0 +1,62 @@
+---
+//define props
+const { iconLeft, iconRight, iconMid, headingLeft, headingRight, headingMid, textLeft, textRight, textMid, imgMid, imgLeft, imgRight } = Astro.props;
+
+---
+    <div class="benefits__container">
+        { iconLeft &&
+        (
+            <img class="benefits__icon" src={ iconLeft.src } alt={ iconLeft.alt } width={ iconLeft.width }>
+            )}
+        <h3 class="benefits__heading">{ headingLeft }</h3>
+        <p class="benefits__text">{ textLeft }</p>
+    </div>
+    <div class="benefits__container">
+        { imgMid &&
+        (
+            <img class="benefits__img" alt={ imgMid.alt } src={imgMid.src }>
+        )}    
+    </div>
+    <div class="benefits__container">
+        { iconRight &&
+        (
+            <img class="benefits__icon" src={ iconRight.src } alt={ iconRight.alt }  width={ iconRight.width }>
+            )}
+        <h3 class="benefits__heading">{ headingRight }</h3>
+        <p class="benefits__text">{ textRight }</p>
+    </div>
+    <div class="benefits__container">
+        { imgLeft &&
+        (
+            <img class="benefits__img" alt={ imgLeft.alt } src={imgLeft.src }>
+        )}    
+    </div>
+    <div class="benefits__container">
+        { iconMid &&
+        (
+            <img class="benefits__icon" src={ iconMid.src } alt={ iconMid.alt }  width={ iconMid.width }>
+            )}
+        <h3 class="benefits__heading">{ headingMid }</h3>
+        <p class="benefits__text">{ textMid }</p>
+    </div>
+    <div class="benefits__container">
+        { imgRight &&
+        (
+            <img class="benefits__img" alt={ imgRight.alt } src={imgRight.src }>
+        )}    
+    </div>
+
+
+    <style>
+        .benefits__container {
+            display: flex;
+            flex-direction: column;
+        }    
+
+        .benefits__img {
+            padding: 12px;
+            margin: auto;
+        }
+
+    
+    </style>

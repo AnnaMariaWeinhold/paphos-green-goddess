@@ -1,0 +1,164 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import HeroShot from "../components/HeroShot.astro";
+import Benefits from "../components/Benefits.astro";
+import Section from "../components/Section.astro";
+import Spacer from "../components/Spacer.astro";
+import Button from "../components/Button.astro";
+import ImgText from "../components/ImgText.astro";
+import BlogCard from "../components/BlogCard.astro";
+---
+
+<MainLayout
+title="Paphos Green Goddess"
+description="Where you learn how to ...XXX"
+>
+
+
+<HeroShot 
+img={{
+	src:'/images/heroshot-workshops.jpg',
+	alt:'The founder of Paphos Green Goddess explaining'
+}}
+waveImg={{
+	src:'/images/wave.svg',
+	alt:'A wave as overlay for the background image'
+}}
+heading="Learn about permaculture in Cyprus"
+text="At Paphos Green Goddess we offer workshops and tours to spread the practice of permaculture."
+cta={{
+	href:'#',
+	text:'Register for a workshop'
+}}
+/>
+<Spacer />
+<div class="bg-white">
+<Section
+heading="Workshops that blow your mind"
+>
+<div class="grid  grid-3fr">
+	<Benefits 
+	iconLeft={{
+		src:'/images/hands-on.svg',
+		alt:'Hands-on displayed as a spade',
+		width:'50'
+	}}
+	headingLeft="Hands-on"
+	textLeft="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."
+
+	iconRight={{
+		src:'/images/info.svg',
+		alt:'Info icon',
+		width:'14'
+	}}
+	headingRight="Informative"
+	textRight="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."
+
+	iconMid={{
+		src:'/images/party-hat.svg',
+		alt:'Party hat icon',
+		width:'50'
+	}}
+	headingMid="Fun"
+	textMid="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."
+
+	imgMid={{
+		src:'/images/hands-on.jpg',
+		alt:'Close up of hands dealing with soil'
+	}}
+
+	imgLeft={{
+		src:'/images/informative.jpg',
+		alt:'Paphos Green Goddess owner Rachael is explaining'
+	}}
+
+	imgRight={{
+		src:'/images/fun.jpg',
+		alt:'Workshop participant having fun'
+	}}
+	/>
+</div>
+<Button 
+button={{
+	text:'See our workshops',
+	ahref:'/workshops'
+}}
+/>
+</Section>
+</div>
+
+<Section
+heading="Join our tours">
+
+</Section>
+
+<ImgText 
+img={{
+	src:'/images/family.jpg',
+	alt:'The founder of Paphos Green Goddess walking towards the permaculture field'
+}}
+waveImg={{
+	src:'/images/bg-circle.svg',
+	alt:'A wave as overlay for the background image'
+}}
+heading="A family-owned place"
+text="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem."
+cta={{
+	href:'#',
+	text:'Get to know us'
+}}
+/>
+
+<Section
+heading="A blog worth to read"
+>
+<div class="grid  grid-3fr">
+	<BlogCard 
+	img={{
+		src:'/images/avocado.jpg',
+		alt:'Avocado hanging at the tree'
+	}}
+	date="01.03.2023"
+	category='Lorem Ipsum'
+	title="Lorem Ipsum lorem ispum lorem ipsum"
+	description="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."
+	link={{
+		href:'#',
+		text:'Read more'
+	}}
+	/>
+
+	<BlogCard 
+	img={{
+		src:'/images/avocado.jpg',
+		alt:'Avocado hanging at the tree'
+	}}
+	date="xx.xx.xx"
+	category='Lorem Ipsum'
+	title="Lorem Ipsum lorem ispum lorem ipsum"
+	description="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."
+	link={{
+		href:'#',
+		text:'Read more'
+	}}
+	/>
+
+	<BlogCard 
+	img={{
+		src:'/images/avocado.jpg',
+		alt:'Avocado hanging at the tree'
+	}}
+	date="xx.xx.xx"
+	category='Lorem Ipsum'
+	title="Lorem Ipsum lorem ispum lorem ipsum"
+	description="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."
+	link={{
+		href:'#',
+		text:'Read more'
+	}}
+	/>
+</div>
+
+</Section>
+
+</MainLayout>

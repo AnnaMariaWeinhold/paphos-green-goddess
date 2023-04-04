@@ -1,0 +1,20 @@
+---
+//define props
+const { heading } = Astro.props;
+---
+
+<div class="spacer"></div>
+
+<style>
+    .spacer {
+       height: 90px;
+        margin: 0 auto;
+        max-width: 1200px;
+    }
+
+    @media only screen and (min-width: 80em) {
+    .spacer {
+        height: 200px;
+    }
+}
+</style>

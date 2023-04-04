@@ -1,0 +1,200 @@
+
+	* {
+		margin: 0;
+		padding: 0;
+		-moz-box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+		box-sizing: border-box;
+	}
+
+	:root {
+		--main-color: #BA5313;
+		--second-color: #006130;
+		--hover-color: #51BBFE;
+		--text-color: #130303;
+
+		--border-radius: 50px;
+
+		--ff-heading: 'Amaranth', Arial, Helvetica, sans-serif;;
+		--ff-text: 'MerriweatherSans', Arial, Helvetica, sans-serif;;
+
+		--fs-xl: 4rem; /* h1 */
+		--fs-700: 2.5rem; /* h2 */
+		--fs-600: 2rem; /* h3 */
+		--fs-500: 1.5rem; /* h4 */
+		--fs-400: 1.25rem; /* h5 */
+		--fs-300: 1rem; /* p */
+		--fs-xs: 0.75rem;
+	}
+
+	/* FONTS AMARANTH */
+
+	@font-face {
+		font-family: 'Amaranth';
+		src: url(/fonts/Amaranth-Regular.ttf);
+		font-weight: 400;
+	}
+
+
+	@font-face {
+		font-family: 'Amaranth';
+		src: url(/fonts/Amaranth-Bold.ttf);
+		font-weight: 700;
+	}
+
+	/*  FONTS MERRIWEATHER SANS */
+
+	@font-face {
+		font-family: 'MerriweatherSans';
+		src: url(/fonts/MerriweatherSans-Light.ttf);
+		font-weight: 300;
+	}
+
+	@font-face {
+		font-family: 'MerriweatherSans';
+		src: url(/fonts/MerriweatherSans-Regular.ttf);
+		font-weight: 400;
+	}
+
+	@font-face {
+		font-family: 'MerriweatherSans';
+		src: url(/fonts/MerriweatherSans-Medium.ttf);
+		font-weight: 500;
+	}
+
+	@font-face {
+		font-family: 'MerriweatherSans';
+		src: url(/fonts/MerriweatherSans-SemiBold.ttf);
+		font-weight: 600;
+	}
+
+	@font-face {
+		font-family: 'MerriweatherSans';
+		src: url(/fonts/MerriweatherSans-Bold.ttf);
+		font-weight: 700;
+	}
+
+	/* TYPOGRAPHIE */
+
+	h1, h2, h3, h4, h5, h6 {
+		font-family: var(--ff-heading);
+	}
+
+	h1, h2 {
+		font-weight: 700;
+	}
+
+	h3, h4, h5, h6 {
+		font-weight: 400;
+	}
+
+	h1 {
+		font-size: var(--fs-700);
+		line-height: 1.2;
+	}
+
+	h2 {
+		font-size: var(--fs-600);
+		line-height: 1.2;
+	}
+
+	h3 {
+		font-size: var(--fs-500);
+	}
+
+	h4 {
+		font-size: var(--fs-400);
+	}
+
+	p {
+		font-size: var(--fs-300);
+	}
+
+	@media only screen and (min-width: 60em) {
+		h1 {
+			font-size: var(--fs-xl);
+		}
+
+		
+		h2 {
+			font-size: var(--fs-700);
+		}
+	}
+
+	/* Main Layout */
+
+	html {
+		font-size: 100%;
+		scroll-behavior: smooth;
+		scroll-padding-top: 80px;
+	}
+
+	body {
+		color: var(--text-color);
+		overflow-x: hidden;
+		font-family: var(--ff-text);
+		font-weight: 300;
+		line-height: 1.7;
+	}
+
+	.main-layout__grid {
+		display: grid;
+		min-height: 100dvh;
+		min-height: 100vh;
+		grid-template-rows: auto 1fr auto;
+		grid-template-areas: 
+		"header"
+		"content"
+		"footer";
+	}
+
+	.header {
+		grid-area: header;
+	}
+
+	.content {
+		grid-area: content;
+	}
+
+	.footer {
+		grid-area: footer;
+	}
+
+
+	/* RESPONSIVE IMAGES */
+	img {
+		max-width: 100%;
+	}
+
+	.not-visible {
+		display: none;
+	}
+
+	/* GRID */
+
+	.grid {
+		display: grid;
+	}
+
+	.grid-3fr {
+		grid-template-columns: 1fr;
+		gap: 3em;
+	}
+
+	@media only screen and (min-width: 40em) {
+		.grid-3fr {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+
+	@media only screen and (min-width: 60em) {
+		.grid-3fr {
+			grid-template-columns: repeat(3, 1fr);
+		}
+	}
+
+		/* BACKGROUND */
+
+		.bg-white {
+			background-color: #fff;
+		}

@@ -1,0 +1,22 @@
+---
+//define props
+const { heading } = Astro.props;
+---
+
+<section>
+    <h2 class="section__heading">{ heading }</h2>
+    <slot />
+</section>
+
+<style>
+    section {
+        padding: 60px 24px;
+        margin: 400px auto 0 auto;
+        max-width: 1200px;
+    }
+
+    .section__heading {
+        text-align: center;
+        margin-bottom: 48px;
+    }
+</style>
