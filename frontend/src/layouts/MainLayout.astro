@@ -47,8 +47,10 @@ import "../styles/styles.css";
 	<div class="main-layout__grid">
 	<body>
 		<MainNavbar class="header"/>
+		<main>
 		<slot class="content"/>
 		<div class="sidebar"></div>
+		</main>
 		<Footer class="footer"/>
 		<script>
 			const header = document.querySelector("header");
