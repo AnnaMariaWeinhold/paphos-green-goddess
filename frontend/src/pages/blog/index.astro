@@ -1,0 +1,123 @@
+---
+import { useSanityClient } from 'astro-sanity';
+import { urlForImage } from '../../lib/urlForImage';
+
+const posts = await useSanityClient().fetch(`*[_type == "post"]`);
+
+import MainLayout from '../../layouts/MainLayout.astro';
+import HeroShot from '../../components/HeroShot.astro';
+import Spacer from '../../components/Spacer.astro';
+import Section from '../../components/Section.astro';
+---
+
+
+<MainLayout
+title="Blog by Paphos Green Goddess"
+description="XXX"
+>
+<HeroShot 
+img={{
+    src:'/images/heroshot-blog.jpg',
+    alt:'She shows the worms to a child.'
+}}
+waveImg={{
+	src:'/images/wave.svg',
+	alt:'A wave as overlay for the background image'
+}}
+heading="We are nature. Lets care about it."
+text="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu"
+/>
+<Spacer />
+<div class="bg-white">
+    <Section>
+        <div class="flex">
+            {
+              posts && (
+                <ul>
+                  {posts.map((post) => (
+                    <div class="container">
+                    <li>
+                        <div class="blog-card__container">
+                            <a href={`blog/${post.slug.current}`}>
+                                <img class="blog-card__img" src={urlForImage(post.mainImage).url()}  alt={ post.alt }>
+                            <div class="blog-card__meta">
+                                <p class="date">{ post.publishedDate }</p>
+                                <p class="category">{ post.categories }</p>
+                            </div>
+                            <h3 class="blog-card__heading">{ post.title }</h3>
+                            <p class="blog-card__description">{ post.description }</p>
+                            <a class="blog-card__link" href={`blog/${post.slug.current}`}>Read more</a>
+                            </a>
+                        </div>
+                    </li>
+                  </div>
+                  ))}
+                </ul>
+              )
+            }
+          </div>
+    </Section>
+</div>
+</MainLayout>
+
+<style>
+    ul {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.6em;
+    }
+
+    li {
+        list-style: none;
+    }
+
+    a {
+        text-decoration: none;
+        color: var(--text-color);
+    }
+
+    .blog-card__container {
+        border: 1px solid #d4d4d4;
+        border-radius: 6px;
+        padding: 24px;
+        transition: 1s;
+    }    
+
+    .blog-card__container:hover {
+        box-shadow: inset 0 -22.25em 0 0 var(--hover-color);
+        border-radius: 0;
+    }
+
+    .blog-card__img {
+        margin-bottom: 6px;
+        border-radius: 12px;
+    }
+
+    .blog-card__meta {
+        display: flex;
+        gap: 1em;
+    }
+
+    .category {
+       color: var(--main-color);
+        font-size: var(--fs-xs);
+    }
+
+    .date {
+        font-size: var(--fs-xs);
+    }
+
+    .blog-card__heading {
+        line-height: 1.2;
+        margin-bottom: 12px;
+    }
+
+    .blog-card__description {
+        margin-bottom: 18px;
+    }
+
+    .blog-card__link {
+        text-decoration: none;
+        color: var(--main-color);
+    }
+</style>

@@ -1,0 +1,142 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import HeroShot from "../components/HeroShot.astro";
+import Benefits from "../components/Benefits.astro";
+import Section from "../components/Section.astro";
+import Spacer from "../components/Spacer.astro";
+import Button from "../components/Button.astro";
+import BlogCard from "../components/BlogCard.astro";
+---
+
+<MainLayout
+title="Paphos Green Goddess"
+description="Where you learn how to ...XXX"
+>
+
+
+<HeroShot 
+img={{
+	src:'/images/heroshot-tours.jpg',
+	alt:'The founder of Paphos Green Goddess explaining the field'
+}}
+waveImg={{
+	src:'/images/wave.svg',
+	alt:'A wave as overlay for the background image'
+}}
+heading="Get to know our place and methods"
+text="On our tours you will see how we have set everything up."
+cta={{
+	href:'#',
+	text:'Register for the next tour'
+}}
+/>
+<Spacer />
+<div class="bg-white">
+<Section
+heading="Our tours are..."
+>
+<div class="grid  grid-3fr">
+	<Benefits 
+	iconLeft={{
+		src:'/images/hands-on.svg',
+		alt:'Hands-on displayed as a spade',
+		width:'50'
+	}}
+	headingLeft="Hands-on"
+	textLeft="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."
+
+	iconRight={{
+		src:'/images/info.svg',
+		alt:'Info icon',
+		width:'14'
+	}}
+	headingRight="Informative"
+	textRight="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."
+
+	iconMid={{
+		src:'/images/party-hat.svg',
+		alt:'Party hat icon',
+		width:'50'
+	}}
+	headingMid="Fun"
+	textMid="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."
+
+	imgMid={{
+		src:'/images/hands-on.jpg',
+		alt:'Close up of hands dealing with soil'
+	}}
+
+	imgLeft={{
+		src:'/images/informative.jpg',
+		alt:'Paphos Green Goddess owner Rachael is explaining'
+	}}
+
+	imgRight={{
+		src:'/images/fun.jpg',
+		alt:'Workshop participant having fun'
+	}}
+	/>
+</div>
+<Button 
+button={{
+	text:'Go on a tour with us',
+	ahref:'#'
+}}
+/>
+</Section>
+</div>
+
+
+<Section
+heading="Read more about our techniques"
+>
+<div class="grid  grid-3fr">
+	<BlogCard 
+	img={{
+		src:'/images/avocado.jpg',
+		alt:'Avocado hanging at the tree'
+	}}
+	date="01.03.2023"
+	category='Lorem Ipsum'
+	title="Capturing water"
+	description="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."
+	link={{
+		href:'#',
+		text:'Read more'
+	}}
+	/>
+
+	<BlogCard 
+	img={{
+		src:'/images/avocado.jpg',
+		alt:'Avocado hanging at the tree'
+	}}
+	date="xx.xx.xx"
+	category='Lorem Ipsum'
+	title="Worms are wonderful"
+	description="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."
+	link={{
+		href:'#',
+		text:'Read more'
+	}}
+	/>
+
+	<BlogCard 
+	img={{
+		src:'/images/avocado.jpg',
+		alt:'Avocado hanging at the tree'
+	}}
+	date="xx.xx.xx"
+	category='Lorem Ipsum'
+	title="Ecological cycle"
+	description="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."
+	link={{
+		href:'#',
+		text:'Read more'
+	}}
+	/>
+</div>
+
+</Section>
+
+</MainLayout>

@@ -1,0 +1,75 @@
+---
+export interface Props {
+	title: string;
+	description: string;
+}
+
+//define props
+const { title, description, opengraph = "" } = Astro.props;
+
+//import components
+import MainNavbar from '../components/MainNavbar.astro';
+import Footer from '../components/Footer.astro';
+
+//import styles
+import "../styles/styles.css";
+---
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"  />
+		<meta name="description" content={ description } />
+		<title>{ title }</title>
+
+		<!-- OPENGRAPH -->
+
+		{
+			opengraph && (
+			  <>
+				<meta property="og:title" content={opengraph.title || title} />
+				<meta property="og:url" content={opengraph.url} />
+				<meta property="og:image:width" content="1200" />
+				<meta property="og:image:height" content="630" />
+				<meta property="og:image" content={opengraph.image} />
+				<meta property="og:type" content={opengraph.type} />
+				<meta property="og:description" content={opengraph.description} />
+				<meta property="og:locale" content={opengraph.locale} />
+			  </>
+			)
+		  }
+
+		  <!-- FLAVICOM -->
+		  
+	</head>
+	<div class="main-layout__grid">
+	<body>
+		<MainNavbar class="header"/>
+		<slot class="content"/>
+		<div class="sidebar"></div>
+		<Footer class="footer"/>
+		<script>
+			const header = document.querySelector("header");
+			const sectionOne = document.querySelector(".heroshot__img");
+	
+			const sectionOneOptions = {
+				rootMargin: "-400px 0px 0px 0px"
+			};
+	
+			const sectionOneObserver = new IntersectionObserver(function(entries, sectionOneObserver) {
+				entries.forEach(entry => {
+					if(!entry.isIntersecting){
+						header.classList.add('nav--scrolled');
+					} else {
+						header.classList.remove('nav--scrolled');
+					}
+				});
+			}, sectionOneOptions);
+	
+			sectionOneObserver.observe(sectionOne);
+		</script>
+	</body>
+	</div>
+</html>

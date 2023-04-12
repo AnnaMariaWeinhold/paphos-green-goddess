@@ -1,0 +1,40 @@
+---
+//import components and layouts
+import MainLayout from '../../layouts/MainLayout.astro';
+
+//import sanity
+import { useSanityClient } from 'astro-sanity';
+import { urlForImage } from '../../lib/urlForImage';
+import PortableText from '../../components/PortableText.astro';
+
+
+
+
+export async function getStaticPaths() {
+  const workshops = await useSanityClient().fetch(`*[_type == "workshop"]`);
+
+  console.log(workshops);
+  return workshops
+    .map((workshop) => {
+      return workshop.slug?.current
+        ? {
+            params: {
+              slug: workshop.slug?.current
+            },
+            props: { ...workshop }
+          }
+        : null;
+    })
+    .filter(Boolean);
+}
+
+const { title, mainImage, startTime, endTime, whatDo, whatGet, takeHomeMessage, forWhom, whatBring } = Astro.props;
+---
+
+<MainLayout
+title="XX"
+description="XX"
+>
+<h2>{ title }</h2>
+
+</MainLayout>

@@ -7,6 +7,7 @@ const { img, date, category, title, description, link } = Astro.props;
 ---
 
 <div class="blog-card__container">
+    <a href="#">
     { img &&
     (
         <img class="blog-card__img" src={ img.src } alt={ img.alt }>
@@ -20,14 +21,27 @@ const { img, date, category, title, description, link } = Astro.props;
     { link &&
         (
             <a class="blog-card__link" href={ link.href }>{ link.text }</a>)}
+        </a>
 </div>
 
+
 <style>
+    a {
+        text-decoration: none;
+        color: var(--text-color);
+    }
+    
     .blog-card__container {
         border: 1px solid #d4d4d4;
         border-radius: 6px;
         padding: 24px;
+        transition: 1s;
     }    
+
+    .blog-card__container:hover {
+        box-shadow: inset 0 -22.25em 0 0 var(--hover-color);
+        border-radius: 0;
+    }
 
     .blog-card__img {
         margin-bottom: 6px;

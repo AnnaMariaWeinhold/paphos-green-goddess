@@ -1,0 +1,124 @@
+---
+//import components and layouts
+import MainLayout from "../../layouts/MainLayout.astro";
+import HeroShot from "../../components/HeroShot.astro";
+import Section from "../../components/Section.astro";
+import Spacer from "../../components/Spacer.astro";
+
+
+//import sanity
+import { useSanityClient } from 'astro-sanity';
+import { urlForImage } from '../../lib/urlForImage';
+
+const workshops = await useSanityClient().fetch(`*[_type == "workshop"]`);
+---
+
+<MainLayout
+title="Paphos Green Goddess"
+description="Where you learn how to ...XXX"
+>
+
+
+<HeroShot 
+img={{
+	src:'/images/heroshot-workshops.jpg',
+	alt:'The founder of Paphos Green Goddess explaining'
+}}
+waveImg={{
+	src:'/images/wave.svg',
+	alt:'A wave as overlay for the background image'
+}}
+heading="Learn about permaculture in our workshops in Cyprus"
+text="At Paphos Green Goddess we offer workshops and tours to spread the practice of permaculture."
+cta={{
+	href:'#',
+	text:'Register for a workshop'
+}}
+/>
+<Spacer />
+<div class="bg-white">
+<Section
+heading="See all our workshops"
+>
+{workshops && <ul>
+	{workshops.map((workshop) => (
+		<div class="workshop__container">
+		<li>
+			<a href="#" class="workshop__category"><p>{workshop.category}</p></a>
+			<a href={`workshop/${workshop.slug.current}`}><img class="workshop__img" src={urlForImage(workshop.mainImage).url()} alt={ workshop.altTag } /></a>
+			<a href={`workshop/${workshop.slug.current}`}><h3>{workshop.title}</h3></a></li>
+			<p class="workshop__text">{workshop.description}</p>
+			<a class="workshop__link" href={`workshop/${workshop.slug.current}`}>Read more</a>
+		</div>
+	))}
+</ul>}
+</Section>
+</div>
+</MainLayout>
+
+<style>
+	a {
+		text-decoration: none;
+		color: var(--text-color);
+	}
+
+	li {
+	list-style: none;
+	}
+
+	ul {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 2em;
+	}
+
+	.workshop__container {
+        border: 1px solid #d4d4d4;
+        border-radius: 6px;
+        padding: 24px;
+        transition: 1s;
+    }    
+
+    .workshop__container:hover {
+        box-shadow: inset 0 -22.25em 0 0 var(--hover-color);
+        border-radius: 0;
+		cursor: pointer;
+    }
+
+    .workshop__img {
+        margin-bottom: 6px;
+        border-radius: 12px;
+    }
+
+	.workshop__category {
+		text-transform: uppercase;
+		color: var(--main-color);
+	}
+
+	.workshop__text {
+		margin-bottom: 18px;
+	}
+
+	.workshop__link {
+        text-decoration: none;
+        color: var(--main-color);
+    }
+
+	@media only screen and (min-width: 40em) {
+	ul {
+	grid-template-columns: repeat(2, 1fr);
+	}
+	}
+
+	@media only screen and (min-width: 60em) {
+	ul {
+	grid-template-columns: repeat(3, 1fr);
+	}
+	}
+
+	@media only screen and (min-width: 80em) {
+	ul {
+	grid-template-columns: repeat(4, 1fr);
+	}
+	}
+</style>

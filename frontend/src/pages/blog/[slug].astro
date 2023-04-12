@@ -1,4 +1,9 @@
 ---
+//import components and layouts
+import MainLayout from '../../layouts/MainLayout.astro';
+import Section from '../../components/Section.astro';
+
+//import sanity
 import { useSanityClient } from 'astro-sanity';
 import { urlForImage } from '../../lib/urlForImage';
 import PortableText from '../../components/PortableText.astro';
@@ -25,8 +30,11 @@ export async function getStaticPaths() {
 
 const { title, body, mainImage, author, publishedAt } = Astro.props;
 ---
-
-<h1>{title}</h1>
+<MainLayout
+title="Water harvesting in Cyprus"
+description="XXX"
+>
+<h1 class="post__title">{title}</h1>
 <div class="featured-img__container">
   {
     mainImage && (
@@ -34,6 +42,28 @@ const { title, body, mainImage, author, publishedAt } = Astro.props;
     )
   } 
   </div>
-<div class="mid">
+  <div class="mid">
   <PortableText portableText={body} />
   </div>
+
+</MainLayout>
+
+<style>
+.post__title {
+  text-align: center;
+  margin-top: 1.5em;
+}
+
+.post__featured-img {
+  width: 50%;
+  margin: 4em auto;
+  display: flex;
+  align-self: center;
+  border-radius: 30% 40% 40% 40%;
+}
+
+.mid {
+  margin: 0 auto;
+  max-width: 730px;
+}
+</style>

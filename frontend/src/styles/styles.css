@@ -161,7 +161,7 @@
 	}
 
 
-	/* RESPONSIVE IMAGES */
+	/* #RESPONSIVE IMAGES */
 	img {
 		max-width: 100%;
 	}
@@ -170,7 +170,7 @@
 		display: none;
 	}
 
-	/* GRID */
+	/* #GRID */
 
 	.grid {
 		display: grid;
@@ -190,6 +190,7 @@
 	@media only screen and (min-width: 60em) {
 		.grid-3fr {
 			grid-template-columns: repeat(3, 1fr);
+			gap: 2em;
 		}
 	}
 
