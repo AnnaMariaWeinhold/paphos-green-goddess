@@ -3,13 +3,58 @@
 ---
 
 <div class="footer__container">
+    <img class="footer__logo" src="/images/logo-white.svg" alt="Logo of Paphos Green Goddess">
+        <div class="footer__link-container">
+            <a class="footer__link" href="/impressum"><p>Impressum</p></a>
+            <a class="footer__link" href="/data-policy"><p>Data policy</p></a>
+            <a class="footer__link" href="/contact"><p>Contact</p></a>
+        </div>
+<div>
 
+</div>
 </div>
 
 <style>
+    .footer__link {
+        color: #fff;
+        display: flex;
+    }
+
+    .footer__link:hover {
+        border-bottom: 2px solid #fff;
+        border-radius: 2px;
+        padding-bottom: 2px;  
+    }
+
+    .footer__link-container {
+        display: flex;
+        gap: 2em;
+        justify-content: center;
+    }
+
     .footer__container {
         background-color: var(--second-color);
-        height: 200px;
         margin-top: 60px;
+        padding: 2em;
+        display: grid;
+        gap: 2em;
+    }
+
+    .footer__logo {
+        width: 50%;
+        display: flex;
+        justify-self: center;
+    }
+
+    @media only screen and (min-width: 40em) {
+        .footer__logo {
+        width: 30%;
+        }
+    }
+
+    @media only screen and (min-width: 60em) {
+        .footer__logo {
+        width: 20%;
+        }
     }
 </style>

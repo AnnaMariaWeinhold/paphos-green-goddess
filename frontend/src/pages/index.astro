@@ -7,6 +7,7 @@ import Spacer from "../components/Spacer.astro";
 import Button from "../components/Button.astro";
 import ImgText from "../components/ImgText.astro";
 import BlogCard from "../components/BlogCard.astro";
+import Paragraph from "../components/Paragraph.astro";
 ---
 
 <MainLayout
@@ -32,7 +33,7 @@ cta={{
 }}
 />
 <Spacer />
-<div class="bg-white">
+<div class="bg-white  padding-colored-bg">
 <Section
 heading="Workshops that blow your mind"
 >
@@ -87,10 +88,27 @@ button={{
 </Section>
 </div>
 
-<Section
-heading="Join our tours">
+<div class="bg-third-color">
+<Section>
+<div class="grid  grid-2fr">
+	<div>
+	<h2>Join our tours at open day or in a private tour</h2>
+	<Paragraph
+	text="Discover our design features that are so important to our daily lives. You are seeking a way to live more lightly on the Earth — to consume less, to give more. Paphos Green Goddess offers a glimpse at alternative methods of food production and consumption, as well as tips on living with minimal waste: recycling, up-cycling, capturing energy, providing habitat. Why not come and see for yourself?" />
+	<Button 
+		button={{
+			text:'Come and visit',
+			ahref:'/visits'
+		}}
+	/>
+</div>
+<div>
+	<img src="/images/group-of-people.webp"/>
+</div>
+</div>
 
 </Section>
+</div>
 
 <ImgText 
 img={{
@@ -102,7 +120,7 @@ waveImg={{
 	alt:'A wave as overlay for the background image'
 }}
 heading="A family-owned place"
-text="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem."
+text="Paphos Green Goddess is our home where we create a place for us to live close with nature and natural habitats for insects, snakes, bees and lizards. We focus on agriculture and sustainability. Located just outside the Paphos District village of Nikokleia, the certified organic site includes mature mango, olive, and avocado trees as well as over 1,000 vines for wine production."
 cta={{
 	href:'#',
 	text:'Get to know us'
@@ -158,7 +176,12 @@ heading="A blog worth to read"
 	}}
 	/>
 </div>
-
+<Button 
+		button={{
+			text:'Browse the blog',
+			ahref:'/blog'
+		}}
+	/>
 </Section>
 
 </MainLayout>

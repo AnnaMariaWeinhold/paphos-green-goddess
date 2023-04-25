@@ -1,0 +1,64 @@
+---
+//define props
+const { heading, description, listItems, backgroundColorClass } = Astro.props;
+interface Props {
+  heading: string;
+  description: string;
+  listItems: string[];
+  backgroundColorClass: string;
+}
+
+---
+
+<div class={`
+product-card__container
+${backgroundColorClass}
+`}>  
+    <h3 class="product-card__heading">{ heading }</h3>
+    <p class="product-card__description">{ description }</p>
+    <ul class="product-card__list">
+        {
+          listItems.map((item) => (
+            <li class="product-card__li">{item}</li>
+          ))
+        }
+      </ul>
+</div>
+
+
+<style>
+    .product-card__container {
+        border-radius: 6px;
+        padding: 3em;
+        color: #fff;
+    }    
+
+    .first-color {
+        background-color: var(--third-color);
+        color: var(--text-color);
+    }
+
+    .second-color {
+        background-color: var(--fourth-color);
+    }
+
+    .product-card__heading {
+        line-height: 1.2;
+        margin-bottom: 12px;
+    }
+
+    .product-card__description {
+        margin-bottom: 18px;
+    }
+
+    .product-card__list {
+        margin-left: 1em;
+    }
+
+    .product-card__li {
+        font-family: var(--ff-text);
+        font-size: var(--fs-300);
+        padding: 4px 0;
+    }
+
+</style>

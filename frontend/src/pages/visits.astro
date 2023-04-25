@@ -5,7 +5,7 @@ import Benefits from "../components/Benefits.astro";
 import Section from "../components/Section.astro";
 import Spacer from "../components/Spacer.astro";
 import Button from "../components/Button.astro";
-import BlogCard from "../components/BlogCard.astro";
+import ProductCard from "../components/ProductCard.astro";
 ---
 
 <MainLayout
@@ -24,57 +24,91 @@ waveImg={{
 	alt:'A wave as overlay for the background image'
 }}
 heading="Get to know our place and methods"
-text="On our tours you will see how we have set everything up."
+text="On our tours and open days you will see how we have set everything up."
 cta={{
 	href:'#',
 	text:'Register for the next tour'
 }}
 />
 <Spacer />
-<div class="bg-white">
+<div class="bg-white  padding-colored-bg">
 <Section
-heading="Our tours are..."
+heading="This is how we make your visit special"
 >
 <div class="grid  grid-3fr">
 	<Benefits 
 	iconLeft={{
-		src:'/images/hands-on.svg',
+		src:'/images/person.svg',
 		alt:'Hands-on displayed as a spade',
 		width:'50'
 	}}
-	headingLeft="Hands-on"
-	textLeft="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."
+	headingLeft="Personal"
+	textLeft="Paphos Green Goddess herself guides you. You have the opportunity to ask questions relating to the systems on the site from rainwater collection to site planning, composting, vermiculture, and poultry care."
 
 	iconRight={{
-		src:'/images/info.svg',
+		src:'/images/group.svg',
 		alt:'Info icon',
-		width:'14'
+		width:'70'
 	}}
-	headingRight="Informative"
-	textRight="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."
+	headingRight="Family friendly"
+	textRight="Children enjoy the chance to interact with animals including dogs, cats, chickens, worms, and a donkey, and to climb on the sturdier trees in the orchard."
 
 	iconMid={{
-		src:'/images/party-hat.svg',
+		src:'/images/forms.svg',
 		alt:'Party hat icon',
 		width:'50'
 	}}
-	headingMid="Fun"
-	textMid="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."
+	headingMid="Multi-faceted"
+	textMid="Other local natural practitioners including foragers and wild-crafters, specialists in essential oils, gardeners, and physiotherapists often take part, leading talks and mini-workshops, and helping to make the event a multi-faceted introduction to sustainable practices in the Paphos area."
 
 	imgMid={{
-		src:'/images/hands-on.jpg',
-		alt:'Close up of hands dealing with soil'
+		src:'/images/rachael-in-the-field.jpg',
+		alt:'Paphos Green Goddess explaining the field'
 	}}
 
 	imgLeft={{
-		src:'/images/informative.jpg',
+		src:'/images/family-in-the-field.jpg',
 		alt:'Paphos Green Goddess owner Rachael is explaining'
 	}}
 
 	imgRight={{
-		src:'/images/fun.jpg',
-		alt:'Workshop participant having fun'
+		src:'/images/woman-talks.jpg',
+		alt:'Expert is explaining'
 	}}
+	/>
+</div>
+</Section>
+</div>
+
+
+<Section
+heading="You have got two options to visit Paphos Green Goddess"
+>
+<div class="grid  grid-2fr">
+	<ProductCard 
+	heading="Private tours"
+	description="30 € per Person"
+	listItems={[
+		"More depth. Less hectic atmosphere.",
+		"Tours are organised twice a month during the spring and autumn, and in the summer and winter as the weather allows, we open for private.",
+		"Tours include a light three-course vegetarian or vegan meal on the verandah overlooking the valley and the sea.",
+		"Maximum of 12 adults can participate.", 
+		"Private tours allow participants to engage much more closely with the environment and the systems in place."
+	]}
+	backgroundColorClass="first-color"
+	/>
+
+	<ProductCard 
+	heading="Open day"
+	description="For free"
+	listItems={[
+		"Open days are hold on Sunday closest to the equinoxes and solstices: March 21st, June 21st, September 21, and December 21.",
+		"The mid-summer Open Day is a morning event.",
+		"The event spans midday, typically lasting from 10 until 2, with participants welcomed throughout the four hours.",
+		"Snacks and drinks are free.",
+		"You have the chance to buy Green Goddess products."
+	]}
+	backgroundColorClass="second-color"
 	/>
 </div>
 <Button 
@@ -83,60 +117,6 @@ button={{
 	ahref:'#'
 }}
 />
-</Section>
-</div>
-
-
-<Section
-heading="Read more about our techniques"
->
-<div class="grid  grid-3fr">
-	<BlogCard 
-	img={{
-		src:'/images/avocado.jpg',
-		alt:'Avocado hanging at the tree'
-	}}
-	date="01.03.2023"
-	category='Lorem Ipsum'
-	title="Capturing water"
-	description="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."
-	link={{
-		href:'#',
-		text:'Read more'
-	}}
-	/>
-
-	<BlogCard 
-	img={{
-		src:'/images/avocado.jpg',
-		alt:'Avocado hanging at the tree'
-	}}
-	date="xx.xx.xx"
-	category='Lorem Ipsum'
-	title="Worms are wonderful"
-	description="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."
-	link={{
-		href:'#',
-		text:'Read more'
-	}}
-	/>
-
-	<BlogCard 
-	img={{
-		src:'/images/avocado.jpg',
-		alt:'Avocado hanging at the tree'
-	}}
-	date="xx.xx.xx"
-	category='Lorem Ipsum'
-	title="Ecological cycle"
-	description="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."
-	link={{
-		href:'#',
-		text:'Read more'
-	}}
-	/>
-</div>
-
 </Section>
 
 </MainLayout>

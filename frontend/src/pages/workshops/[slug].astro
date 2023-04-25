@@ -1,11 +1,16 @@
 ---
 //import components and layouts
 import MainLayout from '../../layouts/MainLayout.astro';
+import HeroShot from '../../components/HeroShot.astro';
+import Spacer from '../../components/Spacer.astro';
+import Button from '../../components/Button.astro';
 
 //import sanity
 import { useSanityClient } from 'astro-sanity';
 import { urlForImage } from '../../lib/urlForImage';
 import PortableText from '../../components/PortableText.astro';
+import Section from '../../components/Section.astro';
+
 
 
 
@@ -28,13 +33,93 @@ export async function getStaticPaths() {
     .filter(Boolean);
 }
 
-const { title, mainImage, startTime, endTime, whatDo, whatGet, takeHomeMessage, forWhom, whatBring } = Astro.props;
+const { title, mainImage, description, startTime, endTime, whatDo, whatGet, takeHomeMessage, forWhom, whatBring } = Astro.props;
 ---
 
 <MainLayout
 title="XX"
 description="XX"
 >
-<h2>{ title }</h2>
+
+<HeroShot 
+  heading={ title }
+  text={ description }
+  img={{
+    src:`{urlForImage(mainImage).url()}`,
+    alt:''
+  }}
+  waveImg={{
+    src:'/images/wave.svg',
+    alt:'A wave as overlay for the background image'
+  }}
+  cta={{
+    href:'',
+    text:'Register now'
+  }}
+/>
+<Spacer/>
+<Section>
+  <div class="grid  grid-4fr  align-center">
+    <div>
+      <img class="icon" width="50" src="/images/clock.svg" alt="Clock">
+      <h2>Start</h2>
+      <p>{startTime}</p>
+    </div>
+    <div>
+      <img class="icon" width="50" src="/images/clock.svg" alt="Clock">
+      <h2>End</h2>
+      <p>{endTime}</p>
+    </div>
+    <div>
+      <img class="icon" width="50" src="/images/cup.svg" alt="Cup">
+      <h2>Snack</h2>
+      <p>Yes we will have snack.</p>
+    </div>
+    <div>
+        <img class="icon" width="35" src="/images/location.svg" alt="Location">
+        <h2>Location</h2>
+        <p>Paphos Green Goddess</p>
+    </div>
+</div>
+</Section>
+
+<div class="bg-third-color  padding-bg-colored">
+<Section>
+  <div class="grid  grid-2fr">
+    <div>
+      <h2>What we do</h2>
+      <p>{whatDo}</p>
+    </div>
+  <div>
+    <h2>What do you get</h2>
+    <p>{whatGet}</p>
+  </div>
+  </div>
+  </Section>
+</div>
+
+<div class="bg-fourth-color  padding-colored-bg">
+  <Section>
+    <div class="grid  grid-2fr">
+      <div>
+        <h2>For whom it is suitable</h2>
+        <p>{forWhom}</p>
+      </div>
+    <div>
+      <h2>What do you need to bring</h2>
+      <p>{whatBring}</p>
+    </div>
+    </div>
+    </Section>
+</div>
+
+<Button
+button={{
+  href:'',
+  text: 'Register now'
+}}
+/>
+
+
 
 </MainLayout>

@@ -1,6 +1,7 @@
 ---
-const { img, waveImg, heading, text, cta = "" } = Astro.props;
+const { img = "", waveImg = "", heading, text, cta = "" } = Astro.props;
 ---
+
 <div class="stack">
     <div class="img--top">
     { img &&
@@ -17,7 +18,7 @@ const { img, waveImg, heading, text, cta = "" } = Astro.props;
     </div>
     <div class="heroshot__container">
         <h1 class="heroshot__heading">{ heading }</h1>
-        <p class="heroshot__text">{ text }</p>
+        <p class="heroshot__text" set:html={ text }/>
 
         { cta &&
         (<a class="heroshot__cta" href={ cta.href }>{ cta.text }</a> 
@@ -92,7 +93,7 @@ const { img, waveImg, heading, text, cta = "" } = Astro.props;
         align-items: flex-start;
         height: 100%;
         width: 70%;
-        margin-left: 6%;
+        margin-left: 24px;
         margin-top: 1%;
     }
 
@@ -115,6 +116,7 @@ const { img, waveImg, heading, text, cta = "" } = Astro.props;
         .heroshot__container {
             width: 60%;
             margin-top: 2%;
+            margin-left: 6%;
     }
     }
 

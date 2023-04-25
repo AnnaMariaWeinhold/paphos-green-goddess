@@ -12,8 +12,11 @@
 		--second-color: #006130;
 		--hover-color: #51BBFE;
 		--text-color: #130303;
+		--third-color: #FFB81C;
+		--fourth-color: #08415C;
 
 		--border-radius: 50px;
+		--border-radius-img: 30% 40% 46% 40%;
 
 		--ff-heading: 'Amaranth', Arial, Helvetica, sans-serif;;
 		--ff-text: 'MerriweatherSans', Arial, Helvetica, sans-serif;;
@@ -24,7 +27,7 @@
 		--fs-500: 1.5rem; /* h4 */
 		--fs-400: 1.25rem; /* h5 */
 		--fs-300: 1rem; /* p */
-		--fs-xs: 0.75rem;
+		--fs-xs: 0.8rem;
 	}
 
 	/* FONTS AMARANTH */
@@ -110,6 +113,10 @@
 		font-size: var(--fs-300);
 	}
 
+	a {
+		text-decoration: none;
+	}
+
 	@media only screen and (min-width: 60em) {
 		h1 {
 			font-size: var(--fs-xl);
@@ -137,6 +144,12 @@
 		line-height: 1.7;
 	}
 
+	.wrapper {
+		padding: 0 2em;
+        max-width: 730px;
+        margin: 0 auto;
+	}
+
 	.main-layout__grid {
 		display: grid;
 		min-height: 100dvh;
@@ -160,6 +173,12 @@
 		grid-area: footer;
 	}
 
+	/* GENERAL CSS */
+
+	.align-center {
+		text-align: center;
+	}
+
 
 	/* #RESPONSIVE IMAGES */
 	img {
@@ -172,30 +191,73 @@
 
 	/* #GRID */
 
-	.grid {
-		display: grid;
-	}
-
-	.grid-3fr {
-		grid-template-columns: 1fr;
-		gap: 3em;
-	}
-
-	@media only screen and (min-width: 40em) {
-		.grid-3fr {
-			grid-template-columns: repeat(2, 1fr);
+		.grid {
+			display: grid;
 		}
-	}
 
-	@media only screen and (min-width: 60em) {
-		.grid-3fr {
-			grid-template-columns: repeat(3, 1fr);
-			gap: 2em;
+		.grid-2fr,
+		.grid-3fr,
+		.grid-4fr {
+			grid-template-columns: 1fr;
+			gap: 3em;
 		}
-	}
+
+		@media only screen and (min-width: 40em) {
+			.grid-3fr,
+			.grid-2fr {
+				grid-template-columns: repeat(2, 1fr);
+			}
+		}
+
+		@media only screen and (min-width: 60em) {
+			.grid-3fr {
+				grid-template-columns: repeat(3, 1fr);
+				gap: 2em;
+			}
+		}
+
+		@media only screen and (min-width: 80em) {
+			.grid-4fr {
+				grid-template-columns: repeat(4, 1fr);
+				gap: 2em;
+			}
+		}
 
 		/* BACKGROUND */
 
 		.bg-white {
 			background-color: #fff;
+		}
+
+		.bg-third-color {
+			background-color: var(--third-color);
+		}
+
+		.bg-fourth-color {
+			background-color: var(--fourth-color);
+			color: #fff;
+		}
+
+		@media only screen and (min-width: 40em) {
+			.padding-colored-bg {
+				padding: 20px 0;
+			}
+		}
+
+		@media only screen and (min-width: 60em) {
+			.padding-colored-bg {
+				padding: 60px 0;
+			}
+		}
+
+		/* LINK */
+
+		.link {
+			color: var(--main-color);
+		}
+
+		.link:hover {
+			border-bottom: 2px solid var(--main-color);
+			border-radius: 2px;
+			padding-bottom: 2px;
 		}
