@@ -1,7 +1,8 @@
 ---
-
+const { linkedIn, facebook, instagram } = Astro.props;
 ---
 
+<footer class="footer">
 <div class="footer__container">
     <img class="footer__logo" src="/images/logo-white.svg" alt="Logo of Paphos Green Goddess">
         <div class="footer__link-container">
@@ -9,15 +10,24 @@
             <a class="footer__link" href="/data-policy"><p>Data policy</p></a>
             <a class="footer__link" href="/contact"><p>Contact</p></a>
         </div>
+        <div class="footer__share">
+            <a href={linkedIn} target="_blank"><i class="icofont-linkedin  icofont-2x  share-btn"></i></a>
+            <a href={facebook} target="_blank"><i class="icofont-facebook  icofont-2x   share-btn"></i></a>
+            <a href={instagram} target="_blank"><i class="icofont-instagram   icofont-2x   share-btn"></i></a>
+        </div>
 <div>
 
 </div>
 </div>
+</footer>
 
 <style>
     .footer__link {
         color: #fff;
         display: flex;
+        border-bottom: 2px solid var(--second-color);
+        border-radius: 2px;
+        padding-bottom: 2px; 
     }
 
     .footer__link:hover {
@@ -44,6 +54,20 @@
         width: 50%;
         display: flex;
         justify-self: center;
+    }
+
+    .footer__share {
+        display: flex;
+        justify-content: center;
+    }
+
+    .share-btn {
+        color: #fff;
+        padding: 12px;
+    }
+
+    .share-btn:hover {
+        color: var(--hover-color);
     }
 
     @media only screen and (min-width: 40em) {

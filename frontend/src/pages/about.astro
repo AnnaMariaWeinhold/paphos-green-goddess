@@ -6,6 +6,7 @@ import Spacer from "../components/Spacer.astro";
 import Image from "../components/Image.astro";
 import HeadingTwo from "../components/HeadingTwo.astro";
 import HeadingThree from "../components/HeadingThree.astro";
+import Footer from "../components/Footer.astro";
 
 import '../styles/styles.css';
 ---
@@ -46,6 +47,13 @@ text="I have turned my land just outside the small village of Nikokleia, not far
 <HeadingTwo 
 heading="The land"
 />
+<Paragraph 
+text="A small family enterprise with a focus on agriculture and sustainability, Paphos Green Goddess is a child of the Naughties. Located just outside the Paphos District village of Nikokleia, the certified organic site includes mature mango, olive, and avocado trees as well as over 1,000 vines for wine production."
+/>
+
+<Paragraph 
+text="As well as the family home, the estate includes passive and active rainwater harvesting, different composting systems, vermiculture, and poultry. Examples of companion planting and medicinal herb and flower cultivation can be seen alongside an array of kitchen garden staples. Biodiversity is encouraged with a bee hotel, water stations for insects, and natural habitat for snakes and lizards."
+/>
 
 <Paragraph 
 text="The land is devided in different zones: the kitchen, the garden and the field."
@@ -80,6 +88,26 @@ img={{
     alt:'The permaculture field of Paphos Green Goddess'
 }}
 />
+
+<HeadingTwo 
+heading="The founder Rachael Pettus"
+/>
+<Paragraph 
+text="I was born in the UK in 1964 and, after extensive living and travelling abroad, settled in Cyprus with my Greek-speaking Cypriot husband in 1994. Together we raised four children on our certified organic land."
+/>
+
+<Paragraph 
+text="At some point in the past two decades, I discovered permaculture, a design system based on the ethics of Earth Care, People Care, and Fair Share, and knew that I wanted to apply these ethics, and some of the many principles of the practice, to our household and land. A rainwater harvesting course from the University of Oregon kickstarted the process, which accelerated during the Covid lockdowns."
+/>
+
+<Paragraph 
+text="Learning — and teaching — resilience gives me hope in this fast-changing world. Through connecting to the land and the plants and animals that depend on it as we do, I find strength and can help others do the same."
+/>
 </div>
 </div>
+<Footer 
+	facebook="https://www.facebook.com/sharer/sharer.php?u=https://paphosgreengoddess.com/about/"
+	instagram="https://twitter.com/share?url=https://paphosgreengoddess.com/about/"
+	linkedIn="https://www.linkedin.com/shareArticle?mini=true&url=https://paphosgreengoddess.com/about/"
+/>
 </MainLayout>

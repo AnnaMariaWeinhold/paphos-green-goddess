@@ -33,13 +33,13 @@ export default defineType({
       type: 'string',
     }),
     defineField({
-      name: 'startTime',
-      title: 'Start',
+      name: 'date',
+      title: 'Date',
       type: 'datetime',
     }),
     defineField({
-        name: 'endTime',
-        title: 'End',
+        name: 'time',
+        title: 'Time',
         type: 'datetime',
       }),
     defineField({
@@ -50,12 +50,6 @@ export default defineType({
         source: 'title',
         maxLength: 96,
       },
-    }),
-    defineField({
-      name: 'categories',
-      title: 'Categories',
-      type: 'array',
-      of: [{type: 'reference', to: {type: 'category'}}],
     }),
     defineField({
         name: 'whatDo',

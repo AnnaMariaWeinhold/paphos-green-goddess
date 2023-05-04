@@ -40,6 +40,13 @@ export default defineType({
       options: {
         hotspot: true,
       },
+      fields: [
+        {
+          name: 'altTag',
+          title: 'Alt Tag',
+          type: 'string',
+        }
+      ]
     }),
     defineField({
       name: 'categories',

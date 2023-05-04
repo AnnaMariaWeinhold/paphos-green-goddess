@@ -41,8 +41,13 @@ import "../styles/styles.css";
 			)
 		  }
 
-		  <!-- FLAVICOM -->
-		  
+		  <!-- FAVICON -->
+		  <link rel="icon" type="image/png" sizes="16x16"  href="/images/favicon-16x16.png">
+		  <meta name="msapplication-TileColor" content="#ffffff">
+		  <meta name="theme-color" content="#ffffff">
+
+		  <!-- ICOFONT -->
+		  <link rel="stylesheet" href="/icofont/icofont.min.css">
 	</head>
 	<div class="main-layout__grid">
 	<body>
@@ -51,7 +56,6 @@ import "../styles/styles.css";
 		<slot class="content"/>
 		<div class="sidebar"></div>
 		</main>
-		<Footer class="footer"/>
 		<script>
 			const header = document.querySelector("header");
 			const sectionOne = document.querySelector(".heroshot__img");

@@ -2,6 +2,7 @@
 //import components and layouts
 import MainLayout from '../../layouts/MainLayout.astro';
 import Section from '../../components/Section.astro';
+import Footer from '../../components/Footer.astro';
 
 //import sanity
 import { useSanityClient } from 'astro-sanity';
@@ -35,6 +36,13 @@ title="Water harvesting in Cyprus"
 description="XXX"
 >
 <h1 class="post__title">{title}</h1>
+<div class="post__details">
+  <p>{ author }</p>
+  <p>{new Date(publishedAt).toLocaleDateString('de-DE')}</p>
+  <a href=""><i class="icofont-facebook  icofont-lg"></i></a>
+  <a href=""><i class="icofont-instagram  icofont-lg"></i></a>
+  <a href=""><i class="icofont-linkedin  icofont-lg"></i></a>
+</div>
 <div class="featured-img__container">
   {
     mainImage && (
@@ -45,13 +53,26 @@ description="XXX"
   <div class="mid">
   <PortableText portableText={body} />
   </div>
-
+  <Footer 
+	facebook="https://www.facebook.com/sharer/sharer.php?u=https://paphosgreengoddess.com/"
+	instagram="https://twitter.com/share?url=https://paphosgreengoddess.com/"
+	linkedIn="https://www.linkedin.com/shareArticle?mini=true&url=https://paphosgreengoddess.com/"
+/>
 </MainLayout>
 
 <style>
 .post__title {
   text-align: center;
   margin-top: 1.5em;
+  margin-bottom: 12px;
+}
+
+.post__details {
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+  align-items: center;
+  margin-top: 12px;
 }
 
 .post__featured-img {

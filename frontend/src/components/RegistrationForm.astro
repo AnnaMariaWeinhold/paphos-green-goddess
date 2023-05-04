@@ -1,0 +1,206 @@
+---
+const { heading, text } = Astro.props;
+---
+<div class="grid__container">
+    <div class="form-text__container">
+        <h1 class="form__heading">{ heading }</h1>
+        <p class="form__text" set:html={ text }/>
+        <p class="form__email">info@paphosgreengoddess.com</p>
+    </div>
+
+
+<form class="form__container">
+        <label class="form__label" for="name">Your name</label>
+        <input class="form__input" id="name" name="name" required>
+        <label class="form__label" for="email">Your email</label>
+        <input class="form__input" id="email" name="email" required>
+        <h4 class="form__label">Choose your workshop or tour</h4>
+        <div class="radio__container">
+            <div class="form__radio">
+                <input type="radio" id="workshop1" name="workshop1" value="Lemons">
+                <label for="workshop1">When Life gives you Lemon 
+                </label>
+            
+                <input type="radio" id="workshop2" name="workshop2" value="Edible">
+                <label for="workshop2">The Edible Outdoors</label>
+           
+                <input type="radio" id="workshop3" name="workshop3" value="Carob">
+                <label for="workshop3">Carob — Black Gold of Cyprus</label>
+
+                <input type="radio" id="workshop4" name="workshop4" value="Bee Hotel">
+                <label for="workshop4">Bee Hotel Making</label>
+
+                <input type="radio" id="workshop5" name="workshop5" value="Selfwatering Plants">
+                <label for="workshop5">Self Watering Plant-pots</label>
+
+                <input type="radio" id="workshop6" name="workshop6" value="Garden Design">
+                <label for="workshop5">Garden Design</label>
+            </div>
+            <div class="form__radio">
+                <input class="form__radio" type="radio" id="tour1" name="tour1" value="Spring Tour">
+                <label for="tour1"> Spring tour </label><br>
+                <input class="form__radio" type="radio" id="tour2" name="tour2" value="Summer Tour">
+                <label for="tour2"> Summer tour</label><br>
+                <input class="form__radio" type="radio" id="tour3" name="tour3" value="Autmn Tour">
+                <label for="tour3"> Autmn tour</label><br> 
+                <input class="form__radio" type="radio" id="tour4" name="tour4" value="Winter Tour">
+                <label for="tour4"> Winter tour</label><br> 
+            </div>
+        </div>
+        <label class="form__label" for="message">Aynthing you want to tell us?</label>
+        <textarea class="form__input" id="message" name="message"></textarea>
+        <input class="form__button" type="submit" value="Submit">
+</form>
+</div>
+
+<style>
+
+    .form__container {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1.2em;
+        padding: 2em 3em 3em 3em;
+        background-color: var(--second-color);
+        border-radius: 1em;
+        margin: 2em;
+    }
+
+    .form-text__container {
+        padding: 4em 2em;
+    }
+
+    .form__heading {
+        margin-bottom: 16px;
+    }
+
+
+    .form__text {
+        font-size: var(--fs-400);
+    }
+
+    .form__email {
+        color: var(--main-color);
+        font-size: 1.2rem;
+        margin-top: 1em;
+    }
+
+    .form__input {
+        padding: 1em;
+        border-radius: 1em;
+        border: none;
+        font-family: var(--ff-text);
+        font-size: 1rem;
+        color: var(--text-color);
+        font-weight: 300;
+    }
+
+    input:focus,
+    textarea:focus {
+        outline: none;
+        background-color: #e5fff2;
+    }
+
+    .form__label {
+        color: #fff;
+        font-family: var(--ff-heading);
+        font-size: 1.2rem;
+        margin-top: 8px;
+        margin-bottom: -4px;
+    }
+
+    .radio__container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .form__radio {
+        display: grid;
+        grid-template-columns: 10% 90%;
+        gap: 0.7em;
+        color: #fff;
+    }
+
+    input[type="radio"] {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        display: inline-block;
+        width: 20px;
+        height: 20px;  
+        padding: 2px;
+        background-clip: content-box;
+        border: 1px solid var(--hover-color);
+        border-radius: 50%;
+        margin-right: auto;
+        display: flex;
+        align-self: center;
+    }
+
+  input[type="radio"]:checked {
+    background-color: var(--hover-color);
+  }
+
+
+    textarea {
+        height: 200px;
+        margin-bottom: 1em;
+    }
+
+
+    .form__button {
+        background-color: var(--main-color);
+        padding: 16px 18px;
+        color: #fff;
+        border-radius: var(--border-radius);
+        text-decoration: none;
+        font-size: var(--fs-300);
+        font-weight: 400;
+        transition: 0.7s;
+        border: none;
+        width: 50%;
+        margin: auto;
+    }
+
+    .form__button:hover {
+        box-shadow: inset 0 -4.25em 0 0 var(--hover-color);
+    }
+
+    @media only screen and (min-width: 40em) {
+        .grid__container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .form-text__container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            height: 100%;
+            width: 80%;
+            margin-left: 6%;
+            margin-top: 1%;
+        }
+
+        .form__heading {
+        margin-top: auto;
+        }
+
+        .form__email {
+        font-size: 1.6rem;
+    }
+    }
+
+    @media only screen and (min-width: 60em) {
+
+        .form__container {
+            margin: 2em;
+        }
+    }
+
+    @media only screen and (min-width: 80em) {
+
+        .form__container {
+            width: 70%;
+        }
+    }
+</style>

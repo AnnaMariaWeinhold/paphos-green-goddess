@@ -99,10 +99,12 @@
 	h2 {
 		font-size: var(--fs-600);
 		line-height: 1.2;
+		margin-bottom: 12px;
 	}
 
 	h3 {
 		font-size: var(--fs-500);
+		line-height: 1.2;
 	}
 
 	h4 {
@@ -217,6 +219,9 @@
 		}
 
 		@media only screen and (min-width: 80em) {
+			.grid-2fr {
+				gap: 4em;
+			}
 			.grid-4fr {
 				grid-template-columns: repeat(4, 1fr);
 				gap: 2em;

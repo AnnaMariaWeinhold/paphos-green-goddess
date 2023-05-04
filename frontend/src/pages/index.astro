@@ -8,11 +8,20 @@ import Button from "../components/Button.astro";
 import ImgText from "../components/ImgText.astro";
 import BlogCard from "../components/BlogCard.astro";
 import Paragraph from "../components/Paragraph.astro";
+import Footer from "../components/Footer.astro";
 ---
 
 <MainLayout
 title="Paphos Green Goddess"
 description="Where you learn how to ...XXX"
+opengraph={{
+	title:'',
+	url:'',
+	image:'',
+	type:'website',
+	description:'',
+	locale:'en'
+}}
 >
 
 
@@ -26,7 +35,7 @@ waveImg={{
 	alt:'A wave as overlay for the background image'
 }}
 heading="Learn about permaculture in Cyprus"
-text="At Paphos Green Goddess we offer workshops and tours to spread the practice of permaculture."
+text="Paphos Green Goddess offers free open days in the year, workshops covering many themes relating to sustainability and resilience in the kitchen and the garden, as well as private tours of the design features."
 cta={{
 	href:'#',
 	text:'Register for a workshop'
@@ -45,7 +54,7 @@ heading="Workshops that blow your mind"
 		width:'50'
 	}}
 	headingLeft="Hands-on"
-	textLeft="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."
+	textLeft="In our workshops you will use your hands because this is how you will learn and remember the easiest."
 
 	iconRight={{
 		src:'/images/info.svg',
@@ -53,7 +62,7 @@ heading="Workshops that blow your mind"
 		width:'14'
 	}}
 	headingRight="Informative"
-	textRight="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."
+	textRight="You will get practical knowledge and first-hand experiences."
 
 	iconMid={{
 		src:'/images/party-hat.svg',
@@ -61,7 +70,7 @@ heading="Workshops that blow your mind"
 		width:'50'
 	}}
 	headingMid="Fun"
-	textMid="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."
+	textMid="Yes, we have fun together. We talk and joke around. Our aim is to make your day with us joyful."
 
 	imgMid={{
 		src:'/images/hands-on.jpg',
@@ -183,5 +192,9 @@ heading="A blog worth to read"
 		}}
 	/>
 </Section>
-
+<Footer 
+	facebook="https://www.facebook.com/sharer/sharer.php?u=https://paphosgreengoddess.com/"
+	instagram="https://twitter.com/share?url=https://paphosgreengoddess.com/"
+	linkedIn="https://www.linkedin.com/shareArticle?mini=true&url=https://paphosgreengoddess.com/"
+/>
 </MainLayout>

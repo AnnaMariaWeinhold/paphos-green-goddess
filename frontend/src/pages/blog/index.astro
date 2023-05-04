@@ -2,12 +2,16 @@
 import { useSanityClient } from 'astro-sanity';
 import { urlForImage } from '../../lib/urlForImage';
 
-const posts = await useSanityClient().fetch(`*[_type == "post"]`);
+const posts = await useSanityClient().fetch(`*[_type == "post"]{ 
+    ..., 
+    categories[]->
+ }`);
 
 import MainLayout from '../../layouts/MainLayout.astro';
 import HeroShot from '../../components/HeroShot.astro';
 import Spacer from '../../components/Spacer.astro';
 import Section from '../../components/Section.astro';
+import Footer from '../../components/Footer.astro';
 ---
 
 
@@ -25,7 +29,7 @@ waveImg={{
 	alt:'A wave as overlay for the background image'
 }}
 heading="We are nature. Lets care about it."
-text="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu"
+text="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et"
 />
 <Spacer />
 <div class="bg-white  padding-colored-bg">
@@ -41,8 +45,10 @@ text="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo l
                             <a href={`blog/${post.slug.current}`}>
                                 <img class="blog-card__img" src={urlForImage(post.mainImage).url()}  alt={ post.alt }>
                             <div class="blog-card__meta">
-                                <p class="date">{ post.publishedDate }</p>
-                                <p class="category">{ post.categories }</p>
+                                <p class="date">{ new Date(post.publishedAt).toLocaleDateString("de-DE")}</p>
+                                {Array.isArray(post.categories) && <p class="category">{ post.categories.map((category) => { 
+                                    return <span>{ category.title || ''}</span>
+                                }) }</p>}
                             </div>
                             <h3 class="blog-card__heading">{ post.title }</h3>
                             <p class="blog-card__description">{ post.description }</p>
@@ -58,6 +64,11 @@ text="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo l
           </div>
     </Section>
 </div>
+<Footer 
+	facebook="https://www.facebook.com/sharer/sharer.php?u=https://paphosgreengoddess.com/blog/"
+	instagram="https://twitter.com/share?url=https://paphosgreengoddess.com/blog/"
+	linkedIn="https://www.linkedin.com/shareArticle?mini=true&url=https://paphosgreengoddess.com/blog/"
+/>
 </MainLayout>
 
 <style>
