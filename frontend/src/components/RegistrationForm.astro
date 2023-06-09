@@ -1,5 +1,5 @@
 ---
-const { heading, text } = Astro.props;
+const { heading, text, option, option1, option2, option3, option4, option5 = "", option6 = "" } = Astro.props;
 ---
 <div class="grid__container">
     <div class="form-text__container">
@@ -14,40 +14,20 @@ const { heading, text } = Astro.props;
         <input class="form__input" id="name" name="name" required>
         <label class="form__label" for="email">Your email</label>
         <input class="form__input" id="email" name="email" required>
-        <h4 class="form__label">Choose your workshop or tour</h4>
-        <div class="radio__container">
-            <div class="form__radio">
-                <input type="radio" id="workshop1" name="workshop1" value="Lemons">
-                <label for="workshop1">When Life gives you Lemon 
-                </label>
-            
-                <input type="radio" id="workshop2" name="workshop2" value="Edible">
-                <label for="workshop2">The Edible Outdoors</label>
-           
-                <input type="radio" id="workshop3" name="workshop3" value="Carob">
-                <label for="workshop3">Carob — Black Gold of Cyprus</label>
-
-                <input type="radio" id="workshop4" name="workshop4" value="Bee Hotel">
-                <label for="workshop4">Bee Hotel Making</label>
-
-                <input type="radio" id="workshop5" name="workshop5" value="Selfwatering Plants">
-                <label for="workshop5">Self Watering Plant-pots</label>
-
-                <input type="radio" id="workshop6" name="workshop6" value="Garden Design">
-                <label for="workshop5">Garden Design</label>
-            </div>
-            <div class="form__radio">
-                <input class="form__radio" type="radio" id="tour1" name="tour1" value="Spring Tour">
-                <label for="tour1"> Spring tour </label><br>
-                <input class="form__radio" type="radio" id="tour2" name="tour2" value="Summer Tour">
-                <label for="tour2"> Summer tour</label><br>
-                <input class="form__radio" type="radio" id="tour3" name="tour3" value="Autmn Tour">
-                <label for="tour3"> Autmn tour</label><br> 
-                <input class="form__radio" type="radio" id="tour4" name="tour4" value="Winter Tour">
-                <label for="tour4"> Winter tour</label><br> 
-            </div>
+        <h4 class="form__label">{ option }</h4>
+        <div class="form__select">
+            <select>
+                <option value="">Choose from the list</option>
+                <option value="">{ option1 }</option>
+                <option value="">{ option2 }</option>
+                <option value="">{ option3 }</option>
+                <option value="">{ option4 }</option>
+                <option value="">{ option5 }</option>
+                <option value="">{ option6 }</option>
+            </select>
+            <span class="form__arrow"><i class="icofont-rounded-down"></i></span>
         </div>
-        <label class="form__label" for="message">Aynthing you want to tell us?</label>
+        <label class="form__label" for="message">Anything you want to tell us?</label>
         <textarea class="form__input" id="message" name="message"></textarea>
         <input class="form__button" type="submit" value="Submit">
 </form>
@@ -108,17 +88,6 @@ const { heading, text } = Astro.props;
         margin-bottom: -4px;
     }
 
-    .radio__container {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .form__radio {
-        display: grid;
-        grid-template-columns: 10% 90%;
-        gap: 0.7em;
-        color: #fff;
-    }
 
     input[type="radio"] {
         -webkit-appearance: none;
@@ -146,6 +115,33 @@ const { heading, text } = Astro.props;
         margin-bottom: 1em;
     }
 
+    /* SELECT FIELD */
+    select {
+        font-size: var(--fs-300);
+        padding: 1em 4em 1em 1.5em;
+        background: #fff;
+        color: var(--text-color);
+        border: 0;
+        width: 100%;
+        border-radius: 1em;
+        margin-bottom: 20px;
+    }
+
+
+    .form__arrow {
+        position: absolute;
+        top: 25%;
+        right: 0;
+        color: #fff;
+        pointer-events: none;
+        margin-right: 12px;
+    }
+
+    .form-select {
+        position: relative;
+    }
+
+    /* SUBMIT BUTTON */
 
     .form__button {
         background-color: var(--main-color);
@@ -179,10 +175,6 @@ const { heading, text } = Astro.props;
             width: 80%;
             margin-left: 6%;
             margin-top: 1%;
-        }
-
-        .form__heading {
-        margin-top: auto;
         }
 
         .form__email {

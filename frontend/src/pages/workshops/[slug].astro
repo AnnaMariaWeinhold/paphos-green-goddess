@@ -46,7 +46,7 @@ description="XX"
   heading={ title }
   text={ description }
   img={{
-    src:`{urlForImage(mainImage).url()}`,
+    src:`${urlForImage(mainImage).url()}`,
     alt:''
   }}
   waveImg={{
@@ -59,9 +59,9 @@ description="XX"
   }}
 />
 <Spacer/>
+<div class="bg-white">
 <Section>
-  <div class="wrapper">
-  <div class="grid  grid-2fr  align-center">
+  <div class="grid  grid-4fr  align-center">
       <div>
         <img class="icon" width="50" src="/images/clock.svg" alt="Clock">
         <p class="icon__text">We meet <br> { new Date(date).toLocaleDateString("de-DE")}</p>
@@ -79,35 +79,53 @@ description="XX"
           <p class="icon__text">It takes place at <br>Paphos Green goddess</p>
       </div>
     </div>
-</div>
 </Section>
+</div>
 
 <div class="bg-third-color  padding-bg-colored">
 <Section>
   <div class="grid  grid-2fr">
-    <div>
+    <div class="flex-centered">
       <h2>What we do</h2>
       <p>{ whatDo }</p>
     </div>
-  <div>
-    <h2>What do you get</h2>
-    <p>{ whatGet }</p>
-  </div>
+    <div>
+      <img class="img" src="/images/lemon-curd.jpg"/>
+      <p class="img-cap  align-right">Photo by <a class="link" href="https://unsplash.com/@jodipend?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Jodi Pender</a> on <a class="link" href="https://unsplash.com/de/fotos/dOxRHrg1IUY?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+      </p>
+    </div>
   </div>
   </Section>
 </div>
 
-<div class="bg-fourth-color  padding-colored-bg">
+<div class="bg-fourth-color  padding-bg-colored">
   <Section>
     <div class="grid  grid-2fr">
       <div>
+        <img class="img" src="/images/house-with-land.jpg"/>
+        <p class="img-cap  align-left">Photo by <a class="link" href="https://unsplash.com/@jodipend?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Jodi Pender</a> on <a class="link" href="https://unsplash.com/de/fotos/dOxRHrg1IUY?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+        </p>
+      </div>
+    <div class="flex-centered">
+      <h2>What do you get</h2>
+      <p>{ whatGet }</p>
+    </div>
+    </div>
+    </Section>
+  </div>
+
+<div>
+  <Section>
+    <div class="grid  grid-2fr">
+      <div class="flex-centered">
         <h2>For whom it is suitable</h2>
         <p>{ forWhom }</p>
       </div>
-    <div>
-      <h2>What do you need to bring</h2>
-      <p>{ whatBring }</p>
-    </div>
+      <div>
+        <img class="img" src="/images/house-with-land.jpg"/>
+        <p class="img-cap  align-right">Photo by <a class="link" href="https://unsplash.com/@jodipend?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Jodi Pender</a> on <a class="link" href="https://unsplash.com/de/fotos/dOxRHrg1IUY?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+        </p>
+      </div>
     </div>
     </Section>
     <Button
@@ -131,6 +149,15 @@ description="XX"
   .icon__text {
     font-size: var(--fs-400);
     font-weight: 400;
+  }
+
+  .img {
+    border-radius: var(--border-radius-img);  ;
+  }
+
+  .img-cap {
+    font-size: var(--fs-xs);
+    margin-top: 8px;
   }
 </style>
 

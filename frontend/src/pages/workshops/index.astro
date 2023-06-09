@@ -52,7 +52,7 @@ heading="See all our workshops">
 			<h3 class="workshop__heading">{workshop.title}</h3></a>
 			</li>            
 			<p class="workshop__text">{workshop.description}</p>
-			<a class="workshop__link" href={`workshops/${workshop.slug.current}`}>Read more</a>       
+			<a class="workshop__link" href={`workshops/${workshop.slug.current}`}>See more details</a>       
 		</div>
     ))}
 </ul>}
@@ -90,7 +90,7 @@ heading="See all our workshops">
 	}
 
     .workshop__img {
-        margin-bottom: 12px;        
+        margin-bottom: 20px;        
 		border-radius: var(--border-radius-img);  		
     }
 
@@ -102,7 +102,7 @@ heading="See all our workshops">
 	}
 
 	.workshop__heading {
-		margin-top: -6px;
+		margin-bottom: 12px;
 	}
 
     .workshop__text {
@@ -136,9 +136,4 @@ heading="See all our workshops">
     }    
 	}
 
-    @media only screen and (min-width: 80em) {
-    ul {    
-		grid-template-columns: repeat(4, 1fr);
-    }    
-	}
 </style>
