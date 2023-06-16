@@ -5,9 +5,10 @@ const { linkedIn, facebook, instagram } = Astro.props;
 <footer class="footer">
 <div class="footer__container">
     <img class="footer__logo" src="/images/logo-white.svg" alt="Logo of Paphos Green Goddess">
+    <h3 class="footer__slogan">Be part of the solution</h3>
         <div class="footer__link-container">
             <a class="footer__link" href="/impressum"><p>Impressum</p></a>
-            <a class="footer__link" href="/data-policy"><p>Data policy</p></a>
+            <a class="footer__link" href="/privacy-policy"><p>Privacy policy</p></a>
             <a class="footer__link" href="/contact"><p>Contact</p></a>
         </div>
         <div class="footer__share">
@@ -56,6 +57,12 @@ const { linkedIn, facebook, instagram } = Astro.props;
         justify-self: center;
     }
 
+    .footer__slogan {
+        color: #fff;
+        text-align: center;
+        margin-top: -24px;
+    }
+
     .footer__share {
         display: flex;
         justify-content: center;
@@ -78,7 +85,7 @@ const { linkedIn, facebook, instagram } = Astro.props;
 
     @media only screen and (min-width: 60em) {
         .footer__logo {
-        width: 20%;
+        width: 14%;
         }
     }
 </style>

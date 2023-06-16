@@ -26,19 +26,32 @@ const workshops = await useSanityClient().fetch(`*[_type == "workshop"]{
 
 
 <MainLayout
-title="Paphos Green Goddess"
-description="Where you learn how to ...XXX"
+title="Workshops at Paphos Green Goddess"
+description="In workshops held at Paphos Green Goddess you learn about permaculture, nature and opportunities to integrate sustainability in your daily life."
+opengraph={{
+	title:'Workshops at Paphos Green Goddess',
+	url:'https://www.paphosgreengoddes.com/workshops/',
+	image:'https://www.paphosgreengoddes.com/images/heroshot-workshops.webp',
+	type:'website',
+	description:'Learn how to implement permaculture principles',
+	locale:'en'
+}}
 >
 <HeroShot 
-img={{    src:'/images/heroshot-workshops.jpg',
+img={{    
+    src:'/images/heroshot-workshops.webp',
     alt:'The founder of Paphos Green Goddess explaining'}}
-waveImg={{    src:'/images/wave.svg',
+waveImg={{    
+    src:'/images/wave.svg',
     alt:'A wave as overlay for the background image'}}
-heading="Learn about permaculture in our workshops in Cyprus"text="At Paphos Green Goddess we offer workshops and tours to spread the practice of permaculture."
-cta={{    href:'#',
+heading="Learn about permaculture in our workshops in Cyprus"
+text="At Paphos Green Goddess we offer workshops and tours to spread the practice of permaculture."
+cta={{    
+    href:'/registration-for-workshops',
     text:'Register for a workshop'}}
 /><Spacer />
-<div class="bg-white  padding-colored-bg"><Section
+<div class="bg-white">
+<Section
 heading="See all our workshops">
 {workshops && 
 <ul>    
@@ -78,13 +91,10 @@ heading="See all our workshops">
     ul {
 		display: grid;    
 		grid-template-columns: 1fr;
-		gap: 2em;    
+		gap: 6em;    
 	}
 
-    .workshop__container {        
-        padding: 2em 2em 3em 2em;    
-    }    
-
+     
     .workshop__container:hover {  
         cursor: pointer;   
 	}

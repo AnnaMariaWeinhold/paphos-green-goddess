@@ -1,8 +1,8 @@
 ---
-const { heading } = Astro.props;
+const { heading, tocId = "" } = Astro.props;
 ---
 
-<h2 class="blog__heading-two">{ heading }</h2>
+<h2 class="blog__heading-two" id={ tocId }>{ heading }</h2>
 
 <style>
      .blog__heading-two {

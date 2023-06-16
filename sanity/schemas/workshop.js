@@ -56,16 +56,35 @@ export default defineType({
         title: 'What do you do',
         type: 'string',
       }),
+      defineField({
+        name: 'whatDoImage',
+        title: 'Small Image',
+        type: 'image',
+        fields: [
+          {
+            name: 'altTag',
+            title: 'Alt Tag',
+            type: 'string',
+          }
+        ]
+      }),
+      defineField({
+        name: 'fullImage',
+        title: 'Big Image',
+        type: 'image',
+        fields: [
+          {
+            name: 'altTag',
+            title: 'Alt Tag',
+            type: 'string',
+          }
+        ]
+      }),
     defineField({
       name: 'whatGet',
       title: 'What do you get',
       type: 'string',
     }),
-    defineField({
-        name: 'takeHomeMessage',
-        title: 'What do you take home',
-        type: 'string',
-      }),
       defineField({
         name: 'forWhom',
         title: 'For whom is it suitable',

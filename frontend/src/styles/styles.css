@@ -12,7 +12,7 @@
 		--second-color: #006130;
 		--hover-color: #51BBFE;
 		--text-color: #130303;
-		--third-color: #FFB81C;
+		--third-color: #FFC74F;
 		--fourth-color: #08415C;
 
 		--border-radius: 50px;
@@ -189,6 +189,11 @@
 		text-align: right;
 	}
 
+	.items-align-center {
+		display: grid;
+		align-items: center;
+	}
+
 	@media only screen and (min-width: 40em) {
 		.flex-centered {
 			display: flex;
@@ -206,10 +211,14 @@
 		display: none;
 	}
 
+	
+
 	/* #GRID */
 
 		.grid {
 			display: grid;
+			margin-left: auto;
+			margin-right: auto;
 		}
 
 		.grid-2fr,
@@ -217,6 +226,7 @@
 		.grid-4fr {
 			grid-template-columns: 1fr;
 			gap: 3em;
+			max-width: 1200px;
 		}
 
 		@media only screen and (min-width: 40em) {
@@ -234,9 +244,11 @@
 		}
 
 		@media only screen and (min-width: 80em) {
-			.grid-2fr {
+			.grid-2fr,
+			.grid-3fr {
 				gap: 4em;
 			}
+
 			.grid-4fr {
 				grid-template-columns: repeat(4, 1fr);
 				gap: 2em;
@@ -258,15 +270,18 @@
 			color: #fff;
 		}
 
-		@media only screen and (min-width: 40em) {
-			.padding-colored-bg {
-				padding: 20px 0;
-			}
+		.padding-colored-bg {
+			margin: 0 auto;
 		}
+
+		.padding-colored-bg {
+			padding: 20px 24px;
+		}
+
 
 		@media only screen and (min-width: 60em) {
 			.padding-colored-bg {
-				padding: 60px 0;
+				padding: 90px 24px;
 			}
 		}
 

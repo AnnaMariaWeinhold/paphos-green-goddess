@@ -6,12 +6,22 @@ import Footer from "../components/Footer.astro";
 ---
 
 <MainLayout
-title="impressum"
-description="Here you find where we are located and how you can contact us.">
+title="Impressum"
+description="Here you find where we are located and how you can contact us."
+opengraph={{
+	title:'Impressum',
+	url:'https://www.paphosgreengoddes.com/impressum/',
+	image:'https://www.paphosgreengoddes.com/images/heroshot-index.webp',
+	type:'website',
+	description:'See where we are located',
+	locale:'en'
+}}
+>
+
 <div class="grid  grid-2fr">
     <Map 
     heading="Impressum"
-    text="Wayward House <br> Lapithou 8 <br> Nikoklia <br> 8505 Cyprus <br> +357 99 414098"
+    text="Rachael Pettus <br> Wayward House <br> Lapithou 8 <br> Nikoklia <br> 8505 Cyprus <br> +357 99 414098"
     />
 </div>
 <Spacer />

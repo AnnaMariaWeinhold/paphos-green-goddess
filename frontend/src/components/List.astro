@@ -1,0 +1,23 @@
+---
+const { listItems } = Astro.props;
+interface Props {
+  listItems: string[];
+}
+---
+
+<ul>
+    {
+        listItems.map((item) => (
+          <li class="list__item">
+            {item}
+          </li>
+        ))
+      }
+</ul>
+
+<style>
+    .list__item {
+        padding: 8px;
+        margin-left: 2em;
+    }
+</style>

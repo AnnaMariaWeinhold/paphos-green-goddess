@@ -5,11 +5,14 @@ import Benefits from "../components/Benefits.astro";
 import Section from "../components/Section.astro";
 import Spacer from "../components/Spacer.astro";
 import Button from "../components/Button.astro";
-import ImgText from "../components/ImgText.astro";
 import BlogCard from "../components/BlogCard.astro";
 import Paragraph from "../components/Paragraph.astro";
 import Footer from "../components/Footer.astro";
 import { useSanityClient } from "astro-sanity";
+import TextOnBackground from "../components/TextOnBackground.astro";
+import FullScreenImage from "../components/FullScreenImage.astro"
+import BackgroundColorText from "../components/BackgroundColorText.astro";
+import Quote from "../components/Quote.astro";
 
 // Fetch the posts order by date and pick latest 3 and expand all references to category
 const posts = await useSanityClient().fetch(`*[_type == "post"][0..3]{
@@ -28,13 +31,13 @@ const posts = await useSanityClient().fetch(`*[_type == "post"][0..3]{
 
 <MainLayout
 title="Paphos Green Goddess"
-description="Where you learn how to ...XXX"
+description="There is no planet B. Thats why we show you how to integrate sustainable actions in your daily life and how to grow a permaculture garden."
 opengraph={{
-	title:'',
-	url:'',
-	image:'',
+	title:'Paphos Green Goddess',
+	url:'https://www.paphosgreengoddes.com/',
+	image:'https://www.paphosgreengoddes.com/images/heroshot-index.webp',
 	type:'website',
-	description:'',
+	description:'There is no planet B. Learn about permaculture.',
 	locale:'en'
 }}
 >
@@ -42,7 +45,7 @@ opengraph={{
 
 <HeroShot 
 img={{
-	src:'/images/heroshot-index.jpg',
+	src:'/images/heroshot-index.webp',
 	alt:'The founder of Paphos Green Goddess walking towards the permaculture field'
 }}
 waveImg={{
@@ -50,14 +53,25 @@ waveImg={{
 	alt:'A wave as overlay for the background image'
 }}
 heading="Learn about permaculture in Cyprus"
-text="Paphos Green Goddess offers free open days in the year, workshops covering many themes relating to sustainability and resilience in the kitchen and the garden, as well as private tours of the design features."
+text="This is not just another permaculture website that will talk about ethics and lead you along prescribed pathways pointing out principles in practice. This is a permaculture family home that is feeling its way toward a more sustainable, resilient, and restorative lifestyle. We want to share the lessons we have learned and the insights we have gained."
 cta={{
-	href:'#',
+	href:'/registration-for-workshops',
 	text:'Register for a workshop'
 }}
 />
 <Spacer />
-<div class="bg-white  padding-colored-bg">
+
+<BackgroundColorText 
+backgroundImageClass="background-image-first"
+/>
+
+<Section>
+<Quote 
+text="We must learn to live within the limits of nature and the Earth; and restorative agriculture can provide for all — the model of the small, diverse family farm out performs Big Ag’s monocultures every time."
+/>
+</Section>
+
+<div class="bg-white">
 <Section
 heading="Workshops that blow your mind"
 >
@@ -88,33 +102,36 @@ heading="Workshops that blow your mind"
 	textMid="Yes, we have fun together. We talk and joke around. Our aim is to make your day with us joyful."
 
 	imgMid={{
-		src:'/images/hands-on.jpg',
+		src:'/images/hands-on.webp',
 		alt:'Close up of hands dealing with soil'
 	}}
 
 	imgLeft={{
-		src:'/images/informative.jpg',
+		src:'/images/informative.webp',
 		alt:'Paphos Green Goddess owner Rachael is explaining'
 	}}
 
 	imgRight={{
-		src:'/images/fun.jpg',
+		src:'/images/fun.webp',
 		alt:'Workshop participant having fun'
 	}}
 	/>
 </div>
+<div class="flex-centered">
 <Button 
 button={{
 	text:'See our workshops',
 	ahref:'/workshops'
 }}
 />
+</div>
 </Section>
 </div>
 
-<div class="bg-third-color">
+<img class="full-screen-img" src="/images/fieldwork.webp" alt="Paphos Green Goddess shows her permaculture garden">
+
 <Section>
-<div class="grid  grid-2fr">
+<div class="grid  grid-2fr  items-align-center">
 	<div>
 	<h2>Join our tours at open day or in a private tour</h2>
 	<Paragraph
@@ -130,24 +147,27 @@ button={{
 	<img src="/images/group-of-people.webp"/>
 </div>
 </div>
-
 </Section>
+
+<div class="bg-third-color">
+	<TextOnBackground 
+	heading="A family-owned place"
+	text="Paphos Green Goddess is our home where we create a place for us to live close with nature and natural habitats for insects, snakes, bees and lizards. We focus on agriculture and sustainability. Located just outside the Paphos District village of Nikokleia, the certified organic site includes mature mango, olive, and avocado trees as well as over 1,000 vines for wine production.">
+	<Button 
+		button={{
+			text:'Get to know us',
+			ahref:'/about'
+		}}
+		buttonAlignClass="button--center"
+	/>
+	</TextOnBackground>
+	
 </div>
 
-<ImgText 
+<FullScreenImage 
 img={{
-	src:'/images/family.jpg',
-	alt:'The founder of Paphos Green Goddess walking towards the permaculture field'
-}}
-waveImg={{
-	src:'/images/bg-circle.svg',
-	alt:'A wave as overlay for the background image'
-}}
-heading="A family-owned place"
-text="Paphos Green Goddess is our home where we create a place for us to live close with nature and natural habitats for insects, snakes, bees and lizards. We focus on agriculture and sustainability. Located just outside the Paphos District village of Nikokleia, the certified organic site includes mature mango, olive, and avocado trees as well as over 1,000 vines for wine production."
-cta={{
-	href:'#',
-	text:'Get to know us'
+	src:'/images/family-home.webp',
+	alt:'The founder of Paphos Green Goddess picking strawberries while children are waiting'
 }}
 />
 
@@ -177,6 +197,7 @@ heading="A blog worth to read"
 			text:'Browse the blog',
 			ahref:'/blog'
 		}}
+		buttonAlignClass="button--center"
 	/>
 </Section>
 <Footer 

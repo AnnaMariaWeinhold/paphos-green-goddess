@@ -5,8 +5,16 @@ import MainLayout from "../layouts/MainLayout.astro";
 ---
 
 <MainLayout
-title="Registration"
+title="Registration for Tours"
 description="Please send us email to register for tours or workshops."
+opengraph={{
+	title:'Registration for Tours',
+	url:'https://www.paphosgreengoddes.com/registration-for-tours/',
+	image:'https://www.paphosgreengoddes.com/images/tour.webp',
+	type:'website',
+	description:'Register for a tour at Paphos Green Goddess',
+	locale:'en'
+}}
 >
 <RegistrationForm 
 heading="Please register here for a tour"

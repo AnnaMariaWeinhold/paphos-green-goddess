@@ -1,0 +1,13 @@
+---
+const { img } = Astro.props;
+---
+
+<div class="full-screen-image">
+    <img src={ img.src } alt={ img.alt } />
+</div>
+
+<style>
+   .full-screen-img {
+		margin: 60px 0 0 0;
+	}
+</style>

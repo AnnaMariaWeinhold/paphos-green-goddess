@@ -29,11 +29,19 @@ export async function getStaticPaths() {
     .filter(Boolean);
 }
 
-const { title, body, mainImage, author, publishedAt } = Astro.props;
+const { title, description, body, mainImage, author, publishedAt } = Astro.props;
 ---
 <MainLayout
-title="Water harvesting in Cyprus"
-description="XXX"
+title={ title }
+description={ description }
+opengraph={{
+	title:'',
+	url:'',
+	image:'',
+	type:'content',
+	description:'',
+	locale:'en'
+}}
 >
 <h1 class="post__title">{title}</h1>
 <div class="post__details">
@@ -50,7 +58,7 @@ description="XXX"
     )
   } 
   </div>
-  <div class="mid">
+  <div class="blog__wrapper">
   <PortableText portableText={body} />
   </div>
   <Footer 
@@ -83,7 +91,7 @@ description="XXX"
   border-radius: 30% 40% 40% 40%;
 }
 
-.mid {
+.blog__wrapper {
   margin: 0 auto;
   max-width: 730px;
 }

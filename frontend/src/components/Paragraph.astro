@@ -2,7 +2,7 @@
 const { text } = Astro.props;
 ---
 
-<p class="paragraph">{ text }</p>
+<p set:html={text} class="paragraph"/>
 
 <style>
     .paragraph {

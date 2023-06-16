@@ -1,0 +1,57 @@
+---
+
+---
+<div class="background-image">
+<div class="background-color">
+    <div class="colored-background__container">
+        <div class="colored-background__heading">
+        <h2>All of us feel the changes in our environment.</h2>
+        </div>
+        <div>
+        <p>Summers are warmer, winters are drier. Fewer birds fill the air with their song. Floods and wildfires dominate the news, elbowing aside rumours of war, and tales of migration. Discarded plastic lines our roadsides. Insects no longer splatter against our windshields during summer drives. And from every speaker, every billboard, every screen blasts the message “Buy, buy, Buy!"</p> 
+        </div>
+        <div>
+        <p>It’s easy to feel powerless, alone, unheard. To think one’s actions inconsequential in the face of pollution, habitat loss, extinction. But we are not alone. Millions of us feel the dissonance of these tumultuous times. And millions can make a difference.</p>
+        </div>
+    </div>
+</div>
+</div>
+
+<style>
+
+    .background-image {
+        background-image: url(/images/dry-earth.webp);
+        background-repeat: no-repeat;
+        background-position: center;
+        z-index: -1;
+    }
+
+    .background-color {
+        background-color: var(--text-color);
+        padding: 60px 24px;
+        display: grid;
+        opacity: 0.94;
+    }
+
+    .colored-background__container {     
+        color: #fff;
+        max-width: 730px;
+        margin: 0 auto;
+        display: grid;
+        gap: 2em;
+        grid-template-columns: 1fr;
+    }
+
+
+
+    @media only screen and (min-width: 40em) {
+        .colored-background__container{
+        grid-template-columns: auto auto;
+        }
+
+        .colored-background__heading {
+        grid-column: 1/3;
+        }
+    }
+    
+</style>

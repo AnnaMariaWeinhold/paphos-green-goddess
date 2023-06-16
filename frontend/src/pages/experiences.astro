@@ -6,14 +6,22 @@ import Footer from "../components/Footer.astro";
 ---
 
 <MainLayout
-title="Experience at Paphos Green Goddess"
-description="XXX"
+title="Experiences at Paphos Green Goddess"
+description="You want to learn how to make wine or help harvesting olives while you are in Cyprus. You can do both at Paphos Green Goddess. Contact us."
+opengraph={{
+	title:'Experiences at Paphos Green Goddess',
+	url:'https://www.paphosgreengoddes.com/experiences/',
+	image:'https://www.paphosgreengoddes.com/images/heroshot-experiences.webp',
+	type:'website',
+	description:'Help harvesting olives and making wine.',
+	locale:'en'
+}}
 >
 
 
 <HeroShot 
 img={{
-	src:'/images/heroshot-experiences.jpg',
+	src:'/images/heroshot-experiences.webp',
 	alt:'Olive branch and blue sky'
 }}
 waveImg={{
@@ -23,7 +31,7 @@ waveImg={{
 heading="Experience permaculture hands-on"
 text="We offer experiences with wine making and the olive harvest during the appropriate seasons. Grape picking and winemaking take place three or four times during the summer and involve and early start to bring in the grapes. The olives are harvested in late November, usually on the last weekend of the month, and are taken to a local certified organic mill the same afternoon. Please contact us for all details relating to experiences as times and dates are often set the week prior."
 cta={{
-	href:'#',
+	href:'/contact',
 	text:'Contact us'
 }}
 />

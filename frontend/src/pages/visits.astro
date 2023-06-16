@@ -6,17 +6,27 @@ import Section from "../components/Section.astro";
 import Spacer from "../components/Spacer.astro";
 import Button from "../components/Button.astro";
 import ProductCard from "../components/ProductCard.astro";
+import Footer from "../components/Footer.astro";
+import FullScreenImage from "../components/FullScreenImage.astro";
 ---
 
 <MainLayout
-title="Paphos Green Goddess"
-description="Where you learn how to ...XXX"
+title="Visits at Paphos Green Goddess"
+description="You want to see a permaculture garden and field in Cyprus. Paphos Green Goddess offers free and private tours."
+opengraph={{
+	title:'Visits at Paphos Green Goddess',
+	url:'https://www.paphosgreengoddes.com/visits/',
+	image:'https://www.paphosgreengoddes.com/images/heroshot-tours.webp',
+	type:'website',
+	description:'See permaculture design: Visit Paphos Green Goddess.',
+	locale:'en'
+}}
 >
 
 
 <HeroShot 
 img={{
-	src:'/images/heroshot-tours.jpg',
+	src:'/images/heroshot-tours.webp',
 	alt:'The founder of Paphos Green Goddess explaining the field'
 }}
 waveImg={{
@@ -26,12 +36,12 @@ waveImg={{
 heading="Get to know our place and methods"
 text="On our tours and open days you will see how we have set everything up."
 cta={{
-	href:'#',
+	href:'/registration-for-tours',
 	text:'Register for the next tour'
 }}
 />
 <Spacer />
-<div class="bg-white  padding-colored-bg">
+<div class="bg-white">
 <Section
 heading="This is how we make your visit special"
 >
@@ -62,17 +72,17 @@ heading="This is how we make your visit special"
 	textMid="Other local natural practitioners including foragers and wild-crafters, specialists in essential oils, gardeners, and physiotherapists often take part, leading talks and mini-workshops, and helping to make the event a multi-faceted introduction to sustainable practices in the Paphos area."
 
 	imgMid={{
-		src:'/images/rachael-in-the-field.jpg',
+		src:'/images/rachael-in-the-field.webp',
 		alt:'Paphos Green Goddess explaining the field'
 	}}
 
 	imgLeft={{
-		src:'/images/family-in-the-field.jpg',
+		src:'/images/family-in-the-field.webp',
 		alt:'Paphos Green Goddess owner Rachael is explaining'
 	}}
 
 	imgRight={{
-		src:'/images/woman-talks.jpg',
+		src:'/images/woman-talks.webp',
 		alt:'Expert is explaining'
 	}}
 	/>
@@ -80,6 +90,12 @@ heading="This is how we make your visit special"
 </Section>
 </div>
 
+<FullScreenImage 
+img={{
+	src:"/images/tour.webp",
+	alt:"Visitors get to see the worms"
+}}
+/>
 
 <Section
 heading="You have got two options to visit Paphos Green Goddess"
@@ -114,9 +130,14 @@ heading="You have got two options to visit Paphos Green Goddess"
 <Button 
 button={{
 	text:'Go on a tour with us',
-	ahref:'#'
+	ahref:'/registration-for-tours'
 }}
+buttonAlignClass="button--center"
 />
 </Section>
-
+<Footer 
+	facebook="https://www.facebook.com/sharer/sharer.php?u=https://paphosgreengoddess.com/visits/"
+	instagram="https://twitter.com/share?url=https://paphosgreengoddess.com/visits/"
+	linkedIn="https://www.linkedin.com/shareArticle?mini=true&url=https://paphosgreengoddess.com/visits/"
+/>
 </MainLayout>
