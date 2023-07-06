@@ -17,14 +17,24 @@ const { heading } = Astro.props;
         height: 60px;
     }
 
-    @media only screen and (min-width: 60em) {
+    @media only screen and (min-width: 50em) {
     .spacer {
-        height: 60px;
+        height: 0;
+    }
+
+    @media only screen and (min-width: 70em) {
+    .spacer {
+        height: 40px;
     }
 
     @media only screen and (min-width: 80em) {
     .spacer {
-        height: 132px;
+        height: 80px;
+    }
+
+    @media only screen and (min-width: 90em) {
+    .spacer {
+        height: 120px;
     }
 }
 </style>

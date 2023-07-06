@@ -34,7 +34,7 @@ waveImg={{
 	alt:'A wave as overlay for the background image'
 }}
 heading="Get to know our place and methods"
-text="On our tours and open days you will see how we have set everything up."
+text="On our tours and open days you will see how we work. Next open day: <strong>24.09.2023</strong>"
 cta={{
 	href:'/registration-for-tours',
 	text:'Register for the next tour'
@@ -53,7 +53,7 @@ heading="This is how we make your visit special"
 		width:'50'
 	}}
 	headingLeft="Personal"
-	textLeft="Paphos Green Goddess herself guides you. You have the opportunity to ask questions relating to the systems on the site from rainwater collection to site planning, composting, vermiculture, and poultry care."
+	textLeft="Paphos Green Goddess fitts many talents: Landscaping, wine making, composting, animal husbandry are among the fields that we practice. You have the opportunity to ask questions relating to the systems on the site from rainwater collection to site planning, composting, vermiculture, and poultry care."
 
 	iconRight={{
 		src:'/images/group.svg',
@@ -61,7 +61,7 @@ heading="This is how we make your visit special"
 		width:'70'
 	}}
 	headingRight="Family friendly"
-	textRight="Children enjoy the chance to interact with animals including dogs, cats, chickens, worms, and a donkey, and to climb on the sturdier trees in the orchard."
+	textRight="Children enjoy the chance to interact with animals including dogs, cats, chickens, worms, and a donkey, and to climb on the sturdier trees in the orchard. They learn outside the classroom."
 
 	iconMid={{
 		src:'/images/forms.svg',
@@ -69,7 +69,7 @@ heading="This is how we make your visit special"
 		width:'50'
 	}}
 	headingMid="Multi-faceted"
-	textMid="Other local natural practitioners including foragers and wild-crafters, specialists in essential oils, gardeners, and physiotherapists often take part, leading talks and mini-workshops, and helping to make the event a multi-faceted introduction to sustainable practices in the Paphos area."
+	textMid="Our open days attract other local natural practitioners including foragers and wild-crafters, specialists in essential oils, gardeners, and physiotherapists often take part, leading talks and mini-workshops, and helping to make the event a multi-faceted introduction to sustainable practices in the Paphos area."
 
 	imgMid={{
 		src:'/images/rachael-in-the-field.webp',
@@ -98,9 +98,9 @@ img={{
 />
 
 <Section
-heading="You have got two options to visit Paphos Green Goddess"
+heading="There are three ways to visit Paphos Green Goddess"
 >
-<div class="grid  grid-2fr">
+<div class="grid  grid-3fr">
 	<ProductCard 
 	heading="Private tours"
 	description="30 € per Person"
@@ -126,18 +126,30 @@ heading="You have got two options to visit Paphos Green Goddess"
 	]}
 	backgroundColorClass="second-color"
 	/>
+
+	<ProductCard 
+	heading="Workshop"
+	description="30 € per Person"
+	listItems={[
+		"Open days are hold on Sunday closest to the equinoxes and solstices: March 21st, June 21st, September 21, and December 21.",
+		"The mid-summer Open Day is a morning event.",
+		"The event spans midday, typically lasting from 10 until 2, with participants welcomed throughout the four hours.",
+		"Snacks and drinks are free.",
+		"You have the chance to buy Paphos Green Goddess products."
+	]}
+	backgroundColorClass="third-color"
+	/>
 </div>
 <Button 
 button={{
 	text:'Go on a tour with us',
-	ahref:'/registration-for-tours'
+	href:'/registration-for-tours'
 }}
 buttonAlignClass="button--center"
 />
 </Section>
 <Footer 
 	facebook="https://www.facebook.com/sharer/sharer.php?u=https://paphosgreengoddess.com/visits/"
-	instagram="https://twitter.com/share?url=https://paphosgreengoddess.com/visits/"
 	linkedIn="https://www.linkedin.com/shareArticle?mini=true&url=https://paphosgreengoddess.com/visits/"
 />
 </MainLayout>

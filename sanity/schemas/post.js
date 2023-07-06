@@ -6,6 +6,16 @@ export default defineType({
   type: 'document',
   fields: [
     defineField({
+      name: 'author',
+      title: 'Author',
+      type: 'string',
+    }),
+    defineField({
+      name: 'readingTime',
+      title: 'Reading Time',
+      type: 'string',
+    }),
+    defineField({
       name: 'title',
       title: 'Title',
       type: 'string',
@@ -26,12 +36,6 @@ export default defineType({
         source: 'title',
         maxLength: 96,
       },
-    }),
-    defineField({
-      name: 'author',
-      title: 'Author',
-      type: 'reference',
-      to: {type: 'author'},
     }),
     defineField({
       name: 'mainImage',

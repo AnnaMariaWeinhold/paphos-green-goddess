@@ -29,7 +29,7 @@ export async function getStaticPaths() {
     .filter(Boolean);
 }
 
-const { title, description, body, mainImage, author, publishedAt } = Astro.props;
+const { title, description, body, mainImage, author, publishedAt, readingTime } = Astro.props;
 ---
 <MainLayout
 title={ title }
@@ -43,13 +43,15 @@ opengraph={{
 	locale:'en'
 }}
 >
+<div class="blog__wrapper">
 <h1 class="post__title">{title}</h1>
 <div class="post__details">
-  <p>{ author }</p>
+  <p class="post__author">{ author }</p>
   <p>{new Date(publishedAt).toLocaleDateString('de-DE')}</p>
+  <p class="post__read">{ readingTime }</p>
   <a href=""><i class="icofont-facebook  icofont-lg"></i></a>
-  <a href=""><i class="icofont-instagram  icofont-lg"></i></a>
   <a href=""><i class="icofont-linkedin  icofont-lg"></i></a>
+</div>
 </div>
 <div class="featured-img__container">
   {
@@ -62,17 +64,26 @@ opengraph={{
   <PortableText portableText={body} />
   </div>
   <Footer 
-	facebook="https://www.facebook.com/sharer/sharer.php?u=https://paphosgreengoddess.com/"
-	instagram="https://twitter.com/share?url=https://paphosgreengoddess.com/"
-	linkedIn="https://www.linkedin.com/shareArticle?mini=true&url=https://paphosgreengoddess.com/"
+	facebook=`https://www.facebook.com/sharer/sharer.php?u=${Astro.url.toString()}`
+	linkedIn=`https://www.linkedin.com/shareArticle?mini=true&url=${Astro.url.toString()}`
 />
 </MainLayout>
 
-<style>
+<style is:inline>
+  .post__author {
+    font-weight: 500;
+  }
+
+.post__read {
+  border: 2px solid var(--second-color);
+  padding: 0.6em;
+  border-radius: 30% 40% 40% 40%;
+}
+
+
 .post__title {
   text-align: center;
   margin-top: 1.5em;
-  margin-bottom: 12px;
 }
 
 .post__details {
@@ -80,12 +91,11 @@ opengraph={{
   justify-content: center;
   gap: 1em;
   align-items: center;
-  margin-top: 12px;
 }
 
 .post__featured-img {
   width: 50%;
-  margin: 4em auto;
+  margin: 2em auto;
   display: flex;
   align-self: center;
   border-radius: 30% 40% 40% 40%;
@@ -94,5 +104,18 @@ opengraph={{
 .blog__wrapper {
   margin: 0 auto;
   max-width: 730px;
+}
+
+h2 {
+  margin: 2.6em 0 1em 0;
+}
+
+p {
+  margin: 2em 0;
+}
+
+.icofont-facebook,
+.icofont-linkedin {
+  color: var(--second-color);
 }
 </style>

@@ -11,9 +11,9 @@ const { img, date, category, title, description, link } = Astro.props;
         )}
     <div class="blog-card__meta">
         <p class="date">{ date }</p>
-        <p class="category">{ category }</p>
+        <h6 class="category">{ category }</h6>
     </div>
-    <h3 class="blog-card__heading">{ title }</h3>
+    <h4 class="blog-card__heading">{ title }</h4>
     <p class="blog-card__description">{ description }</p>
     { link &&
         (
@@ -47,8 +47,6 @@ const { img, date, category, title, description, link } = Astro.props;
     }
 
     .category {
-        text-transform: uppercase;
-		font-size: var(--fs-xs);
         color: var(--main-color);  
 		font-weight: 500; 
     }

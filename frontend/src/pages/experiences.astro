@@ -2,6 +2,8 @@
 import MainLayout from "../layouts/MainLayout.astro";
 import HeroShot from "../components/HeroShot.astro";
 import Spacer from "../components/Spacer.astro";
+import Section from "../components/Section.astro";
+import Benefits from "../components/Benefits.astro";
 import Footer from "../components/Footer.astro";
 ---
 
@@ -29,16 +31,63 @@ waveImg={{
 	alt:'A wave as overlay for the background image'
 }}
 heading="Experience permaculture hands-on"
-text="We offer experiences with wine making and the olive harvest during the appropriate seasons. Grape picking and winemaking take place three or four times during the summer and involve and early start to bring in the grapes. The olives are harvested in late November, usually on the last weekend of the month, and are taken to a local certified organic mill the same afternoon. Please contact us for all details relating to experiences as times and dates are often set the week prior."
+text="We offer experiences with wine making and the olive harvest during the appropriate seasons. Please contact us for all details relating to experiences as times and dates are often set the week prior."
 cta={{
 	href:'/contact',
 	text:'Contact us'
 }}
 />
 <Spacer />
+<div class="bg-white">
+	<Section
+	heading="Experience agriculture in Cyprus"
+	>
+	<div class="grid  grid-3fr">
+		<Benefits 
+		iconLeft={{
+			src:'/images/grapes.svg',
+			alt:'Grapes icon',
+			width:'50'
+		}}
+		headingLeft="Wine making"
+		textLeft="Grape picking and winemaking take place three or four times during the summer and involve and early start to bring in the grapes."
+	
+		iconRight={{
+			src:'/images/olives.svg',
+			alt:'Olives icon',
+			width:'70'
+		}}
+		headingRight="Olive oil"
+		textRight="The olives are harvested in late November, usually on the last weekend of the month, and are taken to a local certified organic mill the same afternoon."
+	
+		iconMid={{
+			src:'/images/chicken.svg',
+			alt:'Chicken icon',
+			width:'70'
+		}}
+		headingMid="Explore rural lifestyle"
+		textMid="Lorem ipsum"
+	
+		imgMid={{
+			src:'/images/grapes.webp',
+			alt:'Grapes'
+		}}
+	
+		imgLeft={{
+			src:'/images/olives.webp',
+			alt:'Olives hanging on a tree'
+		}}
+	
+		imgRight={{
+			src:'/images/rural.webp',
+			alt:'The field of Paphos Green Goddess'
+		}}
+		/>
+	</div>
+	</Section>
+	</div>
 <Footer 
 	facebook="https://www.facebook.com/sharer/sharer.php?u=https://paphosgreengoddess.com/experiences/"
-	instagram="https://twitter.com/share?url=https://paphosgreengoddess.com/experiences/"
 	linkedIn="https://www.linkedin.com/shareArticle?mini=true&url=https://paphosgreengoddess.com/experiences/"
 />
 </MainLayout>

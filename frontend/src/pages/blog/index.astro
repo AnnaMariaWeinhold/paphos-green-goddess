@@ -28,8 +28,8 @@ waveImg={{
 	src:'/images/wave.svg',
 	alt:'A wave as overlay for the background image'
 }}
-heading="We all have just one planet. Lets build a system that flourishes."
-text="In this blog we will look at the principles of permaculture including obstacles, how to overcome those and in long-term plans that have the potential to yield in surprising ways. We will also look at what permaculture is not, and pick apart some of the greenwashing that has been slopped over the ‘business as usual’ paradigm to make it seem less destructive and more appealing."
+heading="We all have just one planet."
+text="Lets build a system that flourishes. In this blog we will look at the principles of permaculture and how they can help building a sustainable and resilient system."
 />
 <Spacer />
 <div class="bg-white">
@@ -46,11 +46,11 @@ text="In this blog we will look at the principles of permaculture including obst
                                 <img class="blog-card__img" src={urlForImage(post.mainImage).url()}  alt={ post.alt }>
                             <div class="blog-card__meta">
                                 <p class="date">{ new Date(post.publishedAt).toLocaleDateString("de-DE")}</p>
-                                {Array.isArray(post.categories) && <p class="category">{ post.categories.map((category) => { 
+                                {Array.isArray(post.categories) && <h6 class="category">{ post.categories.map((category) => { 
                                     return <span>{ category.title || ''}</span>
-                                }) }</p>}
+                                }) }</h6>}
                             </div>
-                            <h3 class="blog-card__heading">{ post.title }</h3>
+                            <h4 class="blog-card__heading">{ post.title }</h4>
                             <p class="blog-card__description">{ post.description }</p>
                             <a class="blog-card__link" href={`blog/${post.slug.current}`}>Read more</a>
                             </a>
@@ -74,7 +74,7 @@ text="In this blog we will look at the principles of permaculture including obst
 <style>
     ul {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: 1fr;
         gap: 3em;
     }
 
@@ -138,5 +138,17 @@ text="In this blog we will look at the principles of permaculture including obst
 
     .blog-card__link:hover {
         box-shadow: inset 0 -4.25em 0 0 var(--hover-color);
+    }
+
+    @media only screen and (min-width: 40em) {
+        ul {
+        grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media only screen and (min-width: 60em) {
+        ul {
+        grid-template-columns: repeat(3, 1fr);
+        }
     }
 </style>
