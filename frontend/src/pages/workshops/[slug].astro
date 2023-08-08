@@ -19,8 +19,6 @@ import FullScreenImage from '../../components/FullScreenImage.astro';
 
 export async function getStaticPaths() {
   const workshops = await useSanityClient().fetch(`*[_type == "workshop"]`);
-
-  console.log(workshops);
   return workshops
     .map((workshop) => {
       return workshop.slug?.current
