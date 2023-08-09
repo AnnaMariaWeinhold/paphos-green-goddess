@@ -23,7 +23,7 @@ if (array_key_exists('email', $_POST)) {
 
     $from = 'info@paphosgreengoddess.com';
 
-    // $mail->addAddress('rachael.pettus@gmail.com');
+    // $to = 'rachael.pettus@gmail.com';
     $to = 'anna.maria.weinhold@posteo.de';
     $subject = 'Registration for a Workshop or Tour';
 
