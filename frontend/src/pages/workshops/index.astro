@@ -61,11 +61,11 @@ heading="See all our workshops">
 			{workshop.mainImage && <a href={`/workshops/${workshop.slug.current}`}>
 			<img class="workshop__img" src={workshop.mainImage.asset.url} alt={ workshop.mainImage.altTag || '' } /></a>}
 			<a href="#" class="workshop__category">{(workshop.category || []).map((c) => <>{c.title} </>)}</a> 
-			<a href={`workshops/${workshop.slug.current}`}>
+			<a href={`/workshops/${workshop.slug.current}`}>
 			<h3 class="workshop__heading">{workshop.title}</h3></a>
 			</li>            
 			<p class="workshop__text">{workshop.description}</p>
-			<a class="workshop__link" href={`workshops/${workshop.slug.current}`}>See more details</a>       
+			<a class="workshop__link" href={`/workshops/${workshop.slug.current}`}>See more details</a>       
 		</div>
     ))}
 </ul>}
