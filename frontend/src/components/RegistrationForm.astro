@@ -11,27 +11,76 @@ const { heading, text, option, option1, option2, option3, option4, option5 = "",
 
 <form class="form__container">
         <label class="form__label" for="name">Your name</label>
-        <input class="form__input" id="name" name="name" required>
+        <input class="form__input" type="text" id="name" name="name" required>
         <label class="form__label" for="email">Your email</label>
-        <input class="form__input" id="email" name="email" required>
+        <input class="form__input" type="email" id="email" name="email" required>
         <h4 class="form__label">{ option }</h4>
         <div class="form__select">
-            <select>
+            <select name="selectedOption">
                 <option value="">Choose from the list</option>
-                <option value="">{ option1 }</option>
-                <option value="">{ option2 }</option>
-                <option value="">{ option3 }</option>
-                <option value="">{ option4 }</option>
-                <option value="">{ option5 }</option>
-                <option value="">{ option6 }</option>
+                <option value={option1}>{ option1 }</option>
+                <option value={option2}>{ option2 }</option>
+                <option value={option3}>{ option3 }</option>
+                <option value={option4}>{ option4 }</option>
+                <option value={option5}>{ option5 }</option>
+                <option value={option6}>{ option6 }</option>
             </select>
             <span class="form__arrow"><i class="icofont-rounded-down"></i></span>
         </div>
         <label class="form__label" for="message">Anything you want to tell us?</label>
         <textarea class="form__input" id="message" name="message"></textarea>
-        <input class="form__button" type="submit" value="Submit">
+        <p id="registration-response"></p>
+        <input class="form__button" type="submit" id="submit" value="Submit">
 </form>
+<script>
+    const form = document.querySelector("form");
+    const submitButton = document.querySelector("#submit");
+    const registrationResponse = document.querySelector("#registration-response");
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      submitButton.disabled = true;
+      const formData = new FormData(e.currentTarget);
+      fetch("/email-registration-workshop-and-tours/", {
+        method: "POST",
+        body: formData,
+      })
+        .then((response) => {
+          registrationResponse.classList.remove(...registrationResponse.classList);
+          if (response.status === 201) {
+            registrationResponse.innerText = "Thank you for your registration!";
+            registrationResponse.classList.add("success");
+            form.reset(); 
+          } else if (response.status === 400) {
+            registrationResponse.innerText = "Please tell us your email address.";
+            registrationResponse.classList.add("error");
+          } else if (response.status === 500 || response.status === 404) {
+            registrationResponse.innerText = "Something went wrong sending your registration...";
+            registrationResponse.classList.add("error");
+          }
+        })
+        .catch((response) => {
+          registrationResponse.innerText = "Something went wrong sending your registration...";
+          registrationResponse.classList.add("error");
+        })
+        .finally(() => {
+          submitButton.disabled = false;
+        });
+    });
+  </script>
 </div>
+
+<style is:inline>
+    #registration-response {
+        display: none;
+    }
+    #registration-response.success,
+    #registration-response.error {
+        display: block;
+        color: white;
+        font-weight: bold;
+    }
+</style>
 
 <style>
 
@@ -155,6 +204,11 @@ const { heading, text, option, option1, option2, option3, option4, option5 = "",
         border: none;
         width: 50%;
         margin: auto;
+        cursor: pointer;
+    }
+
+    .form__button:disabled {
+        cursor: not-allowed;
     }
 
     .form__button:hover {

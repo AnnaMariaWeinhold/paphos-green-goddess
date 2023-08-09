@@ -11,12 +11,62 @@ const { heading, text } = Astro.props;
 
 <form class="form__container">
         <label class="form__label" for="email">Your email</label>
-        <input class="form__input" id="email" name="email">
+        <input class="form__input" type="email" id="email" name="email" required>
         <label class="form__label" for="message">Your message</label>
         <textarea class="form__input" id="message" name="message" ></textarea>
-        <input class="form__button" type="submit" value="Submit">
+        <p id="form-response"></p>
+        <input class="form__button" id="submit" type="submit" value="Submit">
 </form>
+<script>
+    const form = document.querySelector("form");
+    const submitButton = document.querySelector("#submit");
+    const formResponse = document.querySelector("#form-response");
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      submitButton.disabled = true;
+      const formData = new FormData(e.currentTarget);
+      fetch("/contact-form-handler/", {
+        method: "POST",
+        body: formData,
+      })
+        .then((response) => {
+          formResponse.classList.remove(...formResponse.classList);
+          if (response.status === 201) {
+            formResponse.innerText = "We received your message. Thank you very much! We'll be in touch!";
+            formResponse.classList.add("success");
+            form.reset(); 
+          } else if (response.status === 400) {
+            formResponse.innerText = "Please tell us your email address.";
+            formResponse.classList.add("error");
+          } else if (response.status === 500 || response.status === 404) {
+            formResponse.innerText = "Something went wrong sending your registration...";
+            formResponse.classList.add("error");
+          }
+        })
+        .catch((response) => {
+          formResponse.innerText = "Something went wrong sending your registration...";
+          formResponse.classList.add("error");
+        })
+        .finally(() => {
+          submitButton.disabled = false;
+        });
+    });
+  </script>
+
 </div>
+
+<style is:inline>
+    #form-response {
+        display: none;
+    }
+    #form-response.success,
+    #form-response.error {
+        display: block;
+        color: white;
+        font-weight: bold;
+    }
+</style>
 
 <style>
 
@@ -89,6 +139,11 @@ const { heading, text } = Astro.props;
         border: none;
         width: 50%;
         margin: auto;
+        cursor: pointer;
+    }
+
+    .form__button:disabled {
+        cursor: not-allowed;
     }
 
     .form__button:hover {

@@ -42,7 +42,7 @@ text="Lets build a system that flourishes. In this blog we will look at the prin
                     <div class="container">
                     <li>
                         <div class="blog-card__container">
-                            <a href={`blog/${post.slug.current}`}>
+                            <a href={`/blog/${post.slug.current}`}>
                                 <img class="blog-card__img" src={urlForImage(post.mainImage).url()}  alt={ post.alt }>
                             <div class="blog-card__meta">
                                 <p class="date">{ new Date(post.publishedAt).toLocaleDateString("de-DE")}</p>
@@ -52,7 +52,7 @@ text="Lets build a system that flourishes. In this blog we will look at the prin
                             </div>
                             <h4 class="blog-card__heading">{ post.title }</h4>
                             <p class="blog-card__description">{ post.description }</p>
-                            <a class="blog-card__link" href={`blog/${post.slug.current}`}>Read more</a>
+                            <a class="blog-card__link" href={`/blog/${post.slug.current}`}>Read more</a>
                             </a>
                         </div>
                     </li>
