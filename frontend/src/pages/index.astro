@@ -13,6 +13,7 @@ import TextOnBackground from "../components/TextOnBackground.astro";
 import FullScreenImage from "../components/FullScreenImage.astro"
 import BackgroundColorText from "../components/BackgroundColorText.astro";
 import Quote from "../components/Quote.astro";
+import Testimonials from "../components/Testimonials.astro";
 
 // Fetch the posts order by date and pick latest 3 and expand all references to category
 const posts = await useSanityClient().fetch(`*[_type == "post"][0..3]{
@@ -52,7 +53,7 @@ waveImg={{
 	src:'/images/wave.svg',
 	alt:'A wave as overlay for the background image'
 }}
-heading="Learn about permaculture in Cyprus"
+heading="Experience permaculture in Cyprus..."
 text="Paphos Green Goddess is a permaculture family home that is feeling its way toward a more sustainable, resilient, and restorative lifestyle. We want to share the lessons we have learned and the insights we have gained."
 cta={{
 	href:'/workshops',
@@ -73,7 +74,7 @@ text="We must learn to live within the limits of nature and the Earth; and resto
 
 <div class="bg-white">
 <Section
-heading="Workshops that blow your mind"
+heading="Workshops that inspire..."
 >
 <div class="grid  grid-3fr">
 	<Benefits 
@@ -147,6 +148,18 @@ button={{
 	<img src="/images/group-of-people.webp"/>
 </div>
 </div>
+</Section>
+
+<Section>
+	<Testimonials 
+	imgAuthor={{
+		src:'/images/lauren-laurien.webp',
+		alt:'Lauren and Laurien'
+	}}
+	quote="We attended a workshop with Rachael about permaculture and using recycled materials to grow seedlings. We learnt so much from Rachael- she is so knowledgeable and explains everything so clearly. So children and adults can both benefit. We loved exploring her amazing gardens and took so much inspiration from her. Would totally recommend these workshops for anyone interested in permaculture, no matter what age you are!"
+	author="Lauren & Laurien"
+	subtext="Self Watering Plant Workshop"
+	/>
 </Section>
 
 <div class="bg-third-color">

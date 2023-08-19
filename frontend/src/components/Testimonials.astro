@@ -1,0 +1,64 @@
+---
+const { imgAuthor, quote, author, subtext } = Astro.props;
+---
+
+<div class="testimonial__container">
+    
+    <img class="testimonial__icon" src="/images/quote.svg" width="50"/>
+
+    <blockquote class="testimonial__quote">{quote}</blockquote>
+    <div class="testimonial__author-container">
+        <div>
+    { imgAuthor &&
+        (<img class="testimonial__author-img" width="50" src={ imgAuthor.src } alt={ imgAuthor.alt }/>)
+        }
+        </div>
+        <div>
+    <p class="testimonial__author">{ author }</p>
+    <p class="testimonial__subtext">{ subtext }</p>
+</div>
+</div>
+</div>
+
+<style>
+
+    .testimonial__icon {
+        margin-bottom: 1em;
+    }
+
+.testimonial__container {
+    border-radius: var(--border-radius);
+    padding: 1.8em;
+    background-color: #fff;
+}
+
+.testimonial__author-img {
+    margin-bottom: 0.4em;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+}
+
+.testimonial__author-container {
+    display: grid;
+    grid-template-columns: 10% 90%;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1.6em;
+
+}
+
+.testimonial__quote {
+    font-size: var(--fs-300);
+}
+
+.testimonial__author {
+    font-size: var(--fs-xs);
+    font-weight: bold;
+}
+
+.testimonial__subtext {
+    font-size: var(--fs-xs);
+}
+
+</style>
