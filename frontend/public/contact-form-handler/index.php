@@ -21,9 +21,8 @@ if (array_key_exists('email', $_POST)) {
 
     $from = 'info@paphosgreengoddess.com';
 
-    // $to = 'rachael.pettus@gmail.com';
-    $to = 'anna.maria.weinhold@posteo.de';
-    $subject = 'Message from the contact form';
+    $to = 'rachael.pettus@gmail.com';
+    $subject = 'Message from the contact form on paphosgreengoddess.com';
 
     
     $mailBody = "
