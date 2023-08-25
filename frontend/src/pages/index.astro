@@ -14,6 +14,8 @@ import FullScreenImage from "../components/FullScreenImage.astro"
 import BackgroundColorText from "../components/BackgroundColorText.astro";
 import Quote from "../components/Quote.astro";
 import Testimonials from "../components/Testimonials.astro";
+import EventCard from "../components/EventCard.astro";
+import Newsletter from "../components/Newsletter.astro";
 
 // Fetch the posts order by date and pick latest 3 and expand all references to category
 const posts = await useSanityClient().fetch(`*[_type == "post"][0..3]{
@@ -54,13 +56,85 @@ waveImg={{
 	alt:'A wave as overlay for the background image'
 }}
 heading="Experience permaculture in Cyprus..."
-text="Paphos Green Goddess is a permaculture family home that is feeling its way toward a more sustainable, resilient, and restorative lifestyle. We want to share the lessons we have learned and the insights we have gained."
+text="Paphos Green Goddess works out of a family home that is feeling its way toward a more sustainable, resilient, and restorative lifestyle. Here we share the lessons we have learned and the insights we have gained."
 cta={{
 	href:'/workshops',
 	text:'See our workshops'
 }}
 />
 <Spacer />
+
+<Section
+heading="Upcoming events"
+headingMarginClass="section__heading-margin--large"
+>
+<div class="grid  grid-4fr">
+<EventCard 
+month="August"
+date="26"
+weekDay="Saturday"
+time="7:30am to 11am"
+eventName="Grape Picking"
+event="Experience"
+button={{
+	text:'Contact us',
+	href:'/contact'
+}}
+backgroundColorClass="experience-color"
+/>
+
+<EventCard 
+month="September"
+date="3"
+weekDay="Sunday"
+time="9am to 12pm"
+eventName="Carob - The Black Gold"
+event="workshop"
+button={{
+	text:'Contact us',
+	href:'/contact'
+}}
+backgroundColorClass="workshop-color"
+/>
+
+<EventCard 
+month="September"
+date="5"
+weekDay="Tuesday"
+time="9am to 12pm"
+eventName="Carob - The Black Gold"
+event="workshop"
+button={{
+	text:'Contact us',
+	href:'/contact'
+}}
+backgroundColorClass="workshop-color"
+/>
+
+<EventCard 
+month="September"
+date="24"
+weekDay="Sunday"
+time="10am to 2pm"
+eventName="Open Day"
+event="Tour"
+button={{
+	text:'Contact us',
+	href:'/contact'
+}}
+backgroundColorClass="tour-color"
+/>
+
+</div>
+<div class="flex-centered">
+<Button 
+button={{
+	text:'See calendar',
+	href:'/calendar'
+}}
+/>
+</div>
+</Section>
 
 <BackgroundColorText 
 backgroundImageClass="background-image-first"
@@ -84,7 +158,7 @@ heading="Workshops that inspire..."
 		width:'50'
 	}}
 	headingLeft="Hands-on"
-	textLeft="In our workshops you use your hands because this is how you will learn and remember."
+	textLeft="In our workshops you use your hands: it is the best way to learn and remember."
 
 	iconRight={{
 		src:'/images/info.svg',
@@ -92,7 +166,7 @@ heading="Workshops that inspire..."
 		width:'14'
 	}}
 	headingRight="Informative"
-	textRight="You will gain practical knowledge and first-hand experiences."
+	textRight="You gain practical knowledge and first-hand experiences."
 
 	iconMid={{
 		src:'/images/party-hat.svg',
@@ -100,7 +174,7 @@ heading="Workshops that inspire..."
 		width:'50'
 	}}
 	headingMid="Fun"
-	textMid="We will have fun. We talk, joke around and tell stories. We will eat and drink from what the land has produced."
+	textMid="We have fun. We talk, joke and tell stories. We eat and drink from what the land has produced."
 
 	imgMid={{
 		src:'/images/hands-on.webp',
@@ -134,9 +208,9 @@ button={{
 <Section>
 <div class="grid  grid-2fr  items-align-center">
 	<div>
-	<h2>Experience our garden and field on an open day or in a private tour</h2>
+	<h2>Experience our garden and field on an open day or in a private tour...</h2>
 	<Paragraph
-	text="Discover the design features that are so important to our daily lives. We seek to live more lightly on the Earth — to consume less, to give more. Paphos Green Goddess offers a glimpse of alternative methods of food production and consumption, as well as tips on living with minimal waste: recycling, up-cycling, capturing energy, providing habitat. Why not come and see for yourself?" />
+	text="Discover design features that are important to our daily lives. We seek to live more lightly on the Earth — to consume less, to give more. Paphos Green Goddess offers a glimpse of alternative methods of food production and consumption, as well as tips on living with minimal waste: recycling, up-cycling, capturing energy, providing habitat." />
 	<Button 
 		button={{
 			text:'Come and visit',
@@ -164,8 +238,8 @@ button={{
 
 <div class="bg-third-color">
 	<TextOnBackground 
-	heading="A family place"
-	text="Paphos Green Goddess is our home. Here we create a place to live close to nature, with natural habitats for insects, snakes, bees and lizards. We focus on agriculture and sustainability. Located just outside the Paphos District village of Nikokleia, the certified organic site includes mature mango, olive, and avocado trees as well as over 1,000 vines for wine production.">
+	heading="A family place..."
+	text="Paphos Green Goddess is our home. Here we live close to nature, with natural habitats for insects, snakes, bees and lizards. We focus on agriculture and sustainability. Located just outside the Paphos District village of Nikokleia, the certified organic site includes mature mango, olive, and avocado trees as well as over 1,000 vines for wine production.">
 	<Button 
 		button={{
 			text:'Get to know us',
@@ -185,7 +259,7 @@ img={{
 />
 
 <Section
-heading="A blog worth to read"
+heading="A blog worth reading..."
 >
 <div class="grid  grid-3fr">
 	{posts.length && 
@@ -213,6 +287,7 @@ heading="A blog worth to read"
 		buttonAlignClass="button--center"
 	/>
 </Section>
+<Newsletter/>
 <Footer 
 	facebook="https://www.facebook.com/sharer/sharer.php?u=https://paphosgreengoddess.com/"
 	linkedIn="https://www.linkedin.com/shareArticle?mini=true&url=https://paphosgreengoddess.com/"

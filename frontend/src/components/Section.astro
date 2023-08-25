@@ -1,12 +1,15 @@
 ---
 //define props
-const { heading = "", backgroundColorClass = "" } = Astro.props;
+const { heading = "", backgroundColorClass = "", headingMarginClass = "" } = Astro.props;
 ---
 
 <section class={`
 ${backgroundColorClass}
 `}>
-    <h2 class="section__heading">{ heading }</h2>
+    <h2 class={`
+    section__heading
+    ${headingMarginClass}
+    `}>{ heading }</h2>
     <slot />
 </section>
 
@@ -20,6 +23,10 @@ ${backgroundColorClass}
     .section__heading {
         margin-bottom: 48px;
         text-align: left;
+    }
+
+    .section__heading-margin--large {
+        margin-top: 90px;
     }
 
     .bg-white {
