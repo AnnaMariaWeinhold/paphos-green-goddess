@@ -5,6 +5,7 @@ import Spacer from "../components/Spacer.astro";
 import Section from "../components/Section.astro";
 import Benefits from "../components/Benefits.astro";
 import Footer from "../components/Footer.astro";
+import Newsletter from "../components/Newsletter.astro";
 ---
 
 <MainLayout
@@ -66,7 +67,7 @@ cta={{
 			width:'70'
 		}}
 		headingMid="Explore rural lifestyle"
-		textMid="Our tours, open days and workshops offer the chance to experience rural Cyprus. How can we fit with your schedule, see our calendar."
+		textMid="Our tours, open days and workshops offer the chance to experience rural Cyprus. See our <a href='/calendar' class='link'>calendar</a>, to choose a date for your visit."
 	
 		imgMid={{
 			src:'/images/grapes.webp',
@@ -86,6 +87,7 @@ cta={{
 	</div>
 	</Section>
 	</div>
+	<Newsletter />
 <Footer 
 	facebook="https://www.facebook.com/sharer/sharer.php?u=https://paphosgreengoddess.com/experiences/"
 	linkedIn="https://www.linkedin.com/shareArticle?mini=true&url=https://paphosgreengoddess.com/experiences/"

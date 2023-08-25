@@ -7,6 +7,7 @@ import Footer from '../../components/Footer.astro';
 import { useSanityClient } from 'astro-sanity';
 import { urlForImage } from '../../lib/urlForImage';
 import PortableText from '../../components/PortableText.astro';
+import Newsletter from '../../components/Newsletter.astro';
 
 
 
@@ -60,6 +61,7 @@ opengraph={{
   <div class="blog__wrapper">
   <PortableText portableText={body} />
   </div>
+  <Newsletter/>
   <Footer 
 	facebook=`https://www.facebook.com/sharer/sharer.php?u=${Astro.url.toString()}`
 	linkedIn=`https://www.linkedin.com/shareArticle?mini=true&url=${Astro.url.toString()}`

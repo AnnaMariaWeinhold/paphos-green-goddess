@@ -3,12 +3,13 @@ import MainLayout from "../layouts/MainLayout.astro";
 import HeroShot from "../components/HeroShot.astro";
 import Paragraph from "../components/Paragraph.astro";
 import Spacer from "../components/Spacer.astro";
-import Image from "../components/Image.astro";
+import FullScreenImage from "../components/FullScreenImage.astro";
 import HeadingTwo from "../components/HeadingTwo.astro";
 import HeadingThree from "../components/HeadingThree.astro";
 import Footer from "../components/Footer.astro";
 
 import '../styles/styles.css';
+import Newsletter from "../components/Newsletter.astro";
 ---
 
 <MainLayout
@@ -67,14 +68,16 @@ heading="The garden"
 <Paragraph 
 text="In the garden much of the magic happens. Here the focus is on growing seasonal vegetables in as sustainable manner as possible using no-till methods and harvesting rainwater to keep irrigation to a minimum. There are three garden/orchard spaces, planted with a variety of local and other trees which give cover to birds and wildlife as well as providing shade for the flowers, herbs, and plants that grow beneath them."
 />
-
-<Image 
+</div>
+<div class="wrapper--large">
+<FullScreenImage 
 img={{
     src:'/images/garden.webp',
     alt:'Paphos Green Goddess is holding two chicken in her arms'
 }}
 />
-
+</div>
+<div class="wrapper">
 <HeadingThree 
 heading="The field"
 />
@@ -82,31 +85,35 @@ heading="The field"
 <Paragraph 
 text="The field is our commercial production area with a range of perennial trees and vines that we harvest throughout the year. The New Year sees the start of the avocado harvest, and spring heralds a burst of activities as the different varieties of wine grapes begin to sprout. The grapes are picked and the wine is made during July and August — sometimes even into September, thus overlapping with the mango season, which runs from mid-August into October. The year closes with the olives: first the table olives which ripen at the end of October. The last weekend in November sees the harvest of the olives for oil. They are cold-pressed in a local mill, and the extra virgin oil is stored in stainless steel tanks for use throughout the year."
 />
-
-<Image 
+</div>
+<div class="wrapper--large">
+<FullScreenImage 
 img={{
     src:'/images/the-field.webp',
     alt:'The permaculture field of Paphos Green Goddess'
 }}
 />
-
+</div>
+<div class="wrapper">
 <HeadingTwo 
 heading="The Goddess..."
 />
-
-
-<Image 
+</div>
+<div class="wrapper--large">
+<FullScreenImage
 img={{
     src:'/images/rachael-with-chicken.webp',
     alt:'Paphos Green Goddess is holding two chicken in her arms'
 }}
 />
-
+</div>
+<div class="wrapper">
 <Paragraph 
 text="Learning — and teaching — resilience gives me hope in this fast-changing world. Through connecting to the land and the plants and animals that depend on it as we do, I find strength and can help others do the same."
 />
 </div>
 </div>
+<Newsletter/>
 <Footer 
 	facebook="https://www.facebook.com/sharer/sharer.php?u=https://paphosgreengoddess.com/about/"
 	linkedIn="https://www.linkedin.com/shareArticle?mini=true&url=https://paphosgreengoddess.com/about/"

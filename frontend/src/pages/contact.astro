@@ -3,6 +3,7 @@ import MainLayout from "../layouts/MainLayout.astro";
 import Spacer from "../components/Spacer.astro";
 import ContactForm from "../components/ContactForm.astro";
 import Footer from "../components/Footer.astro";
+import Newsletter from "../components/Newsletter.astro";
 ---
 
 <MainLayout
@@ -21,10 +22,11 @@ opengraph={{
 
 <ContactForm
 heading="We are happy to hear from you."
-text="We keep it simple and personal. Send us an <a href='#' class='link'>email</a> or use the form if you have any questions, feedback or anything you want to share with us."
+text="We keep it simple and personal. Send us an <a href='mailto:info@paphosgreengoddess.com' class='link'>email</a> or use the form if you have any questions, feedback or anything you want to share with us."
 />
 
 <Spacer />
+<Newsletter/>
 <Footer 
 	facebook="https://www.facebook.com/sharer/sharer.php?u=https://paphosgreengoddess.com/contact/"
 	linkedIn="https://www.linkedin.com/shareArticle?mini=true&url=https://paphosgreengoddess.com/contact/"

@@ -19,7 +19,7 @@ ${backgroundColorClass}
     <ul class="product-card__list">
         {
           listItems.map((item) => (
-            <li class="product-card__li">{item}</li>
+            <li set:html={ item } class="product-card__li" />
           ))
         }
       </ul>
