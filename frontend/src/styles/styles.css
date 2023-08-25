@@ -286,6 +286,11 @@
 				grid-template-columns: repeat(4, 1fr);
 				gap: 2em;
 			}
+
+			.grid-5fr {
+				grid-template-columns: repeat(5, 1fr);
+				gap: 1em;
+			}
 		}
 
 		/* BACKGROUND */
