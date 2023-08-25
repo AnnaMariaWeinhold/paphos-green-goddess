@@ -1,75 +1,76 @@
 ---
 
 ---
-
 <div class="container">
     <div class="calendar">
       <div class="front">
         <div class="current-date">
-          <h1>Friday 15th</h1>
-          <h1>January 2016</h1>	
+			<a href="#" class="nav"><i class="icofont-thin-left  icofont-2x"></i></a>
+          <h1>Friday 25th</h1>
+          <h1>August 2023</h1>	
+		  <a href="#" class="nav"><i class="icofont-thin-right  icofont-2x"></i></a>
         </div>
 
         <div class="current-month">
           <ul class="week-days">
-            <li>MON</li>
-            <li>TUE</li>
-            <li>WED</li>
-            <li>THU</li>
-            <li>FRI</li>
-            <li>SAT</li>
-            <li>SUN</li>
+            <li>Mon</li>
+            <li>Tue</li>
+            <li>Wed</li>
+            <li>Thu</li>
+            <li>Fri</li>
+            <li>Sat</li>
+            <li>Sun</li>
           </ul>
 
           <div class="weeks">
             <div class="first">
-              <span class="last-month">28</span>
-              <span class="last-month">29</span>
-              <span class="last-month">30</span>
               <span class="last-month">31</span>
               <span>01</span>
               <span>02</span>
               <span>03</span>
+			  <span>04</span>
+              <span>05</span>
+              <span>06</span>
             </div>
 
             <div class="second">
-              <span>04</span>
-              <span>05</span>
-              <span class="event">06</span>
               <span>07</span>
               <span>08</span>
               <span>09</span>
               <span>10</span>
-            </div>
-
-            <div class="third">
               <span>11</span>
               <span>12</span>
               <span>13</span>
-              <span>14</span>
-              <span class="active">15</span>
-              <span>16</span>
-              <span>17</span>
             </div>
 
-            <div class="fourth">
+            <div class="third">
+              <span>14</span>
+              <span>15</span>
+              <span>16</span>
+              <span>17</span>
               <span>18</span>
               <span>19</span>
               <span>20</span>
+            </div>
+
+            <div class="fourth">
               <span>21</span>
               <span>22</span>
               <span>23</span>
               <span>24</span>
+              <span class="active">25</span>
+              <span class="event">26</span>
+              <span>27</span>
             </div>
 
             <div class="fifth">
-              <span>25</span>
-              <span>26</span>
-              <span>27</span>
               <span>28</span>
               <span>29</span>
               <span>30</span>
               <span>31</span>
+              <span class="next-month">01</span>
+              <span class="next-month">02</span>
+              <span class="next-month">03</span>
             </div>
           </div>
         </div>
@@ -80,27 +81,27 @@
         <div class="info">
           <div class="date">
             <p class="info-date">
-            Date: <span>Jan 15th, 2016</span>
+            Date: <span>Aug 26th, 2023</span>
             </p>
             <p class="info-time">
-              Time: <span>6:35 PM</span>
+              Time: <span>7:30 AM</span>
             </p>
           </div>
           <div class="address">
             <p>
-              Address: <span>129 W 81st St, New York, NY</span>
+              Location: <span>Paphos Green Goddess</span>
             </p>
           </div>
           <div class="observations">
             <p>
-              Observations: <span>Be there 15 minutes earlier</span>
+              Experience: <span>Grape Picking</span>
             </p>
           </div>
         </div>
 
         <div class="actions">
           <button class="save">
-            Save <i class="ion-checkmark"></i>
+            Register <i class="ion-checkmark"></i>
           </button>
           <button class="dismiss">
             Dismiss <i class="ion-android-close"></i>
@@ -112,44 +113,23 @@
   </div>
 
   <style>
-    * {
-  box-sizing: border-box;
-  font-family: 'Roboto', sans-serif;
-  list-style: none;
-  margin: 0;
-  outline: none;
-  padding: 0;
-}
 
-a {
-  text-decoration: none;
-}
-
-body, html {
-  height: 100%;
-}
-
-body {
-	background: #dfebed;
-	font-family: 'Roboto', sans-serif;
+li {
+	list-style: none;
 }
 
 .container {
-	align-items: center;
 	display: flex;
-	height: 100%;
-	justify-content: center;
-	margin: 0 auto;
-	max-width: 600px;
+	margin: 5em auto;
+	max-width: 1200px;
 	width: 100%;
 }
 
 .calendar {
-	background: #2b4450;
-	border-radius: 4px;
-	box-shadow: 0 5px 20px rgba(0, 0, 0, .3);
-	height: 501px;
-  perspective: 1000;
+	background: var(--main-color);
+	border-radius: var(--border-radius);
+	max-height: 600px;
+  	perspective: 1000;
 	transition: .9s;
 	transform-style: preserve-3d;
 	width: 100%;
@@ -160,21 +140,24 @@ body {
 	transform: rotateY(0deg);
 }
 
+.nav {
+	color: #fff;
+}
+
 .current-date {
-	border-bottom: 1px solid rgba(73, 114, 133, .6);
+	border-bottom: #fff 1px solid;
 	display: flex;
 	justify-content: space-between;
 	padding: 30px 40px;
 }
 
 .current-date h1 {
-	color: #dfebed;
-	font-size: 1.4em;
-	font-weight: 300;
+	color: #fff;
+	font-size: var(--fs-700);
 }
 
 .week-days {
-	color: #dfebed;
+	color: #fff;
 	display: flex;
 	justify-content: space-between;
 	font-weight: 600;
@@ -203,7 +186,8 @@ body {
 	width: 100%;
 }
 
-.last-month {
+.last-month,
+.next-month {
 	opacity: .3;
 }
 
@@ -212,8 +196,8 @@ body {
 }
 
 .weeks span.active {
-	background: #f78536;
-	border-radius: 50%;
+	background: var(--second-color);
+	border-radius: var(--border-radius-img);
 }
 
 .weeks span:not(.last-month):hover {
@@ -227,7 +211,7 @@ body {
 
 .event:after {
 	content: '•';
-	color: #f78536;
+	color:var(--second-color);
 	font-size: 1.4em;
 	position: absolute;
 	right: -4px;
@@ -245,7 +229,7 @@ body {
 	background: none;
 	border: none;
 	border-bottom: 1px solid rgba(73, 114, 133, .6);
-	color: #dfebed;
+	color: #fff;
 	font-size: 1.4em;
 	font-weight: 300;
 	padding: 30px 40px;
@@ -253,7 +237,7 @@ body {
 }
 
 .info {
-	color: #dfebed;
+	color: #fff;
 	display: flex;
 	flex-direction: column;
 	font-weight: 600;
@@ -329,44 +313,3 @@ body {
 
 
   </style>
-
-  <script>
-    var app = {
-	settings: {
-		container: $('.calendar'),
-		calendar: $('.front'),
-		days: $('.weeks span'),
-		form: $('.back'),
-		input: $('.back input'),
-		buttons: $('.back button')
-	},
-
-	init: function() {
-		instance = this;
-		settings = this.settings;
-		this.bindUIActions();
-	},
-
-	swap: function(currentSide, desiredSide) {
-		settings.container.toggleClass('flip');
-
-    currentSide.fadeOut(900);
-    currentSide.hide();
-    desiredSide.show();
-
-	},
-
-	bindUIActions: function() {
-		settings.days.on('click', function(){
-			instance.swap(settings.calendar, settings.form);
-			settings.input.focus();
-		});
-
-		settings.buttons.on('click', function(){
-			instance.swap(settings.form, settings.calendar);
-		});
-	}
-}
-
-app.init();
-  </script>
