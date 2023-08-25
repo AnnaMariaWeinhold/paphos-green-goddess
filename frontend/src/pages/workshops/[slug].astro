@@ -12,6 +12,7 @@ import { urlForImage } from '../../lib/urlForImage';
 import PortableText from '../../components/PortableText.astro';
 import Section from '../../components/Section.astro';
 import FullScreenImage from '../../components/FullScreenImage.astro';
+import Newsletter from '../../components/Newsletter.astro';
 
 
 
@@ -148,7 +149,7 @@ img={{
     </Section>
    
 </div>
-
+<Newsletter/>
 <Footer 
 facebook=`https://www.facebook.com/sharer/sharer.php?u=${Astro.url.toString()}`
 linkedIn=`https://www.linkedin.com/shareArticle?mini=true&url=${Astro.url.toString()}`

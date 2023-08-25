@@ -26,6 +26,7 @@ const { linkedIn, facebook, instagram } = Astro.props;
             <a class="footer__link" href="/privacy-policy">Privacy policy</a>
         </div>
         <div class="footer__share">
+            <h4 class="footer__share-heading">Sharing is caring</h4><i class="icofont-thin-right "></i>
             <a href={linkedIn} target="_blank"><i class="icofont-linkedin  icofont-2x  share-btn"></i></a>
             <a href={facebook} target="_blank"><i class="icofont-facebook  icofont-2x   share-btn"></i></a>
         </div>
@@ -160,11 +161,17 @@ const { linkedIn, facebook, instagram } = Astro.props;
     .footer__share {
         display: flex;
         justify-content: center;
+        align-items: center;
+        color: #fff;
+    }
+
+    .footer__share-heading {
+        margin-right: 0.3em;
     }
 
     .share-btn {
         color: #fff;
-        padding: 12px;
+        padding: 0.2em;
     }
 
     .share-btn:hover {

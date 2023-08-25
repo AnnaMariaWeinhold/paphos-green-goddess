@@ -37,7 +37,7 @@ const { iconLeft, iconRight, iconMid, headingLeft, headingRight, headingMid, tex
             <img class="benefits__icon" src={ iconMid.src } alt={ iconMid.alt }  width={ iconMid.width }>
             )}
         <h3 class="benefits__heading">{ headingMid }</h3>
-        <p class="benefits__text">{ textMid }</p>
+        <p set:html={ textMid } class="benefits__text" />
     </div>
     <div class="benefits__container">
         { imgRight &&

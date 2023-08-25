@@ -8,6 +8,7 @@ import Button from "../components/Button.astro";
 import ProductCard from "../components/ProductCard.astro";
 import Footer from "../components/Footer.astro";
 import FullScreenImage from "../components/FullScreenImage.astro";
+import Newsletter from "../components/Newsletter.astro";
 ---
 
 <MainLayout
@@ -135,7 +136,7 @@ heading="How to visit..."
 		"At least two workshops are held twice every months. One workshop on a Sunday repeated the following Tuesday morning to accomondate the schedules of parents with children at school.",
 		"Workshops usually last two to three hours.",
 		"You have the chance to buy Paphos Green Goddess products.",
-		"Choose your workshop now"
+		"Choose your <a href='/workshops' class='link'>workshop</a> now"
 	]}
 	backgroundColorClass="third-color"
 	/>
@@ -148,6 +149,7 @@ button={{
 buttonAlignClass="button--center"
 />
 </Section>
+<Newsletter/>
 <Footer 
 	facebook="https://www.facebook.com/sharer/sharer.php?u=https://paphosgreengoddess.com/visits/"
 	linkedIn="https://www.linkedin.com/shareArticle?mini=true&url=https://paphosgreengoddess.com/visits/"

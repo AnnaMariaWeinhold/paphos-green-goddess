@@ -9,6 +9,7 @@ import Footer from "../../components/Footer.astro";
 
 //import sanity
 import { useSanityClient } from 'astro-sanity';
+import Newsletter from "../../components/Newsletter.astro";
 
 // Fetch the workshops and expand all references to category
 const workshops = await useSanityClient().fetch(`*[_type == "workshop"]{
@@ -71,6 +72,7 @@ heading="See all our workshops">
 </ul>}
 </Section>
 </div>
+<Newsletter/>
 <Footer 
 	facebook="https://www.facebook.com/sharer/sharer.php?u=https://paphosgreengoddess.com/workshops/"
 	instagram="https://twitter.com/share?url=https://paphosgreengoddess.com/workshops/"

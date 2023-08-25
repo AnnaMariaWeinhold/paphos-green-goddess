@@ -1,5 +1,5 @@
 ---
-const { month, date, weekDay, time, eventName, event, button, backgroundColorClass } = Astro.props;
+const { month, date, weekDay, time, eventName, event, registration = "", button, backgroundColorClass } = Astro.props;
 import Button from "../components/Button.astro";
 ---
 
@@ -35,6 +35,7 @@ ${backgroundColorClass}
             { eventName }
         </h3>
         <h6 class="event">{ event }</h6>
+        <p class="event__registration">{ registration }</p>
         <div class="event__button-container">
         { button &&
             (<a class="event__button" href={ button.href }>{ button.text }</a> 
@@ -95,6 +96,11 @@ ${backgroundColorClass}
     }
 
     .event {
+        margin-bottom: 0.2em;
+    }
+
+    .event__registration {
+        font-size: var(--fs-xxs);
         margin-bottom: 2.2em;
     }
 

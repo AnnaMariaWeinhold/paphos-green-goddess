@@ -185,6 +185,12 @@
         margin: 0 auto;
 	}
 
+	.wrapper--large {
+		padding: 3em 0;
+        max-width: 1920px;
+        margin: 0 auto;
+	}
+
 	.main-layout__grid {
 		display: grid;
 		min-height: 100dvh;
@@ -208,7 +214,7 @@
 		grid-area: footer;
 	}
 
-	/* GENERAL CSS */
+	/* #GENERAL CSS */
 
 	.align-center {
 		text-align: center;
@@ -319,7 +325,7 @@
 
 		@media only screen and (min-width: 60em) {
 			.padding-colored-bg {
-				padding: 90px 24px;
+				padding: 90px 0;
 			}
 		}
 
