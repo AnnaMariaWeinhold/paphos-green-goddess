@@ -4,6 +4,7 @@ const { linkedIn, facebook, instagram } = Astro.props;
 
 <footer class="footer">
 <div class="footer__container">
+    <!-- 
     <form class="footer__form-container">
         <h2 class="footer__form-heading">Get Paphos Green Goddess Newsletter</h2>
         <label class="form__label" for="name">Your name</label>
@@ -16,12 +17,13 @@ const { linkedIn, facebook, instagram } = Astro.props;
         </div>
         <input class="form__button" type="submit" id="submit" value="Submit">
     </form>
+    -->
     <img class="footer__logo" src="/images/logo-white.svg" alt="Logo of Paphos Green Goddess">
     <h3 class="footer__slogan">Be part of the solution</h3>
         <div class="footer__link-container">
+            <a class="footer__link" href="/calendar">Calendar</a>
             <a class="footer__link" href="/impressum">Impressum</a>
             <a class="footer__link" href="/privacy-policy">Privacy policy</a>
-            <a class="footer__link" href="/contact">Contact</a>
         </div>
         <div class="footer__share">
             <a href={linkedIn} target="_blank"><i class="icofont-linkedin  icofont-2x  share-btn"></i></a>
@@ -138,7 +140,6 @@ const { linkedIn, facebook, instagram } = Astro.props;
 
     .footer__container {
         background-color: var(--second-color);
-        margin-top: 60px;
         padding: 2em;
         display: grid;
         gap: 2em;
