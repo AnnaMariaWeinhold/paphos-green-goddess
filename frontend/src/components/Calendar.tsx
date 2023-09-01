@@ -45,7 +45,7 @@ export default function Calendar() {
         }
         return (
             <div key={day.toString()}>{day.getDate()}</div>
-        )
+        );
     }
 
     return (

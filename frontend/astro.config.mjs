@@ -1,5 +1,5 @@
 import { defineConfig } from 'astro/config';
-import sanity from "astro-sanity";
+import sanity from "@sanity/astro";
 
 import react from "@astrojs/react";
 
