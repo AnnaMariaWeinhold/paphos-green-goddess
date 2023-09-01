@@ -77,7 +77,6 @@ const { heading, text } = Astro.props;
         padding: 2em 3em 3em 3em;
         background-color: var(--second-color);
         border-radius: 1em;
-        margin: 2em;
     }
 
     .form-text__container {
@@ -151,9 +150,11 @@ const { heading, text } = Astro.props;
     }
 
     @media only screen and (min-width: 40em) {
-        .grid__container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
+       
+
+        .form__container {
+            margin: 0 auto;
+            width: 80%;
         }
 
         .form-text__container {
@@ -176,6 +177,11 @@ const { heading, text } = Astro.props;
     }
 
     @media only screen and (min-width: 60em) {
+
+        .grid__container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
 
         .form__container {
             margin: 2em;
