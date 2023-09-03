@@ -1,4 +1,6 @@
+import { useEffect, useState, useCallback, Fragment } from "react";
 import { useLilius, Day } from "use-lilius";
+import { readOnlySanityClient } from "../lib/read-only-sanity-client";
 
 interface Event {
     name: string;
@@ -6,23 +8,13 @@ interface Event {
     date: string | Date;
 }
 
-const events: Event[] = [
-    {
-        name: "Carob Workshop",
-        href: "/",
-        date: "2023-09-09"
-    },
-    {
-        name: "Carob Workshop",
-        href: "/",
-        date: "2023-09-10"
-    },
-    {
-        name: "Open Day",
-        href: "/",
-        date: "2023-09-07"
-    },
-];
+// Nice to have: Types for faster search through the events, when they are sorted by year and months
+// type Month = 'January' | 'February' | 'March' | 'April' | 'May' | 'June' | 'July' | 'August' | 'September' | 'October' | 'November' | 'December';
+// type Year = '2023' | '2024' | '2025';
+
+// type EventsByMonths = Record<Month, Event[]>
+
+// type EventList = Record<Year, EventsByMonths>
 
 function getYYYYMMDD(day: Event['date']) {
     const date = new Date(day);
@@ -30,9 +22,21 @@ function getYYYYMMDD(day: Event['date']) {
 }
 
 export default function Calendar() {
+    const [events, setEvents] = useState([]);
     const { calendar, viewPreviousMonth, viewNextMonth, viewing } = useLilius({ weekStartsOn: Day.MONDAY });
 
-    function addEvent(day: Date) {
+    useEffect(() => {
+        (async () => {
+            try {
+                const sanityEvents = await readOnlySanityClient.fetch(`*[_type == "event"]`);
+                setEvents(sanityEvents);
+            } catch (e) {
+                console.log("Error fetching events from Sanity", e.message || e);
+            }
+        })();
+    }, []);
+
+    const addEvent = useCallback((day: Date) => {
         const event = events.find((event) => getYYYYMMDD(event.date) === getYYYYMMDD(day));
         if (event) {
             return (
@@ -46,7 +50,7 @@ export default function Calendar() {
         return (
             <div key={day.toString()}>{day.getDate()}</div>
         );
-    }
+    }, [events]);
 
     return (
         <div className="calendar__container">
@@ -67,13 +71,13 @@ export default function Calendar() {
                 <div className="days">
                     {
                         calendar[0].map((week) => (
-                            <>
+                            <Fragment key={JSON.stringify(week[0])}>
                                 {
                                     week.map(
                                         (day) => (addEvent(day))
                                     )
                                 }
-                            </>
+                            </Fragment>
                         )
                         )
                     }
