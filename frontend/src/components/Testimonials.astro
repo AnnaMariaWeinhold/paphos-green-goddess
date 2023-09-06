@@ -40,12 +40,12 @@ const { imgAuthor, quote, author, subtext } = Astro.props;
 }
 
 .testimonial__author-container {
-    display: grid;
-    grid-template-columns: 10% 90%;
-    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.01em;
+    justify-content: flex-start;
     align-items: center;
     margin-top: 1.6em;
-
 }
 
 .testimonial__quote {
@@ -61,8 +61,10 @@ const { imgAuthor, quote, author, subtext } = Astro.props;
     font-size: var(--fs-xs);
 }
 
-@media only screen and (min-width: 40em) {
-    
+@media only screen and (min-width: 26em) {
+    .testimonial__author-container {
+    gap: 1em;
+}
 }
 
 </style>
