@@ -1,6 +1,7 @@
 import { defineConfig } from 'astro/config';
+import sanity from "@sanity/astro";
 
-import sanity from "astro-sanity";
+import react from "@astrojs/react";
 
 // https://astro.build/config
 export default defineConfig({
@@ -8,6 +9,6 @@ export default defineConfig({
     projectId: 'l2awlkjo',
     dataset: 'production',
     apiVersion: '2023-02-08',
-    useCdn: false,
-  })]
+    useCdn: false
+  }), react()]
 });
