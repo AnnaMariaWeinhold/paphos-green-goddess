@@ -53,7 +53,7 @@ export default function Calendar() {
         const className = dayClassName(day, viewing);
         if (event) {
             return (
-                <div key={day.toString()} className={className}>
+                <div key={day.toString()} className={className + ' event'}>
                     {day.getDate()}
                     <a href={event.href} className="event-link">
                         <p className="event">{event.name}</p>
@@ -63,7 +63,7 @@ export default function Calendar() {
         return (
             <div key={day.toString()} className={className}>{day.getDate()}</div>
         );
-    }, [events]);
+    }, [events, viewing]);
 
     return (
         <div className="calendar__container">
