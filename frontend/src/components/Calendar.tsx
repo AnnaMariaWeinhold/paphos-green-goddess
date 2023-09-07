@@ -21,9 +21,21 @@ function getYYYYMMDD(day: Event['date']) {
     return date.toISOString().split("T")[0];
 }
 
+function dayClassName(date1: Date, date2: Date) {
+    const isSameMonth = date1.getFullYear() === date2.getFullYear() &&
+        date1.getMonth() === date2.getMonth();
+
+    return isSameMonth ? date1.getDate() === date2.getDate() ? 'today' : 'same-month' : 'other-month'
+}
+
+function getOrdinalNum(n: number) {
+    return n + (n > 0 ? ['th', 'st', 'nd', 'rd'][(n > 3 && n < 21) || n % 10 > 3 ? 0 : n % 10] : '');
+}
+
+
 export default function Calendar() {
     const [events, setEvents] = useState([]);
-    const { calendar, viewPreviousMonth, viewNextMonth, viewing } = useLilius({ weekStartsOn: Day.MONDAY });
+    const { calendar, viewPreviousMonth, viewNextMonth, viewing } = useLilius();
 
     useEffect(() => {
         (async () => {
@@ -38,9 +50,10 @@ export default function Calendar() {
 
     const addEvent = useCallback((day: Date) => {
         const event = events.find((event) => getYYYYMMDD(event.date) === getYYYYMMDD(day));
+        const className = dayClassName(day, viewing);
         if (event) {
             return (
-                <div key={day.toString()} className="prev-date">
+                <div key={day.toString()} className={className}>
                     {day.getDate()}
                     <a href={event.href} className="event-link">
                         <p className="event">{event.name}</p>
@@ -48,7 +61,7 @@ export default function Calendar() {
                 </div>);
         }
         return (
-            <div key={day.toString()}>{day.getDate()}</div>
+            <div key={day.toString()} className={className}>{day.getDate()}</div>
         );
     }, [events]);
 
@@ -59,12 +72,12 @@ export default function Calendar() {
                     <i onClick={viewPreviousMonth} className="icofont-thin-left icofont-2x prev"></i>
                     <div className="date">
                         <h1>{viewing.toLocaleString('default', { month: 'long' })}</h1>
-                        <p>{`${viewing.toLocaleString('default', { month: 'long' })} ${viewing.getFullYear()}`}</p>
+                        <p>{`${getOrdinalNum(viewing.getDate())} of ${viewing.toLocaleString('default', { month: 'long' })} ${viewing.getFullYear()}`}</p>
                     </div>
                     <i onClick={viewNextMonth} className="icofont-thin-right icofont-2x next"></i>
                 </div>
                 <div className="weekdays">
-                    {['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'].map((day) => (
+                    {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map((day) => (
                         <div key={day}>{day}</div>
                     ))}
                 </div>
@@ -81,43 +94,8 @@ export default function Calendar() {
                         )
                         )
                     }
-
-                    {/* <div className="prev-date">
-                        1<a href="" className="event-link"
-                        ><p className="event">Carob Workshop</p></a
-                        >
-                    </div>
-                    <div>2</div>
-                    <div>3</div>
-                    <div className="today">4</div>
-                    <div>5</div>
-                    <div>6</div>
-                    <div>
-                        7<a href="" className="event-link"
-                        ><p className="event tour">Open Day</p></a
-                        >
-                    </div>
-                    <div>8</div>
-                    <div>
-                        9<a
-                            href="/workshops/carob-black-gold-of-cyprus"
-                            className="event-link"
-                        ><p className="event">Carob Workshop</p></a
-                        >
-                    </div>
-                    <div>
-                        10<a href="" className="event-link"
-                        ><p className="event workshop">Carob Workshop</p></a
-                        >
-                    </div>
-                    <div className="next-date">11</div>
-                    <div className="next-date">
-                        12<a href="" className="event-link"
-                        ><p className="event experience">Grape Picking</p></a
-                        >
-                    </div>
-                    <div className="next-date">13</div> */}
                 </div>
             </div>
-        </div>);
+        </div>
+    );
 }
