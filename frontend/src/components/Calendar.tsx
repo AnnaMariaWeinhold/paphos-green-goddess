@@ -1,12 +1,6 @@
 import { useEffect, useState, useCallback, Fragment } from "react";
 import { useLilius } from "use-lilius";
-import { readOnlySanityClient } from "../lib/read-only-sanity-client";
-
-interface Event {
-    name: string;
-    href: string;
-    date: string | Date;
-}
+import { readOnlySanityClient, type Event } from "../lib/read-only-sanity-client";
 
 // Nice to have: Types for faster search through the events, when they are sorted by year and months
 // type Month = 'January' | 'February' | 'March' | 'April' | 'May' | 'June' | 'July' | 'August' | 'September' | 'October' | 'November' | 'December';

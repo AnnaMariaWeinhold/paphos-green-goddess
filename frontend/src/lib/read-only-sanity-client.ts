@@ -11,3 +11,13 @@ export const readOnlySanityClient = createClient({
     useCdn: false,
     token: import.meta.env.PUBLIC_SANITY_API_CLIENT_TOKEN,
 });
+
+export interface Event {
+    _id: string;
+    name: string;
+    href: string;
+    date: string | Date;
+    type: string; // "Workshop" | "Tour" | "Experience"
+    from?: string; // Date string
+    to?: string; // Date string
+}

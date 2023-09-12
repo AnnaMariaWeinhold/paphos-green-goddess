@@ -1,16 +1,16 @@
 
 import { useEffect, useState, Fragment } from "react";
-import { readOnlySanityClient } from "../lib/read-only-sanity-client";
+import { readOnlySanityClient, type Event } from "../lib/read-only-sanity-client";
 import { LoadingSpinner } from './LoadingSpinner.tsx';
 import './EventCards.css';
 
 export function EventCards() {
-    const [events, setEvents] = useState([]);
+    const [events, setEvents] = useState<Event[]>([]);
 
     useEffect(() => {
         (async () => {
             try {
-                const sanityEvents = await readOnlySanityClient.fetch(`*[_type == "event"]`);
+                const sanityEvents: Event[] = await readOnlySanityClient.fetch(`*[_type == "event"] | order(date desc)`);
                 setEvents(sanityEvents.filter((event) => typeof event.type === "string"));
 
             } catch (e) {
