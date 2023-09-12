@@ -4,38 +4,39 @@ const { img = "", waveImg = "", heading, text, cta = "" } = Astro.props;
 
 <div class="stack">
     <div class="img--top">
-    { img &&
-    (
-        <img class="heroshot__img" src={ img.src } alt={ img.alt } />
-    )
-    }
+        {img && <img class="heroshot__img" src={img.src} alt={img.alt} />}
 
-    { waveImg &&
-        (
-            <img class="heroshot__img  heroshot__img--cover" src={ waveImg.src } alt={ waveImg.alt } />
-        )
+        {
+            waveImg && (
+                <img
+                    class="heroshot__img  heroshot__img--cover"
+                    src={waveImg.src}
+                    alt={waveImg.alt}
+                />
+            )
         }
     </div>
     <div class="heroshot__container">
-        <h1 class="heroshot__heading">{ heading }</h1>
-        <p class="heroshot__text" set:html={ text }/>
+        <h1 class="heroshot__heading">{heading}</h1>
+        <p class="heroshot__text" set:html={text} />
 
-        { cta &&
-        (<a class="heroshot__cta" href={ cta.href }>{ cta.text }</a> 
-        ) 
+        {
+            cta && (
+                <a class="heroshot__cta" href={cta.href}>
+                    {cta.text}
+                </a>
+            )
         }
     </div>
 </div>
 
-
-
 <style>
-
     .stack {
         display: grid;
         grid-template-columns: 1fr;
         gap: 1em;
         margin-bottom: 44px;
+        min-height: 40vw;
     }
 
     .img--top {
@@ -44,7 +45,7 @@ const { img = "", waveImg = "", heading, text, cta = "" } = Astro.props;
     }
 
     .img--top > * {
-    grid-area: stack;
+        grid-area: stack;
     }
 
     .heroshot__container {
@@ -78,45 +79,45 @@ const { img = "", waveImg = "", heading, text, cta = "" } = Astro.props;
         display: none;
     }
 
+    @media only screen and (min-width: 50em) {
+        .stack {
+            grid-template-areas: "stack";
+            place-items: left;
+            margin-bottom: 120px;
+        }
 
-  @media only screen and (min-width: 50em) {
-   
-    .stack {
-    grid-template-areas: "stack";
-    place-items: left;
-    }
+        .stack > * {
+            grid-area: stack;
+        }
 
-    .stack > * {
-        grid-area: stack;
-    }
+        .heroshot__img--cover {
+            display: unset;
+        }
 
-    .heroshot__img--cover {
-        display: unset;
-    }
+        .heroshot__container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            height: 100%;
+            width: 70%;
+            margin-left: 24px;
+            margin-top: 1%;
+        }
 
-    .heroshot__container {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        height: 100%;
-        width: 70%;
-        margin-left: 24px;
-        margin-top: 1%;
-    }
+        .heroshot__heading {
+            margin-top: auto;
+        }
 
-    .heroshot__heading {
-        margin-top: auto;
-    }
+        .heroshot__cta {
+            margin-bottom: auto;
+        }
 
-    .heroshot__cta {
-        margin-bottom: auto;
-    }
-
-    .img--top {
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: -1;
+        .img--top {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
     }
 
     @media only screen and (min-width: 60em) {
@@ -124,14 +125,13 @@ const { img = "", waveImg = "", heading, text, cta = "" } = Astro.props;
             width: 60%;
             margin-top: 2%;
             margin-left: 6%;
-    }
+        }
     }
 
     @media only screen and (min-width: 80em) {
         .heroshot__container {
             width: 48%;
             margin-top: 8%;
+        }
     }
-    }
-
 </style>

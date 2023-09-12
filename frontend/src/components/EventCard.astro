@@ -1,6 +1,5 @@
 ---
 const { month, date, weekDay, time, eventName, event, registration = "", button, backgroundColorClass } = Astro.props;
-import Button from "../components/Button.astro";
 ---
 
 
@@ -42,7 +41,6 @@ ${backgroundColorClass}
             ) 
         }
         </div>
- <Button />
   </div>
   
   <style>
@@ -87,7 +85,8 @@ ${backgroundColorClass}
     }
 
     .event__date {
-        padding-top: 0.125em;
+        margin: 0;
+        padding: 0;
     }
 
     .event__name {
