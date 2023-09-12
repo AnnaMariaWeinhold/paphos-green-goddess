@@ -10,18 +10,18 @@ import CalendarComp from "../components/Calendar.tsx";
     <style is:inline>
         /* Styles for <CalendarComponent /> */
         .calendar__container {
-            display: flex;
+            /* display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: center; */
         }
 
         .calendar {
             background-color: var(--main-color);
             padding: 2em;
-            width: 900px;
-            max-width: 95%;
             color: #fff;
             border-radius: 10px;
+            max-width: 900px;
+            margin: 0 auto;
         }
 
         .month {
@@ -83,6 +83,55 @@ import CalendarComp from "../components/Calendar.tsx";
         .prev:hover,
         .next:hover {
             cursor: pointer;
+        }
+
+        @media screen and (max-width: 768px) {
+            .date h1 {
+                font-size: var(--fs-400);
+            }
+            .date p {
+                font-size: var(--fs-xxs);
+            }
+            .calendar {
+                width: 88vw;
+            }
+            .days,
+            .weekdays {
+                padding: 3px 0;
+            }
+            .days {
+                gap: 6px;
+            }
+            .days div {
+                padding: 1px 2px;
+                font-size: var(--fs-xs);
+            }
+
+            .days div.today {
+                padding: 2px 6px;
+            }
+
+            .event {
+                font-size: 0.7rem !important;
+            }
+
+            section {
+                padding: 30px 0px 60px 0px !important;
+            }
+
+            section h2 {
+                margin-left: 12px;
+            }
+        }
+
+        @media screen and (max-width: 380px) {
+            .days div {
+                font-size: var(--fs-xxs);
+            }
+
+            .event {
+                font-size: 0.4rem !important;
+            }
         }
     </style>
     <Section heading="See our program">

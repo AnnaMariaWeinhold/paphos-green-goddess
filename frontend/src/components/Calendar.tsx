@@ -1,5 +1,5 @@
 import { useEffect, useState, useCallback, Fragment } from "react";
-import { useLilius, Day } from "use-lilius";
+import { useLilius } from "use-lilius";
 import { readOnlySanityClient } from "../lib/read-only-sanity-client";
 
 interface Event {
