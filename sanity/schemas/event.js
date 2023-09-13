@@ -9,25 +9,20 @@ export default defineType({
             title: "Name",
             name: "name",
             type: "string",
-            validation: {
-                required: true
-            }
+            validation: (Rule) => Rule.required()
         }),
         defineField({
             title: "Type",
             name: "type",
             type: "string",
-            validation: {
-                required: true
-            }
+            validation: (Rule) => Rule.required()
+
         }),
         defineField({
             title: "Date",
             name: "date",
             type: "date",
-            validation: {
-                required: true
-            }
+            validation: (Rule) => Rule.required()
         }),
         defineField({
             title: "Link",
