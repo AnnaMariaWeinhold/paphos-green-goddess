@@ -34,7 +34,7 @@ export async function getStaticPaths() {
     .filter(Boolean);
 }
 
-const { title, mainImage, description, date, time, whatDo, whatDoImage, fullImage, whatGet, forWhom, whatBring } = Astro.props;
+const { title, mainImage, description, date, whatDo, whatDoImage, fullImage, whatGet, forWhom, whatBring } = Astro.props;
 ---
 
 <MainLayout
@@ -72,7 +72,7 @@ opengraph={{
   <div class="grid  grid-3fr  align-center">
       <div>
         <img class="icon" width="50" src="/images/clock.svg" alt="Clock">
-        <p class="icon__text">We meet { new Date(date).toLocaleDateString("de-DE")}, <br>{ new Date(time).toLocaleTimeString("de-DE")}</p>
+        <p class="icon__text">We meet { new Date(date).toLocaleDateString("de-DE")}, <br>{ new Date(date).toLocaleTimeString("de-DE")}</p>
       </div>
       <div>
         <img class="icon" width="50" src="/images/cup.svg" alt="Cup">

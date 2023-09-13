@@ -38,11 +38,6 @@ export default defineType({
       type: 'datetime',
     }),
     defineField({
-        name: 'time',
-        title: 'Time',
-        type: 'datetime',
-      }),
-    defineField({
       name: 'slug',
       title: 'Slug',
       type: 'slug',
