@@ -57,7 +57,7 @@ export function EventCards() {
                         {
                             event.href
                                 ? <a className="event__button" href={event.href}>Learn more</a>
-                                : <a className="event__button" href="/contact">Contact us</a>
+                                : <a className="event__button" href="/contact/">Contact us</a>
                         }
                     </div>
                 </div>
