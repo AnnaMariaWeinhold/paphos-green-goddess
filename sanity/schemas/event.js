@@ -15,7 +15,10 @@ export default defineType({
             title: "Type",
             name: "type",
             type: "string",
-            validation: (Rule) => Rule.required()
+            validation: (Rule) => Rule.required(),
+            options: {
+                list: ["Workshop", "Tour", "Experience"]
+            }
 
         }),
         defineField({
