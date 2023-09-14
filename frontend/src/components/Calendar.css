@@ -100,7 +100,7 @@
         padding: 2px 6px;
     }
 
-    .event {
+    .event-link {
         font-size: 0.7rem !important;
     }
 
@@ -114,11 +114,15 @@
 }
 
 @media screen and (max-width: 380px) {
+    .calendar {
+        width: 92vw;
+        padding: 8px;
+    }
     .days div {
         font-size: var(--fs-xxs);
     }
 
-    .event {
+    .event-link {
         font-size: 0.4rem !important;
     }
 }
