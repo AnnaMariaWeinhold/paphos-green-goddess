@@ -11,13 +11,6 @@ import "./Calendar.css";
 
 // type EventList = Record<Year, EventsByMonths>
 
-function dayClassName(date1: Date, date2: Date) {
-    const isSameMonth = date1.getFullYear() === date2.getFullYear() &&
-        date1.getMonth() === date2.getMonth();
-
-    return isSameMonth ? date1.getDate() === date2.getDate() ? 'today' : 'same-month' : 'other-month'
-}
-
 function getOrdinalNum(n: number) {
     return n + (n > 0 ? ['th', 'st', 'nd', 'rd'][(n > 3 && n < 21) || n % 10 > 3 ? 0 : n % 10] : '');
 }
@@ -48,7 +41,9 @@ export default function Calendar() {
             }
             return false;
         });
-        const className = dayClassName(day, viewing);
+
+        const className = dayClassName(day);
+
         if (event) {
             return (
                 <div key={day.toString()} className={className + ' event'}>
@@ -63,6 +58,25 @@ export default function Calendar() {
         );
     }, [events, viewing]);
 
+    const today = new Date();
+
+    function todayIsInDisplayedMonth() {
+        return today.getFullYear() === viewing.getFullYear() &&
+            today.getMonth() === viewing.getMonth();
+    }
+
+
+    function dayClassName(date1: Date) {
+        const isSameMonth = date1.getFullYear() === viewing.getFullYear() &&
+            date1.getMonth() === viewing.getMonth();
+        
+        const isToday = date1.getDate() === today.getDate() &&
+            date1.getMonth() === today.getMonth() &&
+            date1.getFullYear() === today.getFullYear();
+
+        return isToday ? 'today' : isSameMonth ? 'same-month' : 'other-month';
+    }
+
     return (
         <div className="calendar__container">
             <div className="calendar">
@@ -70,7 +84,11 @@ export default function Calendar() {
                     <i onClick={viewPreviousMonth} className="icofont-thin-left icofont-2x prev"></i>
                     <div className="date">
                         <h1>{viewing.toLocaleString('default', { month: 'long' })}</h1>
-                        <p>{`${getOrdinalNum(viewing.getDate())} of ${viewing.toLocaleString('default', { month: 'long' })} ${viewing.getFullYear()}`}</p>
+                        {
+                            todayIsInDisplayedMonth()
+                                ? <p>{`${getOrdinalNum(today.getDate())} of ${today.toLocaleString('default', { month: 'long' })} ${viewing.getFullYear()}`}</p>
+                                : <p style={{ height: "22px" }}> </p>
+                        }
                     </div>
                     <i onClick={viewNextMonth} className="icofont-thin-right icofont-2x next"></i>
                 </div>
