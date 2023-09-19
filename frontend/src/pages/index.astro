@@ -14,7 +14,7 @@ import FullScreenImage from "../components/FullScreenImage.astro"
 import BackgroundColorText from "../components/BackgroundColorText.astro";
 import Quote from "../components/Quote.astro";
 import Testimonials from "../components/Testimonials.astro";
-import EventCard from "../components/EventCard.astro";
+import { EventCards } from "../components/EventCards.tsx";
 import Newsletter from "../components/Newsletter.astro";
 
 // Fetch the posts order by date and pick latest 3 and expand all references to category
@@ -65,78 +65,21 @@ cta={{
 <Spacer />
 
 <Section
-heading="Upcoming events"
-headingMarginClass="section__heading-margin--large"
+	heading="Upcoming events"
+	headingMarginClass="section__heading-margin--large"
 >
-<div class="grid  grid-4fr">
-<EventCard 
-month="August"
-date="26"
-weekDay="Saturday"
-time="7:30am to 11am"
-eventName="Grape Picking"
-event="Experience"
-registration="*Registration is required"
-button={{
-	text:'Contact us',
-	href:'/contact'
-}}
-backgroundColorClass="experience-color"
-/>
+	<div class="grid  grid-4fr">
+		<EventCards client:load />
 
-<EventCard 
-month="September"
-date="3"
-weekDay="Sunday"
-time="9am to 12pm"
-eventName="Carob - The Black Gold"
-event="workshop"
-registration="*Registration is required"
-button={{
-	text:'Learn more',
-	href:'/workshops/carob-black-gold-of-cyprus'
-}}
-backgroundColorClass="workshop-color"
-/>
-
-<EventCard 
-month="September"
-date="5"
-weekDay="Tuesday"
-time="9am to 12pm"
-eventName="Carob - The Black Gold"
-event="workshop"
-registration="*Registration is required"
-button={{
-	text:'Learn more',
-	href:'/workshops/carob-black-gold-of-cyprus'
-}}
-backgroundColorClass="workshop-color"
-/>
-
-<EventCard 
-month="September"
-date="24"
-weekDay="Sunday"
-time="10am to 2pm"
-eventName="Open Day"
-event="Tour"
-button={{
-	text:'Contact us',
-	href:'/contact'
-}}
-backgroundColorClass="tour-color"
-/>
-
-</div>
-<div class="flex-centered">
-<Button 
-button={{
-	text:'See calendar',
-	href:'/calendar'
-}}
-/>
-</div>
+	</div>
+	<div class="flex-centered">
+		<Button 
+			button={{
+				text:'See calendar',
+				href:'/calendar'
+			}}
+		/>
+	</div>
 </Section>
 
 <BackgroundColorText 

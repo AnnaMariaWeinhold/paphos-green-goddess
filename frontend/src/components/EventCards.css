@@ -1,0 +1,87 @@
+.event__container {
+    border-radius: 25px;
+    text-align: center;
+    color: #fff;
+    padding: 0.6em;
+}
+
+.event__calendar {
+    border-radius: 25px 25px 25px 0;
+    border: 2px solid #fff;
+    background-color: #fff;
+    opacity: 0.9;
+    color: var(--text-color);
+}
+
+.event__month {
+    text-align: left;
+    font-weight: bold;
+    padding: 1.2em 1.2em 0;
+}
+
+.event__date-container {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    padding: 0.4em 1em 1.2em 0.6em;
+    text-align: left;
+    gap: 0.6em;
+}
+
+.event__circle {
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    border: 2px solid var(--text-color);;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.event__date {
+    margin: 0;
+    padding: 0;
+}
+
+.event__name {
+    font-weight: bold; 
+    padding: 1em 0.6em 0;
+}
+
+.event {
+    margin-bottom: 0.2em;
+}
+
+.event__registration {
+    font-size: var(--fs-xxs);
+    margin-bottom: 2.2em;
+}
+
+.event__button {
+    display: inline-block;
+    background-color: var(--main-color);
+    padding: 16px 18px;
+    color: #fff;
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    font-size: var(--fs-300);
+    font-weight: 400;
+    transition: 0.7s;
+    margin-bottom: 6px;
+}
+
+.event__button:hover {
+    box-shadow: inset 0 -4.25em 0 0 var(--hover-color);
+}
+
+.workshop-color {
+    background-color: var(--second-color);
+}
+
+.tour-color {
+    background-color: var(--third-color);
+}
+
+.experience-color {
+    background-color: var(--fourth-color);
+}

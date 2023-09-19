@@ -9,10 +9,10 @@ import Footer from '../../components/Footer.astro';
 //import sanity
 import { useSanityClient } from '@sanity/astro';
 import { urlForImage } from '../../lib/urlForImage';
-import PortableText from '../../components/PortableText.astro';
 import Section from '../../components/Section.astro';
 import FullScreenImage from '../../components/FullScreenImage.astro';
 import Newsletter from '../../components/Newsletter.astro';
+import { CurrentEvent } from '../../components/CurrentEvent.tsx';
 
 
 
@@ -34,7 +34,7 @@ export async function getStaticPaths() {
     .filter(Boolean);
 }
 
-const { title, mainImage, description, date, time, whatDo, whatDoImage, fullImage, whatGet, forWhom, whatBring } = Astro.props;
+const { title, mainImage, description, date, whatDo, whatDoImage, fullImage, whatGet, forWhom, whatBring } = Astro.props;
 ---
 
 <MainLayout
@@ -72,7 +72,9 @@ opengraph={{
   <div class="grid  grid-3fr  align-center">
       <div>
         <img class="icon" width="50" src="/images/clock.svg" alt="Clock">
-        <p class="icon__text">We meet { new Date(date).toLocaleDateString("de-DE")}, <br>{ new Date(time).toLocaleTimeString("de-DE")}</p>
+        <p class="icon__text">
+          <CurrentEvent client:load category="Workshop" slug={Astro.params.slug} />
+        </p>
       </div>
       <div>
         <img class="icon" width="50" src="/images/cup.svg" alt="Cup">
@@ -80,7 +82,7 @@ opengraph={{
       </div>
       <div>
           <img class="icon" width="35" src="/images/location.svg" alt="Location">
-          <p class="icon__text">It takes place at <br>Paphos Green goddess</p>
+          <p class="icon__text">It takes place at <br>Paphos Green Goddess</p>
       </div>
     </div>
 

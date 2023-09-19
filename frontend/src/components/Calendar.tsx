@@ -1,12 +1,7 @@
 import { useEffect, useState, useCallback, Fragment } from "react";
-import { useLilius, Day } from "use-lilius";
-import { readOnlySanityClient } from "../lib/read-only-sanity-client";
-
-interface Event {
-    name: string;
-    href: string;
-    date: string | Date;
-}
+import { useLilius } from "use-lilius";
+import { readOnlySanityClient, type Event } from "../lib/read-only-sanity-client";
+import "./Calendar.css";
 
 // Nice to have: Types for faster search through the events, when they are sorted by year and months
 // type Month = 'January' | 'February' | 'March' | 'April' | 'May' | 'June' | 'July' | 'August' | 'September' | 'October' | 'November' | 'December';
@@ -16,14 +11,14 @@ interface Event {
 
 // type EventList = Record<Year, EventsByMonths>
 
-function getYYYYMMDD(day: Event['date']) {
-    const date = new Date(day);
-    return date.toISOString().split("T")[0];
+function getOrdinalNum(n: number) {
+    return n + (n > 0 ? ['th', 'st', 'nd', 'rd'][(n > 3 && n < 21) || n % 10 > 3 ? 0 : n % 10] : '');
 }
+
 
 export default function Calendar() {
     const [events, setEvents] = useState([]);
-    const { calendar, viewPreviousMonth, viewNextMonth, viewing } = useLilius({ weekStartsOn: Day.MONDAY });
+    const { calendar, viewPreviousMonth, viewNextMonth, viewing } = useLilius();
 
     useEffect(() => {
         (async () => {
@@ -37,10 +32,21 @@ export default function Calendar() {
     }, []);
 
     const addEvent = useCallback((day: Date) => {
-        const event = events.find((event) => getYYYYMMDD(event.date) === getYYYYMMDD(day));
+        const event = events.find((event) => {
+            const eventDate = new Date(event.date);
+            if (eventDate.getFullYear() === day.getFullYear() &&
+                eventDate.getMonth() === day.getMonth() &&
+                eventDate.getDate() === day.getDate()) {
+                return true;
+            }
+            return false;
+        });
+
+        const className = dayClassName(day);
+
         if (event) {
             return (
-                <div key={day.toString()} className="prev-date">
+                <div key={day.toString()} className={className + ' event'}>
                     {day.getDate()}
                     <a href={event.href} className="event-link">
                         <p className="event">{event.name}</p>
@@ -48,9 +54,28 @@ export default function Calendar() {
                 </div>);
         }
         return (
-            <div key={day.toString()}>{day.getDate()}</div>
+            <div key={day.toString()} className={className}>{day.getDate()}</div>
         );
-    }, [events]);
+    }, [events, viewing]);
+
+    const today = new Date();
+
+    function todayIsInDisplayedMonth() {
+        return today.getFullYear() === viewing.getFullYear() &&
+            today.getMonth() === viewing.getMonth();
+    }
+
+
+    function dayClassName(date1: Date) {
+        const isSameMonth = date1.getFullYear() === viewing.getFullYear() &&
+            date1.getMonth() === viewing.getMonth();
+        
+        const isToday = date1.getDate() === today.getDate() &&
+            date1.getMonth() === today.getMonth() &&
+            date1.getFullYear() === today.getFullYear();
+
+        return isToday ? 'today' : isSameMonth ? 'same-month' : 'other-month';
+    }
 
     return (
         <div className="calendar__container">
@@ -59,12 +84,16 @@ export default function Calendar() {
                     <i onClick={viewPreviousMonth} className="icofont-thin-left icofont-2x prev"></i>
                     <div className="date">
                         <h1>{viewing.toLocaleString('default', { month: 'long' })}</h1>
-                        <p>{`${viewing.toLocaleString('default', { month: 'long' })} ${viewing.getFullYear()}`}</p>
+                        {
+                            todayIsInDisplayedMonth()
+                                ? <p>{`${getOrdinalNum(today.getDate())} of ${today.toLocaleString('default', { month: 'long' })} ${viewing.getFullYear()}`}</p>
+                                : <p style={{ height: "22px" }}> </p>
+                        }
                     </div>
                     <i onClick={viewNextMonth} className="icofont-thin-right icofont-2x next"></i>
                 </div>
                 <div className="weekdays">
-                    {['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'].map((day) => (
+                    {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map((day) => (
                         <div key={day}>{day}</div>
                     ))}
                 </div>
@@ -81,43 +110,8 @@ export default function Calendar() {
                         )
                         )
                     }
-
-                    {/* <div className="prev-date">
-                        1<a href="" className="event-link"
-                        ><p className="event">Carob Workshop</p></a
-                        >
-                    </div>
-                    <div>2</div>
-                    <div>3</div>
-                    <div className="today">4</div>
-                    <div>5</div>
-                    <div>6</div>
-                    <div>
-                        7<a href="" className="event-link"
-                        ><p className="event tour">Open Day</p></a
-                        >
-                    </div>
-                    <div>8</div>
-                    <div>
-                        9<a
-                            href="/workshops/carob-black-gold-of-cyprus"
-                            className="event-link"
-                        ><p className="event">Carob Workshop</p></a
-                        >
-                    </div>
-                    <div>
-                        10<a href="" className="event-link"
-                        ><p className="event workshop">Carob Workshop</p></a
-                        >
-                    </div>
-                    <div className="next-date">11</div>
-                    <div className="next-date">
-                        12<a href="" className="event-link"
-                        ><p className="event experience">Grape Picking</p></a
-                        >
-                    </div>
-                    <div className="next-date">13</div> */}
                 </div>
             </div>
-        </div>);
+        </div>
+    );
 }
