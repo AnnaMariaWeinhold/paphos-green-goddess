@@ -48,10 +48,6 @@
     font-size: var(--fs-400);
 }
 
-.event {
-    font-size: var(--fs-xxs) !important;
-}
-
 .event-link {
     color: #fff;
 }
