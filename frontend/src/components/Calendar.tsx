@@ -11,11 +11,6 @@ import "./Calendar.css";
 
 // type EventList = Record<Year, EventsByMonths>
 
-function getYYYYMMDD(day: Event['date']) {
-    const date = new Date(day);
-    return date.toISOString().split("T")[0];
-}
-
 function dayClassName(date1: Date, date2: Date) {
     const isSameMonth = date1.getFullYear() === date2.getFullYear() &&
         date1.getMonth() === date2.getMonth();
@@ -44,7 +39,15 @@ export default function Calendar() {
     }, []);
 
     const addEvent = useCallback((day: Date) => {
-        const event = events.find((event) => getYYYYMMDD(event.date) === getYYYYMMDD(day));
+        const event = events.find((event) => {
+            const eventDate = new Date(event.date);
+            if (eventDate.getFullYear() === day.getFullYear() &&
+                eventDate.getMonth() === day.getMonth() &&
+                eventDate.getDate() === day.getDate()) {
+                return true;
+            }
+            return false;
+        });
         const className = dayClassName(day, viewing);
         if (event) {
             return (
