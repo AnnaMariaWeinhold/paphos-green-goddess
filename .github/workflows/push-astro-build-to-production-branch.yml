@@ -58,9 +58,7 @@ jobs:
         working-directory: ${{ env.FRONTEND_PATH }}
       - name: Build with Astro
         working-directory: ${{ env.FRONTEND_PATH }}
-        run: |
-          PUBLIC_SANITY_API_CLIENT_TOKEN=${{ secrets.PUBLIC_SANITY_API_CLIENT_TOKEN }}
-          ${{ steps.detect-package-manager.outputs.runner }} astro build
+        run: PUBLIC_SANITY_API_CLIENT_TOKEN=${{ secrets.PUBLIC_SANITY_API_CLIENT_TOKEN }} ${{ steps.detect-package-manager.outputs.runner }} astro build
       - name: Pushes Dist to Production Branch
         uses: ./.github/actions/push-dir
         with:
