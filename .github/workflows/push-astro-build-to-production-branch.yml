@@ -65,7 +65,7 @@ jobs:
         run: PUBLIC_SANITY_API_CLIENT_TOKEN=${{ secrets.PUBLIC_SANITY_API_CLIENT_TOKEN }} ${{ steps.detect-package-manager.outputs.runner }} astro build
       - name: Uploads to Hostinger via FTP
         shell: bash
-        run: ncftpput -u ${{ secrets.HOSTINGER_FTP_USER }} -p ${{ secrets.HOSTINGER_FTP_PASSWORD }} -R ${{ secrets.HOSTINGER_FTP_HOST }} / ./frontend/dist/*
+        run: ncftpput -u u352759803.christian -p ${{ secrets.HOSTINGER_FTP_PASSWORD }} -R ${{ secrets.HOSTINGER_FTP_HOST }} / ./frontend/dist/*
         # run: ncftp -u ${{ secrets.HOSTINGER_FTP_USER }} -p ${{ secrets.HOSTINGER_FTP_PASSWORD }} ${{ secrets.HOSTINGER_FTP_HOST }} <<END_SCRIPT
         #   put -R  ${{ env.FRONTEND_PATH }}/dist/*
         #   END_SCRIPT
