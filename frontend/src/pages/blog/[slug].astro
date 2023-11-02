@@ -1,15 +1,13 @@
 ---
 //import components and layouts
-import MainLayout from '../../layouts/MainLayout.astro';
-import Footer from '../../components/Footer.astro';
+import MainLayout from "../../layouts/MainLayout.astro";
+import Footer from "../../components/Footer.astro";
 
 //import sanity
-import { useSanityClient } from '@sanity/astro';
-import { urlForImage } from '../../lib/urlForImage';
-import PortableText from '../../components/PortableText.astro';
-import Newsletter from '../../components/Newsletter.astro';
-
-
+import { useSanityClient } from "@sanity/astro";
+import { urlForImage } from "../../lib/urlForImage";
+import PortableText from "../../components/PortableText.astro";
+import Newsletter from "../../components/Newsletter.astro";
 
 export async function getStaticPaths() {
   const posts = await useSanityClient().fetch(`*[_type == "post"]`);
@@ -18,54 +16,63 @@ export async function getStaticPaths() {
       return post.slug?.current
         ? {
             params: {
-              slug: post.slug?.current
+              slug: post.slug?.current,
             },
-            props: { ...post }
+            props: { ...post },
           }
         : null;
     })
     .filter(Boolean);
 }
 
-const { title, description, body, mainImage, author, publishedAt, readingTime } = Astro.props;
+const {
+  title,
+  description,
+  body,
+  mainImage,
+  author,
+  publishedAt,
+  readingTime,
+} = Astro.props;
 ---
+
 <MainLayout
-title={ title }
-description={ description }
-opengraph={{
-	title:'',
-	url:'',
-	image:'',
-	type:'content',
-	description:'',
-	locale:'en'
-}}
+  title={title}
+  description={description}
+  opengraph={{
+    title: "",
+    url: "",
+    image: "",
+    type: "content",
+    description: "",
+    locale: "en",
+  }}
 >
-<div class="blog__wrapper">
-<h1 class="post__title">{title}</h1>
-<div class="post__details">
-  <p class="post__author">{ author }</p>
-  <p>{new Date(publishedAt).toLocaleDateString('de-DE')}</p>
-  <p class="post__read">{ readingTime }</p>
-  <a href=""><i class="icofont-facebook  icofont-lg"></i></a>
-  <a href=""><i class="icofont-linkedin  icofont-lg"></i></a>
-</div>
-</div>
-<div class="featured-img__container">
-  {
-    mainImage && (
-      <img class="post__featured-img" src={urlForImage(mainImage).url()} />
-    )
-  } 
+  <div class="blog__wrapper">
+    <h1 class="post__title">{title}</h1>
+    <div class="post__details">
+      <p class="post__author">{author}</p>
+      <p>{new Date(publishedAt).toLocaleDateString("de-DE")}</p>
+      <p class="post__read">{readingTime}</p>
+      <a href=""><i class="icofont-facebook icofont-lg"></i></a>
+      <a href=""><i class="icofont-linkedin icofont-lg"></i></a>
+    </div>
+  </div>
+  <div class="featured-img__container">
+    {
+      mainImage && (
+        <img class="post__featured-img" src={urlForImage(mainImage).url()} />
+      )
+    }
   </div>
   <div class="blog__wrapper">
-  <PortableText portableText={body} />
+    <PortableText portableText={body} />
   </div>
-  <Newsletter/>
-  <Footer 
-	facebook=`https://www.facebook.com/sharer/sharer.php?u=${Astro.url.toString()}`
-	linkedIn=`https://www.linkedin.com/shareArticle?mini=true&url=${Astro.url.toString()}`
-/>
+  <Newsletter />
+  <Footer
+    facebook={`https://www.facebook.com/sharer/sharer.php?u=${Astro.url.toString()}`}
+    linkedIn={`https://www.linkedin.com/shareArticle?mini=true&url=${Astro.url.toString()}`}
+  />
 </MainLayout>
 
 <style is:inline>
@@ -73,48 +80,47 @@ opengraph={{
     font-weight: 500;
   }
 
-.post__read {
-  border: 2px solid var(--second-color);
-  padding: 0.6em;
-  border-radius: 30% 40% 40% 40%;
-}
+  .post__read {
+    border: 2px solid var(--second-color);
+    padding: 0.6em;
+    border-radius: 30% 40% 40% 40%;
+  }
 
+  .post__title {
+    text-align: center;
+    margin-top: 1.5em;
+  }
 
-.post__title {
-  text-align: center;
-  margin-top: 1.5em;
-}
+  .post__details {
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+    align-items: center;
+  }
 
-.post__details {
-  display: flex;
-  justify-content: center;
-  gap: 1em;
-  align-items: center;
-}
+  .post__featured-img {
+    width: 50%;
+    margin: 2em auto;
+    display: flex;
+    align-self: center;
+    border-radius: 30% 40% 40% 40%;
+  }
 
-.post__featured-img {
-  width: 50%;
-  margin: 2em auto;
-  display: flex;
-  align-self: center;
-  border-radius: 30% 40% 40% 40%;
-}
+  .blog__wrapper {
+    margin: 0 auto;
+    max-width: 730px;
+  }
 
-.blog__wrapper {
-  margin: 0 auto;
-  max-width: 730px;
-}
+  h2 {
+    margin: 2.6em 0 1em 0;
+  }
 
-h2 {
-  margin: 2.6em 0 1em 0;
-}
+  p {
+    margin: 2em 0;
+  }
 
-p {
-  margin: 2em 0;
-}
-
-.icofont-facebook,
-.icofont-linkedin {
-  color: var(--second-color);
-}
+  .icofont-facebook,
+  .icofont-linkedin {
+    color: var(--second-color);
+  }
 </style>
