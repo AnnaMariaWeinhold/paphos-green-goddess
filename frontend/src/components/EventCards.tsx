@@ -10,8 +10,8 @@ export function EventCards() {
     useEffect(() => {
         (async () => {
             try {
-                const sanityEvents: Event[] = await readOnlySanityClient.fetch(`*[_type == "event"] | order(date desc)`);
-                setEvents(sanityEvents.filter((event) => typeof event.type === "string"));
+                const sanityEvents: Event[] = await readOnlySanityClient.fetch(`*[_type == "event"] | order(date asc)`);
+                setEvents(sanityEvents.filter((event) => typeof event.type === "string" && new Date()  <= new Date(event.date)));
 
             } catch (e) {
                 console.log("Error fetching events from Sanity", e.message || e);
