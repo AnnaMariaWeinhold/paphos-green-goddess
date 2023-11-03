@@ -5,6 +5,7 @@ import react from "@astrojs/react";
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://www.paphosgreengoddess.com',
   integrations: [sanity({
     projectId: 'l2awlkjo',
     dataset: 'production',
