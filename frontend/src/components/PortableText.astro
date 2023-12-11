@@ -1,21 +1,21 @@
 ---
-import { PortableText as PortableTextInternal } from "astro-portabletext"
-import { urlForImage } from '../lib/urlForImage';
+import { PortableText as PortableTextInternal } from "astro-portabletext";
+import { urlForImage } from "../lib/urlForImage";
 const { portableText } = Astro.props;
 
 const components = {
   type: {
-    image: ({ value }) => {
+    image: ({ node }) => {
       return `
         <picture>
           <source
-            srcset="${urlForImage(value?.asset).format('webp').url()}"
+            srcset="${urlForImage(node?.asset).format("webp").url()}"
             type="image/webp"
           />
           <img
             class="responsive__img"
-            src="${urlForImage(value?.asset).url()}"
-            alt="${value?.alt}"
+            src="${urlForImage(node?.asset).url()}"
+            alt=""
           />
         </picture>
       `;
