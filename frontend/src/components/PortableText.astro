@@ -9,13 +9,13 @@ const components = {
       return `
         <picture>
           <source
-            srcset="${urlForImage(value.asset).format('webp').url()}"
+            srcset="${urlForImage(value?.asset).format('webp').url()}"
             type="image/webp"
           />
           <img
             class="responsive__img"
-            src="${urlForImage(value.asset).url()}"
-            alt="${value.alt}"
+            src="${urlForImage(value?.asset).url()}"
+            alt="${value?.alt}"
           />
         </picture>
       `;
