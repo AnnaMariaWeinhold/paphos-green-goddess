@@ -43,7 +43,7 @@ export function CurrentEvent({ category, slug }: { category: Categories, slug: s
             </a>
         );
         if (event) return (
-            <Fragment>We meet {new Date(event.date).toLocaleDateString("de-DE")}, <br />{new Date(event.from).toLocaleTimeString("en-US", { hour12: true, hour: "2-digit", minute: "2-digit" }).toLowerCase()}</Fragment>
+            <Fragment>We meet {new Date(event.date).toLocaleDateString("de-DE")}, <br />{new Date(event.from).toLocaleTimeString("en-US", { hour12: true, hour: "2-digit", minute: "2-digit", timeZone: "Asia/Nicosia" }).toLowerCase()}</Fragment>
         );
     }
 
