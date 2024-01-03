@@ -42,9 +42,6 @@ export function CurrentEvent({ category, slug }: { category: Categories, slug: s
                 Please contact us for upcomping events
             </a>
         );
-        if (event) {
-            console.log("event", event);
-        }
         if (event) return (
             <Fragment>We meet {new Date(event.date).toLocaleDateString("de-DE")}, <br />{new Date(event.from).toLocaleTimeString("en-US", { hour12: true, hour: "2-digit", minute: "2-digit", timeZone: "Asia/Nicosia" }).toLowerCase()}</Fragment>
         );
