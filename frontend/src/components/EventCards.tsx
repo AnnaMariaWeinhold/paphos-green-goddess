@@ -43,7 +43,7 @@ export function EventCards() {
                                     {daysOfTheWeek[new Date(event.date).getDay()]}
                                 </p>
                                 <p className="event__time">
-                                    {`${new Date(event.from).toLocaleTimeString("en-US", { hour12: true, hour: "2-digit", minute: "numeric" })} to ${new Date(event.to).toLocaleTimeString("en-US", { hour12: true, hour: "2-digit", minute: "2-digit" })}`.toLowerCase()}
+                                    {`${new Date(event.from).toLocaleTimeString("en-US", { hour12: true, hour: "2-digit", minute: "numeric", timeZone: "Asia/Nicosia" })} to ${new Date(event.to).toLocaleTimeString("en-US", { hour12: true, hour: "2-digit", minute: "2-digit" })}`.toLowerCase()}
                                 </p>
                             </div>
                         </div>

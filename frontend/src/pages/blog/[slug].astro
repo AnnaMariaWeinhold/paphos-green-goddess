@@ -4,13 +4,13 @@ import MainLayout from "../../layouts/MainLayout.astro";
 import Footer from "../../components/Footer.astro";
 
 //import sanity
-import { useSanityClient } from "@sanity/astro";
+import { sanityClient } from 'sanity:client';
 import { urlForImage } from "../../lib/urlForImage";
 import PortableText from "../../components/PortableText.astro";
 import Newsletter from "../../components/Newsletter.astro";
 
 export async function getStaticPaths() {
-  const posts = await useSanityClient().fetch(`*[_type == "post"]`);
+  const posts = await sanityClient.fetch(`*[_type == "post"]`);
   return posts
     .map((post) => {
       return post.slug?.current

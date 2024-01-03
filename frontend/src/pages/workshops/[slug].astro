@@ -7,7 +7,7 @@ import Button from '../../components/Button.astro';
 import Footer from '../../components/Footer.astro';
 
 //import sanity
-import { useSanityClient } from '@sanity/astro';
+import { sanityClient } from 'sanity:client';
 import { urlForImage } from '../../lib/urlForImage';
 import Section from '../../components/Section.astro';
 import FullScreenImage from '../../components/FullScreenImage.astro';
@@ -19,7 +19,7 @@ import { CurrentEvent } from '../../components/CurrentEvent.tsx';
 
 
 export async function getStaticPaths() {
-  const workshops = await useSanityClient().fetch(`*[_type == "workshop"]`);
+  const workshops = await sanityClient.fetch(`*[_type == "workshop"]`);
   return workshops
     .map((workshop) => {
       return workshop.slug?.current
@@ -69,7 +69,7 @@ opengraph={{
 <Spacer/>
 <div class="bg-third-color  padding-colored-bg">
 
-  <div class="grid  grid-3fr  align-center">
+  <div class="grid grid-3fr  align-center">
       <div>
         <img class="icon" width="50" src="/images/clock.svg" alt="Clock">
         <p class="icon__text">

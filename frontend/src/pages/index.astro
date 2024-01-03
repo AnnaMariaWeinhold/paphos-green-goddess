@@ -8,7 +8,7 @@ import Button from "../components/Button.astro";
 import BlogCard from "../components/BlogCard.astro";
 import Paragraph from "../components/Paragraph.astro";
 import Footer from "../components/Footer.astro";
-import { useSanityClient } from '@sanity/astro';
+import { sanityClient } from 'sanity:client';
 import TextOnBackground from "../components/TextOnBackground.astro";
 import FullScreenImage from "../components/FullScreenImage.astro"
 import BackgroundColorText from "../components/BackgroundColorText.astro";
@@ -18,7 +18,7 @@ import { EventCards } from "../components/EventCards.tsx";
 import Newsletter from "../components/Newsletter.astro";
 
 // Fetch the posts order by date and pick latest 3 and expand all references to category
-const posts = await useSanityClient().fetch(`*[_type == "post"][0..3]{
+const posts = await sanityClient.fetch(`*[_type == "post"][0..3]{
     ...,
     categories[]->,
     mainImage {

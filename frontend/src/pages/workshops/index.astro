@@ -8,11 +8,11 @@ import Footer from "../../components/Footer.astro";
 
 
 //import sanity
-import { useSanityClient } from '@sanity/astro';
+import { sanityClient } from 'sanity:client';
 import Newsletter from "../../components/Newsletter.astro";
 
 // Fetch the workshops and expand all references to category
-const workshops = await useSanityClient().fetch(`*[_type == "workshop"]{
+const workshops = await sanityClient.fetch(`*[_type == "workshop"]{
     ...,
     category[]->,
     mainImage{
